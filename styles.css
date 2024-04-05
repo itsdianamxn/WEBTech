@@ -1,0 +1,172 @@
+.button-style {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.button-style:hover {background-color: #3e8e41}
+
+.button-style:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.button {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px #666;
+  }
+  
+  .button:hover {
+    background-color: #3e8e41;
+  }
+  
+  .button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+button#submit {
+    /* styles for submit button */
+  }
+  
+  button#submit:hover {
+    background-color: #3e8e41;
+  }
+  
+  button#submit:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  
+button#add {
+    /* styles for submit button */
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px #666;
+  }
+  
+  button#add:hover {
+    background-color: #3e8e41;
+  }
+  
+  button#add:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+  
+button#remove {
+    /* styles for submit button */
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: rgb(175, 80, 76);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px #666;
+  }
+  
+  button#remove:hover {
+    background-color: #b350af;
+  }
+  
+  button#remove:active {
+    background-color: #b350af;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+  button#view {
+    /* styles for submit button */
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color:  rgb(0, 90, 200);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px #666;
+  }
+  
+  button#view:hover {
+    background-color: rgb(0, 120, 255);
+  }
+  
+  button#view:active {
+    background-color:  rgb(0, 120, 255);
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+  form {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .column {
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    width: 300px;
+  }
