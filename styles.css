@@ -1,3 +1,10 @@
+body{
+  height: 90%;
+  width: 100%;
+  font-size: 120%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 .button-style {
     display: inline-block;
     padding: 10px 20px;
@@ -60,7 +67,34 @@ button#submit {
     transform: translateY(4px);
   }
 
-  
+button#reg{
+    height: 40%;
+    width: 30%;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #FFAC58;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px #666;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size:large;
+}
+button#reg:hover{
+  background-color: #c76809;
+}
+
+button#reg:active{
+  background-color: #c76809;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 button#add {
     /* styles for submit button */
     display: inline-block;
@@ -138,7 +172,8 @@ button#remove {
     transform: translateY(4px);
   }
   form {
-    width: 300px;
+    width: 50%;
+    height: 50%;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
@@ -146,22 +181,58 @@ button#remove {
     box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
   }
   
-  label {
+  label,select {
     display: block;
     margin-bottom: 5px;
   }
   
   input[type="text"],
   input[type="email"],
-  input[type="password"] {
-    width: 100%;
+  input[type="password"], 
+  input[type="firstName"], 
+  input[type="lastName"],
+  input[type="date"]{
+    width: 75%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
+
+    font-family: Georgia, 'Times New Roman', Times, serif serif;
+    font-size: 75%;
+
   }
   
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    color: white; /* Button text color */
+    border: none; /* Remove button border */
+    border-radius: 50%; /* Adjust button border radius */
+    padding: 10px; /* Adjust button padding */
+    cursor: pointer; /* Change cursor on hover */
+  }
+
+  input[type="date"]::-webkit-calendar-picker-indicator:hover{
+    
+    background-color: #FFAC58;
+  }
+
+  select[name="relationSelect"]{
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size:70%;
+    
+  }
+
+  select[name="relationSelect"]:hover{
+      background-color: #FFAC58;
+      color:white;
+  }
   .column {
     justify-content: flex-start;
     display: flex;
@@ -169,4 +240,20 @@ button#remove {
     align-items: center;
     margin: 0 auto;
     width: 300px;
+  }
+
+  .registerBox{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+  }
+  
+  .regButton{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
   }
