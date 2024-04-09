@@ -4,6 +4,7 @@ body{
   font-size: 120%;
   font-family: Georgia, 'Times New Roman', Times, serif;
   background-color: #ffbc5c;
+  overflow-x: hidden;
   
 }
 form{
@@ -182,7 +183,7 @@ button#reg:active{
     transform: translateY(4px);
   }
   form {
-    width: 50%;
+    width: 30%;
     height: 50%;
     margin: 0 auto;
     padding: 20px;
@@ -193,7 +194,10 @@ button#reg:active{
   
   label,select {
     display: block;
-    margin-bottom: 5px;
+  
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
   }
   
   input[type="text"],
@@ -202,13 +206,13 @@ button#reg:active{
   input[type="firstName"], 
   input[type="lastName"],
   input[type="date"]{
-    width: 75%;
+    width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
-
+    border-color: #80562e;
     font-family: Georgia, 'Times New Roman', Times, serif serif;
     font-size: 75%;
 
@@ -233,6 +237,7 @@ button#reg:active{
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    border-color: #80562e;
     box-sizing: border-box;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size:70%;
@@ -240,8 +245,7 @@ button#reg:active{
   }
 
   select[name="relationSelect"]:hover{
-      background-color: #FFAC58;
-      color:white;
+      background-color: #ffdebe;
   }
   .column {
     justify-content: flex-start;
