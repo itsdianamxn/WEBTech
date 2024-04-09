@@ -3,8 +3,16 @@ body{
   width: 100%;
   font-size: 120%;
   font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: #ffbc5c;
+  
 }
-
+form{
+  background-color: white;
+}
+.container
+{
+  float: left;
+}
 .button-style {
     display: inline-block;
     padding: 10px 20px;
@@ -53,9 +61,6 @@ body{
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
-button#submit {
-    /* styles for submit button */
-  }
   
   button#submit:hover {
     background-color: #3e8e41;
@@ -95,7 +100,7 @@ button#reg:active{
   transform: translateY(4px);
 }
 
-button#add {
+.button-add {
     /* styles for submit button */
     display: inline-block;
     padding: 10px 20px;
@@ -109,19 +114,21 @@ button#add {
     border: none;
     border-radius: 15px;
     box-shadow: 0 5px #666;
+    margin:10px;
+
   }
   
-  button#add:hover {
+  .button-add:hover {
     background-color: #3e8e41;
   }
   
-  button#add:active {
+  .button-add:active {
     background-color: #3e8e41;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
   
-button#remove {
+.button-remove {
     /* styles for submit button */
     display: inline-block;
     padding: 10px 20px;
@@ -135,18 +142,19 @@ button#remove {
     border: none;
     border-radius: 15px;
     box-shadow: 0 5px #666;
+    margin:10px;
   }
   
-  button#remove:hover {
+  .button-remove:hover {
     background-color: #b350af;
   }
   
-  button#remove:active {
+  .button-remove:active {
     background-color: #b350af;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
-  button#view {
+  .button-view {
     /* styles for submit button */
     display: inline-block;
     padding: 10px 20px;
@@ -160,13 +168,15 @@ button#remove {
     border: none;
     border-radius: 15px;
     box-shadow: 0 5px #666;
+    margin:10px;
+
   }
   
-  button#view:hover {
+  .button-view:hover {
     background-color: rgb(0, 120, 255);
   }
   
-  button#view:active {
+  .button-view:active {
     background-color:  rgb(0, 120, 255);
     box-shadow: 0 5px #666;
     transform: translateY(4px);
@@ -257,3 +267,82 @@ button#remove {
     justify-content: center; 
     align-items: center;
   }
+
+  column#menu
+  {
+    justify-content: flex-start; 
+  }
+  h1.title{
+    display: flex;
+    justify-content: center;
+    padding: 5%;
+  }
+  .buttons-container{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10%;
+
+  }
+  button.login{
+    width: 45%;
+    display: inline-block;
+    padding: 10%;
+    font-size: larger;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #5cafff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px #666;
+    margin-right:10%;
+  }
+  button.login:hover{
+    background-color: rgb(0,90,200);
+  }
+  button.login:active{
+    background-color:  rgb(0,90,200);
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  button.register-first-page{
+    width: 45%;
+    display: inline-block;
+    padding: 10%;
+    font-size: larger;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #FFAC58;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px #666;
+  }
+  button.register-first-page:hover{
+    background-color: #c76809;
+  }
+  
+  button.register-first-page:active{
+    background-color: #c76809;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+  
+  .register-page{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
