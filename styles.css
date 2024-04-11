@@ -1,11 +1,36 @@
+html{
+  width: 100%;
+  height: 100%;
+}
 body{
   height: 90%;
   width: 100%;
   font-size: 120%;
   font-family: Georgia, 'Times New Roman', Times, serif;
   background-color: #ffbc5c;
+  overflow-x: hidden; 
+}
+
+body.register{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
   
 }
+
+body.welcome{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;  
+  overflow-y: hidden;
+}
+
+
 form{
   background-color: white;
 }
@@ -62,19 +87,39 @@ form{
     transform: translateY(4px);
   }
   
-  button#submit:hover {
+  button.submit {
+    /* styles for submit button */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 35px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px #666;
+    margin: 0 auto;
+    width: 37%;
+  }
+  button.submit:hover {
     background-color: #3e8e41;
   }
   
-  button#submit:active {
+  button.submit:active {
     background-color: #3e8e41;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
 
 button#reg{
-    height: 40%;
-    width: 30%;
+    
+    width: 70%;
     display: inline-block;
     padding: 10px 20px;
     font-size: 16px;
@@ -183,49 +228,192 @@ button#reg:active{
   }
   form {
     width: 50%;
-    height: 50%;
+    height: 40%;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 2px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
   }
   
-  label,select {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  input[type="password"], 
-  input[type="firstName"], 
-  input[type="lastName"],
-  input[type="date"]{
+  form.welcomePage
+  {
+    height: 60%;
     width: 75%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+    border: 20px solid #e6a953;
+    border-style:ridge;
+    border-radius: 20px;
+  }
+
+  form.registerPage
+  {
+    height: 89vh;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding-top: 10px;
+    border: 18px solid #e6a953;
+    border-style:ridge;
+    border-radius: 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+  }
+
+  .mainRegister{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 10px;
+    
+  }
+
+  form.loginBox
+  {
+    width: 40%;
+    height: 65%;
+    padding: 9px;
+    border: 18px solid #e6a953;
+    border-style:ridge;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    overflow-y: auto; 
+    
+  }
+
+  .loginItems{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 auto;
+    width: 90%;
+    height: 100%;
+   
+  }
+
+  .inputField{
+    width: 100%;
+    height: 12.5%;
     padding: 10px;
-    margin-bottom: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+  }
+
+  .inputField label{
+    width: 100%;
+    height: 50%;
+    font-size: 1.8rem;
+  }
+  .inputField input,select{
+    width: 95%;
+    height: 50%;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
-
-    font-family: Georgia, 'Times New Roman', Times, serif serif;
-    font-size: 75%;
-
+    border-color: #80562e;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
   }
-  
+
+  .loginInputField{
+    width: 100%;
+    height: 40%;
+    padding: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+  }
+  .loginInputField label{
+    width: 100%;
+    height: 50%;
+    font-size: 1.8rem;
+  }
+  .loginInputField input{
+    width: 95%;
+    height: 50%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border-color: #80562e;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+  }
+
+  select[name="relationSelect"]{
+    width: 95%;
+    height: 50%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border-color: #80562e;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    
+  }
+
+  select[name="relationSelect"]:hover,
+  select[name="relationSelect"]:focus
+  {
+    background-color: #ffdebe;
+} 
   input[type="date"]::-webkit-calendar-picker-indicator {
-    color: white; /* Button text color */
-    border: none; /* Remove button border */
-    border-radius: 50%; /* Adjust button border radius */
-    padding: 10px; /* Adjust button padding */
-    cursor: pointer; /* Change cursor on hover */
+    color: white; 
+    border: none; 
+    border-radius: 50%; 
+    padding: 10px; 
+    cursor: pointer;
   }
 
   input[type="date"]::-webkit-calendar-picker-indicator:hover{
     
     background-color: #FFAC58;
   }
+  /* label,select {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"], 
+  input[type="firstName"], 
+  input[type="lastName"],
+  input[type="date"]{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border-color: #80562e;
+    font-family: Georgia, 'Times New Roman', Times, serif serif;
+    font-size: 75%;
+
+  } */
+  
+  /* 
 
   select[name="relationSelect"]{
     width: 70%;
@@ -233,6 +421,7 @@ button#reg:active{
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    border-color: #80562e;
     box-sizing: border-box;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size:70%;
@@ -240,9 +429,8 @@ button#reg:active{
   }
 
   select[name="relationSelect"]:hover{
-      background-color: #FFAC58;
-      color:white;
-  }
+      background-color: #ffdebe;
+  } */
   .column {
     justify-content: flex-start;
     display: flex;
@@ -252,43 +440,80 @@ button#reg:active{
     width: 300px;
   }
 
-  .registerBox{
+/* .loginBox{
     width: 100%;
     height: 100%;
-    position: relative;
     
     display: flex;
     justify-content: center; 
     align-items: center;
-  }
-  
-  .regButton{
+} */
+
+  .registerBox{
+    overflow-y: hidden;
     display: flex;
     justify-content: center; 
     align-items: center;
+    
   }
+  
+  .regButton{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly; 
+    align-items: center;
+    height: 80%;
+    margin: 0.5rem 0 0.5rem 0;
+    gap: 25%;
+  }
+  .regButton label{
+    width: 45%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .buttonDiv{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+    height: 12,5%;
+    
+  }  
 
   column#menu
   {
     justify-content: flex-start; 
   }
   h1.title{
-    display: flex;
+    height: 25%;
+    display: flex;  
+    flex-direction: column;
     justify-content: center;
-    padding: 5%;
+    align-items: center;
+    text-align: center;
+    font-size: 300%;
   }
   .buttons-container{
-    
+    width: 100%;
+    height: 75%;
+    margin: 10px 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10%;
-
   }
-  button.login{
-    width: 45%;
-    display: inline-block;
-    padding: 10%;
+  a.login{
+    width: 50%;
+    height: 75%;
+    font-size: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 1rem 5rem; */
     font-size: larger;
     font-family: Georgia, 'Times New Roman', Times, serif;
     cursor: pointer;
@@ -302,21 +527,25 @@ button#reg:active{
     box-shadow: 0 5px #666;
     margin-right:10%;
   }
-  button.login:hover{
+  a.login:hover{
     background-color: rgb(0,90,200);
   }
-  button.login:active{
+  a.login:active{
     background-color:  rgb(0,90,200);
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
 
-  button.register-first-page{
-    width: 45%;
-    display: inline-block;
-    padding: 10%;
+  a.register-first-page{
+    width: 50%;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 1rem 2.8rem; */
     font-size: larger;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 100%;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
@@ -327,11 +556,11 @@ button#reg:active{
     border-radius: 15px;
     box-shadow: 0 5px #666;
   }
-  button.register-first-page:hover{
+  a.register-first-page:hover{
     background-color: #c76809;
   }
   
-  button.register-first-page:active{
+  a.register-first-page:active{
     background-color: #c76809;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
@@ -345,4 +574,124 @@ button#reg:active{
     align-items: center;
     flex-direction: column;
   }
+  .login{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .loginButton{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   
+  .loginButton button.submit {
+    padding-bottom: 10px;
+    margin-bottom: 20px; /* adjust as needed */
+    font-size: 1.5rem;
+}
+  .loginButton label{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .loginButton label>a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-left: 5px;
+  }
+
+  @media (max-width: 560px){
+    h1.title{
+      font-size: 200%;
+    }
+  }
+
+  @media (max-width: 1305px) {
+
+    form.loginBox{
+      width: 90%;
+      height: 50%;
+      justify-content: flex-start;
+    }
+
+    div.loginItems{
+      height: 75%;
+    } 
+
+    div .loginInputField label, div .loginInputField input{
+      font-size: 2.5rem;
+    }
+
+    div .loginButton{
+      height: 25%;
+      font-size: 2.5rem;
+    }
+    
+    div .loginButton button.submit{
+      width: 30%;
+      height: 75%;
+      font-size: 2.5rem;
+    }
+
+    .loginButton label>a{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 80%;
+      margin-left: 5px;
+    }
+    
+  }
+
+  @media (max-height: 660px) {
+    form.loginBox{
+      height: 90%;
+    }
+    
+  }
+  
+  
+
+  .welcomeButtons{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .accAlready{
+    display: flex;
+    justify-content: around;
+    align-items: center;
+  }
+
+  @media (max-width: 810px) {
+    .mainRegister{
+      height: 100%;
+    }
+    form.registerPage{
+      width: 90%;
+      height: 90%;
+    }
+  }
+    
+  @media (max-width: 834){
+    .welcomeButtons{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
