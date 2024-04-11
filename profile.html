@@ -1,33 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-      <title>Login Form</title>
+      <title>Menu</title>
       <link rel="stylesheet" href="styles.css">
 
     </head>
     <body>
         <div class="container">
+          <div class="column">
+            <h2>Actions</h2>
+            <button class="button-add" id= "add-child">ADD CHILD</button>
+            <button class="button-remove" id = "remove-child">REMOVE CHILD</button>
+            <button class="button-view" id = "view-child">VIEW CHILDREN</button>
+            <button class="button-add" id= "add-parent">ADD PARENT</button>
             <div class="column">
-                <h2>Actions</h2>
-                <button class="button" id= "add">ADD CHILD</button>
-                <button class="button" id = "remove">REMOVE CHILD</button>
-                <button class="button" id = "view">VIEW CHILDREN</button>
-                <button class="button" id= "add">ADD PARENT</button>
-
-              </div>
-              <div class="column-content">
                 <!-- Add content here -->
-              </div>
-            </div>
+            </div>            
+          </div>
+          <div class="column" id="Multimedia">
+            <h2>Multimedia Resources</h2>
+            <button class="button-view" id = "view">MULTIMEDIA RESOURCES</button>
             <div class="column">
-              <div class="column-content">
-                <h2>Multimedia Resources</h2>
-                <button class="button" id = "view">MULTIMEDIA RESOURCES</button>
-              </div>
-              <div class="column-content">
-                <!-- Add content here -->
-              </div>
+                <div>
+                  <iframe src="girl1.jpg" width="300" height="150" allowfullscreen frameborder="0"></iframe><br/>
+                  <small>(Click on the image to enlarge)</small>
+                </div>                            
+              <ul id="gallery"></ul>
+                </div> 
             </div>
           </div>
+        </div>
     </body>
 </html>

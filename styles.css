@@ -2,12 +2,38 @@ html{
   width: 100%;
   height: 100%;
 }
+html{
+  width: 100%;
+  height: 100%;
+}
 body{
   height: 90%;
   width: 100%;
   font-size: 120%;
   font-family: Georgia, 'Times New Roman', Times, serif;
   background-color: #ffbc5c;
+  overflow-x: hidden; 
+}
+
+body.register{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  margin: 0 auto;
+}
+
+body.welcome{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  margin: 0 auto;
+}
+
+
   overflow-x: hidden; 
 }
 
@@ -112,12 +138,15 @@ form{
   }
   
   button.submit:active {
+  button.submit:active {
     background-color: #3e8e41;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
 
 button#reg{
+    
+    width: 70%;
     
     width: 70%;
     display: inline-block;
@@ -229,9 +258,11 @@ button#reg:active{
   form {
     width: 50%;
     height: 40%;
+    height: 40%;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
+    border-radius: 2px;
     border-radius: 2px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
   }
@@ -393,7 +424,10 @@ button#reg:active{
     display: block;
     margin-top: 15px;
     margin-bottom: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
   }
+
 
   input[type="text"],
   input[type="email"],
@@ -402,15 +436,20 @@ button#reg:active{
   input[type="lastName"],
   input[type="date"]{
     width: 100%;
+    width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
     border-color: #80562e;
+    border-color: #80562e;
     font-family: Georgia, 'Times New Roman', Times, serif serif;
     font-size: 75%;
 
+  } */
+  
+  /* 
   } */
   
   /* 
@@ -422,6 +461,7 @@ button#reg:active{
     border: 1px solid #ccc;
     border-radius: 5px;
     border-color: #80562e;
+    border-color: #80562e;
     box-sizing: border-box;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size:70%;
@@ -429,6 +469,8 @@ button#reg:active{
   }
 
   select[name="relationSelect"]:hover{
+      background-color: #ffdebe;
+  } */
       background-color: #ffdebe;
   } */
   .column {
@@ -441,12 +483,21 @@ button#reg:active{
   }
 
 /* .loginBox{
+/* .loginBox{
     width: 100%;
     height: 100%;
     
     display: flex;
     justify-content: center; 
     align-items: center;
+} */
+
+  .registerBox{
+    overflow-y: hidden;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    
 } */
 
   .registerBox{
@@ -470,9 +521,33 @@ button#reg:active{
   .regButton label{
     width: 45%;
     height: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly; 
+    align-items: center;
+    height: 80%;
+    margin: 0.5rem 0 0.5rem 0;
+    gap: 25%;
+  }
+  .regButton label{
+    width: 45%;
+    height: 50px;
     display: flex;
     justify-content: center;
+    justify-content: center;
     align-items: center;
+    
+  }
+
+  .buttonDiv{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+    height: 12,5%;
+    
+  }  
     
   }
 
@@ -528,8 +603,10 @@ button#reg:active{
     margin-right:10%;
   }
   a.login:hover{
+  a.login:hover{
     background-color: rgb(0,90,200);
   }
+  a.login:active{
   a.login:active{
     background-color:  rgb(0,90,200);
     box-shadow: 0 5px #666;
@@ -557,9 +634,11 @@ button#reg:active{
     box-shadow: 0 5px #666;
   }
   a.register-first-page:hover{
+  a.register-first-page:hover{
     background-color: #c76809;
   }
   
+  a.register-first-page:active{
   a.register-first-page:active{
     background-color: #c76809;
     box-shadow: 0 5px #666;
