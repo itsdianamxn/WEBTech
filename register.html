@@ -5,47 +5,58 @@
     <title>Register</title>
     <link rel = "stylesheet" href="styles.css">
 </head>
-<body>
-    <div class="registerBox">
-    <form action="register.php" method="post">
-        <!-- <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email"><br>
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password"><br>
-        <br>
-        <button type="submit" id="submit">Submit</button>  -->
-        <label for="firstName">First name</label>
-        <input type="text" id="firstName" name="firstName">
-        <br>
-        <label for="lastName">Last name</label>
-        <input type="text" id="lastName" name="lastName">
-        <br>
-        <label>Relationship to children</label>
-        <select name="relationSelect">
-            <option value="Mother">Mother</option>
-            <option value="Father">Father</option>
-            <option value="Grandmother">Grandmother</option>
-            <option value="Grandfather">Grandfather</option>
-            <option value="Legal Guardian">Legal Guardian</option>
-            <option value="Other">Other</option>
-        </select>
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email">
-        <br>
-        <label for="dob">Your date of Birth</label>
-        <input type="date" id="dob" name="dob">
-        <br>
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password">
-        <br>
-        <label for="secondPassword">Repeat Password</label>
-        <input type="password" id="secondPassword" name="secondPassword">
-        <br>
-        <div class="regButton">
-            <button type="button" id="reg">Register</button>
+<body class="register">
+    <div class="mainRegister">
+    <form class="registerPage" action="register.php" method="post">
+        <div class="inputField">
+            <label style="display: flex; align-items: center;" for="firstName">First name</label>
+            <input type="text" id="firstName" name="firstName">
         </div>
+        <div class="inputField">
+            <label style="display: flex; align-items: center;" for="lastName">Last name</label>
+            <input type="text" id="lastName" name="lastName">
+        </div>
+        <div class="inputField">
+            <label style="display: flex; align-items: center;">Relationship to children</label>
+            <select name="relationSelect">
+                <option value="Mother">Mother</option>
+                <option value="Father">Father</option>
+                <option value="Grandmother">Grandmother</option>
+                <option value="Grandfather">Grandfather</option>
+                <option value="Legal Guardian">Legal Guardian</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <div class="inputField">
+            <label for="email" style="display: flex; align-items: center;">Email</label>
+            <input type="email" id="email" name="email">
+        </div>
+        <div class="inputField">
+            <label for="dob" style="display: flex; align-items: center;">Your date of Birth</label>
+            <input type="date" id="dob" name="dob">
+        </div>
+        <div class="inputField">
+            <label for="password" style="display: flex; align-items: center;">Password</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <div class="inputField">
+            <label for="secondPassword" style="display: flex; align-items: center;">Repeat Password</label>
+            <input type="password" id="secondPassword" name="secondPassword">
+        </div>
+        <div class="buttonDiv">
+            <div class="regButton">
+                <button type="button" id="reg">Register</button>
+                <div class = "accAlready">
+                    <label for="login">Already have an account? 
+                        <a href="login.html">Login</a>
+                    </label>
+                </div>
+            </div>   
+        </div>
+        
       </form>
-      </div>
+    </div>
+      
 
 </body>
 
