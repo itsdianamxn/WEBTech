@@ -1,0 +1,188 @@
+html{
+    width: 100%;
+    height: 100%;
+    
+  }
+  
+  body{
+    height: 90%;
+    width: 100%;
+    font-size: 120%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #ffbc5c;
+    overflow-x: hidden; 
+  }
+  
+  
+  form{
+    background-color: white;
+  }
+
+.login{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  form.loginBox
+  {
+    width: 40%;
+    height: 65%;
+    padding: 9px;
+    border: 18px solid #e6a953;
+    border-style:ridge;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    overflow-y: auto; 
+    
+  }
+
+  .loginItems{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 0 auto;
+    font-size: 100%;
+    width: 90%;
+    height: 100%;
+   
+  }
+
+  .loginInputField{
+    width: 100%;
+    height: 40%;
+    padding: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+  }
+  .loginInputField label{
+    width: 100%;
+    height: 50%;
+    font-size: 168%;
+  }
+  .loginInputField input{
+    width: 95%;
+    height: 35%;
+    font-size: 180%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border-color: #80562e;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+  }
+
+
+  .loginButton{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+    button#submit {
+    width: 30%;
+    height: 80%;
+    padding-bottom: 10px;
+    margin-bottom: 20px; /* adjust as needed */
+    font-size: 1.5rem;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 100%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+    button#submit:hover {
+        background-color: #3e8e41;
+    }
+
+    button#submit:active{
+        transform: translateY(10%);
+    }
+
+  .loginButton label{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .loginButton label>a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-left: 5px;
+    color: #FFAC58;
+  }
+  .loginButton label>a:hover{
+    color: #c76809;
+  }
+
+  @media (max-width: 1305px) {
+
+    form.loginBox{
+      width: 90%;
+      height: 50%;
+      justify-content: flex-start;
+    }
+
+    div.loginItems{
+      height: 75%;
+    } 
+
+    div .loginInputField label, div .loginInputField input{
+      font-size: 2.5rem;
+    }
+
+    div .loginButton{
+      height: 25%;
+      font-size: 2.5rem;
+      justify-content: space-around;
+    }
+    
+    div .loginButton button#submit{
+      width: 30%;
+      height: 75%;
+      font-size: 2.5rem;
+      justify-self: flex-start;
+    }
+
+    .loginButton label>a{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 80%;
+      margin-left: 5px;
+    }
+    
+    
+  }
+
+  
+  @media (max-height: 660px) {
+    form.loginBox{
+      height: 90%;
+    }
+    
+  }

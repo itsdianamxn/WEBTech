@@ -1,0 +1,171 @@
+html{
+    width: 100%;
+    height: 100%;
+  }
+  
+body{
+    height: 90%;
+    width: 100%;
+    font-size: 120%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #ffbc5c;
+    overflow-x: hidden; 
+  }
+  
+
+body.welcome{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    margin: 0 auto;
+  }
+
+  .register-page{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  h1.title{
+    height: 25%;
+    display: flex;  
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 300%;
+  }
+
+  .buttons-container{
+    width: 100%;
+    height: 75%;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  form.welcomePage
+  {
+    height: 60%;
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+    background-color: white;
+    border: 20px solid #e6a953;
+    border-style:ridge;
+    border-radius: 20px;
+  }
+  .welcomeButtons{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  a.login{
+    width: 50%;
+    height: 75%;
+    font-size: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 1rem 5rem; */
+    font-size: larger;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #5cafff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px #666;
+    margin-right:10%;
+  }
+
+  a.login:hover{
+    background-color: rgb(0,90,200);
+  }
+
+  a.login:active{
+    background-color:  rgb(0,90,200);
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  a.register-first-page{
+    width: 50%;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 1rem 2.8rem; */
+    font-size: larger;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 100%;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #FFAC58;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px #666;
+  }
+  
+  a.register-first-page:hover{
+    background-color: #c76809;
+  }
+  
+
+  a.register-first-page:active{
+    background-color: #c76809;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  @media (max-width: 1000px){
+    h1.title{
+      height: 25%;
+      font-size: 400%;
+    }
+    .buttons-container{
+    height: 75%;
+      justify-self: flex-start;
+      align-items: flex-start;
+    }
+    form#welcomePage{
+      height: 60%;
+      width: 90%;
+      
+      border: 10px solid #e6a953;
+    }
+    .welcomeButtons{
+        height: 60%;
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center;
+    }
+    .welcomeButtons a#login{
+      height: 80%;
+      margin-bottom: 10%;
+      margin-right: 0;
+    }
+
+    .welcomeButtons a:active{
+      transform: translateY(10%);
+    }
+  }
