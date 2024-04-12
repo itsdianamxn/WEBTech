@@ -3,38 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Register Child</title>
-    <link rel = "stylesheet" href="registerStyle.css">
+    <link rel = "stylesheet" href="registerStyle.css" type="text/css">
 </head>
 <body class="register">
-    <div style="display: flex; justify-content: center; align-items: center;width: 100%; height: 100%;">
-    <div class="registerBox">
+    <div class="mainRegister">
             <h1 class="title">Add a new child to the family.</h2>
         <div class="mainRegister">
         <form id="registerPage" action="register.php" method="post">
-        <div class="inputField">
-            <label for="firstName">First name</label>
-            <input type="text" id="firstName" name="firstName">
+        <div class="childRegisterInputs">
+            <div class="inputField childInputField">
+                <label for="firstName">First name</label>
+                <input type="text" id="firstName" name="firstName">
+            </div>
+            <div class="inputField childInputField">
+                <label for="lastName">Last name</label>
+                <input type="text" id="lastName" name="lastName">
+            </div>
+            <div class="inputField childInputField">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob">
+            </div>  
+            <div class="inputField childInputField">
+                <label>Learning stage</label>
+                <select name="stageSelect">
+                    <option value="NewBorn">NewBorn</option>
+                    <option value="Infant">Infant</option>
+                    <option value="Toddler">Toddler</option>
+                    <option value="Preschooler">Preschooler</option>
+                    <option value="In Primary school"> In Primary school</option>
+                    <option value="Tween">Teenager</option>
+                </select>
+            </div>
         </div>
-        <div class="inputField">
-            <label for="lastName">Last name</label>
-            <input type="text" id="lastName" name="lastName">
-        </div>
-        <div class="inputField">
-            <label for="dob">Date of Birth</label>
-            <input type="date" id="dob" name="dob">
-        </div>  
-        <div class="inputField">
-            <label>Learning stage</label>
-            <select name="stageSelect">
-                <option value="NewBorn">NewBorn</option>
-                <option value="Infant">Infant</option>
-                <option value="Toddler">Toddler</option>
-                <option value="Preschooler">Preschooler</option>
-                <option value="In Primary school"> In Primary school</option>
-                <option value="Tween">Teenager</option>
-            </select>
-        </div>
-        <div class="regButton">
+        <div class="regButton childRegButton">
             <button type="button" id="reg">Register</button>
         </div>
       </form>
