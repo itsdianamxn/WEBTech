@@ -1,33 +1,36 @@
-html{
-    width: 100%;
-    height: 100%;
+html
+{
+  width: 100%;
+  height: 100%;
 }
 
-body{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    
-    /*justify-content: left;*/
-    align-items: start;  
-    background-color: #ffbc5c;
-    overflow: hidden;
-  }
+body
+{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  
+  /*justify-content: left;*/
+  align-items: start;  
+  background-color: #ffbc5c;
+  overflow: hidden;
+}
 
-  img
-  {
-margin: 2px;
-  }
+img
+{
+  margin: 2px;
+}
 
-  .files
-  {
-    margin: 10px;
-  }
+.files
+{
+  margin: 10px;
+}
+
 .container
 {
-    width: 140px;
-    height: 90%;
+  width: 140px;
+  height: 90%;
   display: flex;
   flex-direction: column;
   /*justify-content: space-evenly;*/
@@ -40,27 +43,30 @@ margin: 2px;
   overflow-y: auto;
   overflow-x: hidden;
 }
-.girl-thumbnail
+
+.child-thumbnail
 {
-    background-color: #ffcc9c73;
-    width: 100px;
-    border: 1px solid #80562e;
-    margin: 5px;
-    border-radius: 5px;
-    padding: 5px;
+  background-color: #ffcc9c73;
+  width: 100px;
+  border: 1px solid #80562e;
+  margin: 5px;
+  border-radius: 5px;
+  padding: 5px;
 }
-.boy-thumbnail
+
+.child-thumbnail:hover
 {
-    background-color: #9ccfff99;
-    width: 100px;
-    border: 1px solid #80562e;
-    margin: 5px;
-    border-radius: 5px;
-    padding: 5px;
+  background-color: #cce6ff99;
 }
 
 .image-preview
 {
-    display: inline-block;
-    margin: 4px;
+  display: inline-block;
+  margin: 4px;
+}
+
+table
+{
+  width:100%;
+  height:100%;
 }

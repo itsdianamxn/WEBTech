@@ -8,7 +8,7 @@ html{
     height: 90%;
     width: 100%;
     font-size: 120%;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: #ffbc5c;
     overflow-x: hidden; 
   }
@@ -59,7 +59,6 @@ html{
     width: 100%;
     height: 40%;
     padding: 10px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 100%;
     display: flex;
     flex-direction: column;
@@ -79,8 +78,7 @@ html{
     border-radius: 5px;
     box-sizing: border-box;
     border-color: #80562e;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
 
@@ -96,11 +94,9 @@ html{
     height: 80%;
     padding-bottom: 10px;
     margin-bottom: 20px; /* adjust as needed */
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     display: inline-block;
     padding: 10px 20px;
-    font-size: 100%;
-    font-family: Georgia, 'Times New Roman', Times, serif;
     cursor: pointer;
     text-align: center;
     text-decoration: none;

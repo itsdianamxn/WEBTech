@@ -1,10 +1,10 @@
 :root{
     font-size:16px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     width: 100%;
     height: 100%;
-    --text-primary: #5c9fff;
-    --text-secondary: #7b5cff;
+    --text-primary: #392a74;
+    --text-secondary: #1e163e;
     --bg-primary: #ffbc5c;
     --bg-secondary: #e6a953;
     --bg-third: #ff7b5c;
@@ -185,7 +185,7 @@ main{
 }
 
 .profile-picture{
-    width: 5rem;
+    width: auto ;
     height: 5rem;
     border-radius: 50%;
     margin: 1rem;

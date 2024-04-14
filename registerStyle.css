@@ -11,6 +11,8 @@ body.register{
     align-items: center;  
     background-color: #ffbc5c;
     overflow: hidden;
+    font-family:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
   }
 
   .childRegisterInputs{
@@ -53,8 +55,6 @@ body.register{
     width: 100%;
     height: 12.5%;
     padding: 10px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 1.2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -64,7 +64,7 @@ body.register{
   .inputField label{
     width: 100%;
     height: 50%;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
   .inputField input,select{
     width: 95%;
@@ -74,7 +74,6 @@ body.register{
     border-radius: 5px;
     box-sizing: border-box;
     border-color: #80562e;
-    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 1.2rem;
   }
 
@@ -89,9 +88,7 @@ body.register{
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
-    border-color: #80562e;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    
+    border-color: #80562e;    
   }
 
   select[name="relationSelect"]:hover
@@ -137,8 +134,7 @@ body.register{
     border: none;
     border-radius: 15px;
     box-shadow: 0 5px #666;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size:large;
+    font-size:2rem;
     }
     button#reg:hover{
         background-color: #4a7fcc;
@@ -210,7 +206,7 @@ body.register{
         font-size: 190%;
     }
     .inputField label{
-        font-size: 200%;
+        font-size: 150%;
     }
     .buttonDiv{
         height: 20%;
