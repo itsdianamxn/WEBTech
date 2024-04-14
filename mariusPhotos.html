@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Multimedia for Marius</title>
+      <link rel="stylesheet" href="mediaStyle.css">
+
+    </head>
+    <body>
+        <div style="flex-wrap: wrap; display: flex; flex-direction: row; overflow-y: auto; overflow-x: hidden; ">
+            <span class="image-preview"
+                style="text-align:center; background-color: beige;">
+
+                Picture Title<br>
+                <img src="pics/seaside_T.jpg" onclick = "loadHighResImage(this)">
+                <br>
+                08 Aug 2022
+            </span>
+            <span class="image-preview"
+                style="text-align:center; background-color: beige;">
+
+                Picture Title<br>
+                <img src="pics/seaside_T.jpg" onclick = "loadHighResImage(this)">
+                <br>
+                08 Aug 2022
+            </span>
+            <span class="image-preview"
+                style="text-align:center; background-color: beige;">
+
+                Picture Title<br>
+                <img src="pics/seaside_T.jpg"onclick = "loadHighResImage(this)">
+                <br>
+                08 Aug 2022
+            </span>
+            <span class="image-preview"
+                style="text-align:center; background-color: beige;">
+
+                Picture Title<br>
+                <img src="pics/seaside_T.jpg" onclick = "loadHighResImage(this)">
+                <br>
+                08 Aug 2022
+            </span>
+            <span class="image-preview"
+                style="text-align:center; background-color: beige;">
+
+                Picture Title<br>
+                <img src="pics/seaside_T.jpg" onclick = "loadHighResImage(this)">
+                <br>
+                08 Aug 2022
+            </span>
+            <span class="image-preview"
+                style="text-align:center; background-color: beige;">
+
+                Picture Title<br>
+                <img src="pics/seaside_T.jpg" onclick = "loadHighResImage(this)">
+                <br>
+                08 Aug 2022
+            </span>
+            <span class="image-preview"
+                style="text-align:center; background-color: beige;">
+
+                Picture Title<br>
+                <img src="pics/seaside_T.jpg" onclick = "loadHighResImage(this)">
+                <br>
+                08 Aug 2022
+            </span>
+            <span class="image-preview"
+                style="text-align:center; background-color: beige;">
+
+                Picture Title<br>
+                <img src="pics/seaside_T.jpg" onclick = "loadHighResImage(this)">
+                <br>
+                08 Aug 2022
+            </span>
+            <span class="image-preview"
+                style="text-align:center; background-color: beige;">
+
+                Picture Title<br>
+                <img src="pics/seaside_T.jpg" onclick = "loadHighResImage(this)">
+                <br>
+                08 Aug 2022
+            </span>
+            <span class="image-preview"
+                style="text-align:center; background-color: beige;">
+
+                Picture Title<br>
+                <img src="pics/seaside_T.jpg" onclick = "loadHighResImage(this)">
+                <br>
+                08 Aug 2022
+            </span>
+            
+        <script>
+            function loadHighResImage(imgElement) {
+                var highResImg = document.createElement("img");
+                highResImg.src = "pics/seaside.jpg";
+
+                // Set the style of the high-res image to be centered and have a max-width of 100%
+                highResImg.style.position = "fixed";
+                highResImg.style.top = "50%";
+                highResImg.style.left = "50%";
+                highResImg.style.transform = "translate(-50%, -50%)";
+                highResImg.style.maxWidth = "100%";
+                highResImg.style.maxHeight = "100%";
+
+                // Append the high-res image to the body of the HTML document
+                document.body.appendChild(highResImg);
+
+                // Remove the high-res image when it is clicked
+                highResImg.onclick = function() {
+                    document.body.removeChild(highResImg);
+                };
+            }
+        </script>
+        </div>
+    </body>
+</html>
