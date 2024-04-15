@@ -117,7 +117,7 @@ body.edit{
     font-size:100%;
   }  
 
-  button#reg{
+  .save-button{
     width: 70%;
     width: 40%;
     display: flex;
@@ -136,17 +136,17 @@ body.edit{
     box-shadow: 0 5px #666;
     font-size:2rem;
     }
-    button#reg:hover{
+    .save-button:hover{
         background-color: #4a7fcc;
     }
 
-    button#reg:active{
+    .save-button:active{
         background-color: #4a7fcc;
         box-shadow: 0 5px #666;
         transform: translateY(4px);
     }
     
-  .regButton{
+  .save-button{
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -156,7 +156,7 @@ body.edit{
     margin: 0.5rem 0 0.5rem 0;
     gap: 25%;
   }
-  .regButton label{
+  .save-button label{
     width: 45%;
     height: 50px;
     width: 100%;
@@ -169,7 +169,7 @@ body.edit{
     gap: 25%;
   }
 
-  .childRegButton{
+  .childsave-button{
     height: 25%;
   }
 
@@ -192,7 +192,7 @@ body.edit{
         align-items:center;  
         
     }
-    button#reg{
+    .save-button{
         width: 40%;
         height: 40%;
         font-size:350%;
@@ -201,7 +201,7 @@ body.edit{
         margin: 0 15% 0 15%;
         
     }
-    button#reg:active{
+    .save-button:active{
         transform: translateY(10%);
     }
 
@@ -211,10 +211,10 @@ body.edit{
     }
    
     
-    .regButton{
+    .save-button{
         height: 100%;
     }
-    .regButton label{
+    .save-button label{
         height: 100%;
     }
     
