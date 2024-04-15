@@ -117,7 +117,7 @@ body.register{
     font-size:100%;
   }  
 
-  button#reg{
+  a#reg{
     width: 70%;
     width: 40%;
     display: flex;
@@ -136,11 +136,11 @@ body.register{
     box-shadow: 0 5px #666;
     font-size:2rem;
     }
-    button#reg:hover{
+    a#reg:hover{
         background-color: #4a7fcc;
     }
 
-    button#reg:active{
+    a#reg:active{
         background-color: #4a7fcc;
         box-shadow: 0 5px #666;
         transform: translateY(4px);
@@ -230,7 +230,7 @@ body.register{
        
         margin: 0;
     }
-    button#reg{
+    a#reg{
         width: 40%;
         height: 40%;
         font-size:350%;
@@ -239,7 +239,7 @@ body.register{
         margin: 0 15% 0 15%;
         
     }
-    button#reg:active{
+    a#reg:active{
         transform: translateY(10%);
     }
 

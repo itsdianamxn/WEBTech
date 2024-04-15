@@ -16,7 +16,7 @@ body{
     background: var(--bg-primary);
     width: 100%;
     font-size: 2rem;
-
+    overflow: hidden;
     display:flex;
     justify-content: center;
 }
