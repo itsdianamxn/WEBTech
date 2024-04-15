@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+    <link rel = "stylesheet" href="editStyle.css" type="text/css">
+</head>
+<body class="edit">
+    <div style="display: flex; justify-content: center; align-items: center;width: 100%; height: 100%;">
+    <div class="mainedit">
+        <h1 class="title">Edit your profile.</h1>
+
+    <form id="editPage" action="edit.php" method="post">
+        <div class="inputField">
+            <label style="display: flex; align-items: center;" for="firstName">First name</label>
+            <input type="text" id="firstName" name="firstName" value="Daniel">
+        </div>
+        <div class="inputField">
+            <label style="display: flex; align-items: center;" for="lastName">Last name</label>
+            <input type="text" id="lastName" name="lastName" value="Lazurca">
+        </div>
+        <div class="inputField">
+            <label style="display: flex; align-items: center;">Relationship to children</label>
+            <select name="relationSelect" value="Parent">
+                <option value="Parent">Parent</option>
+                <option value="Grandparent">Grandparent</option>
+                <option value="Guardian">Legal Guardian</option>
+            </select>
+        </div>
+        <div class="inputField">
+            <label for="email" style="display: flex; align-items: center;">Email</label>
+            <input type="email" id="email" name="email" value="danielazurca@gmail.com">
+        </div>
+        <div class="inputField">
+            <label for="dob" style="display: flex; align-items: center;">Your date of Birth</label>
+            <input type="date" id="dob" name="dob">
+        </div>
+        <div class="inputField">
+            <label for="password" style="display: flex; align-items: center;">Password</label>
+            <input type="password" id="password" name="password" value="********">
+        </div>
+        <div class="inputField">
+            <label for="secondPassword" style="display: flex; align-items: center;">Repeat Password</label>
+            <input type="password" id="secondPassword" name="secondPassword">
+        </div>
+        <div class="buttonDiv">
+            <button id="reg">Save</button>
+        </div>
+        
+      </form>
+    </div>
+      
+</div>
+</body>
+</html>
