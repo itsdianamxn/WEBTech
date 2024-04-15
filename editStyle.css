@@ -1,0 +1,222 @@
+html{
+    width: 100%;
+    height: 100%;
+}
+
+body.edit{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    background-color: #ffbc5c;
+    overflow: hidden;
+    font-family:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+  }
+
+  .childeditInputs{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .mainedit{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  form#editPage
+  {
+    height: 110%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding-top: 10px;
+    background-color: white;
+    border: 18px solid #e6a953;
+    border-style:ridge;
+    border-radius: 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+  }
+
+  .inputField{
+    width: 100%;
+    height: 12.5%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+  }
+
+  .inputField label{
+    width: 100%;
+    height: 50%;
+    font-size: 1.5rem;
+  }
+  .inputField input,select{
+    width: 95%;
+    height: 50%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border-color: #80562e;
+    font-size: 1.2rem;
+  }
+
+  .childInputField{
+    height: 22%;
+  }
+
+  select[name="relationSelect"]{
+    width: 95%;
+    height: 50%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border-color: #80562e;    
+  }
+
+  select[name="relationSelect"]:hover
+  {
+    background-color: #ffdebe;
+} 
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    color: white; 
+    border: none; 
+    border-radius: 50%; 
+    padding: 10px; 
+    cursor: pointer;
+  }
+
+  input[type="date"]::-webkit-calendar-picker-indicator:hover{
+    
+    background-color: #FFAC58;
+  }
+  
+  .buttonDiv{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 15%;
+    font-size:100%;
+  }  
+
+  button#reg{
+    width: 70%;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #5c9fff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px #666;
+    font-size:2rem;
+    }
+    button#reg:hover{
+        background-color: #4a7fcc;
+    }
+
+    button#reg:active{
+        background-color: #4a7fcc;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+    
+  .regButton{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly; 
+    align-items: center;
+    height: 80%;
+    margin: 0.5rem 0 0.5rem 0;
+    gap: 25%;
+  }
+  .regButton label{
+    width: 45%;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly; 
+    align-items: center;
+    height: 80%;
+    margin: 0.5rem 0 0.5rem 0;
+    gap: 25%;
+  }
+
+  .childRegButton{
+    height: 25%;
+  }
+
+
+@media screen and (max-width: 1000px){
+    form#editPage{
+        width: 80%;
+    }
+    .inputField input,select{
+        width: 90%;
+        font-size: 190%;
+    }
+    .inputField label{
+        font-size: 150%;
+    }
+    .buttonDiv{
+        height: 20%;
+        width: 100%;
+        justify-content: space-between;
+        align-items:center;  
+        
+    }
+    button#reg{
+        width: 40%;
+        height: 40%;
+        font-size:350%;
+        display: flex; 
+        justify-content: center;
+        margin: 0 15% 0 15%;
+        
+    }
+    button#reg:active{
+        transform: translateY(10%);
+    }
+
+    .buttonDiv .alreadyAcc p, .buttonDiv .alreadyAcc a{
+        width: 50%;
+        font-size:150%; 
+    }
+   
+    
+    .regButton{
+        height: 100%;
+    }
+    .regButton label{
+        height: 100%;
+    }
+    
+    
+}

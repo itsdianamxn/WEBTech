@@ -1,0 +1,108 @@
+
+body{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;  
+    background-color: #ffbc5c;
+    overflow: hidden;
+    font-family:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+  }
+.container {
+    display: flex;
+    justify-content: space-around;
+    
+    align-items: center;
+    width: 100%;
+    height: 30rem;
+}
+span.child-name
+{
+    margin-top: 1rem;
+}
+.edit-icon {
+    background-image: url('pics/edit.png');
+    position: relative;
+    top: 2rem;
+    left: 3rem; 
+    width: 2rem;
+    height: 2rem;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.button-container {
+    width: 80%;
+    display: flex;    
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.add-button,.exit-button {
+   
+    display: flex;
+    padding: 10px 20px;
+    
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #5dff5c;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px #666;
+    font-size:2rem;
+}
+.exit-button {
+    background-color: #ff5c5d;
+}
+
+.add-button:hover{
+    background-color: #1f551f;
+}
+
+.add-button:active{
+    background-color: #1f551f;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+.exit-button:hover{
+    background-color: #551f1f;
+}
+
+.exit-button:active{
+    background-color: #551f1f;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+.child-thumbnail {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    background-color:beige;
+    border: 9px solid #e6a953;
+    border-style:ridge;
+    border-radius: 20px;
+    transition: height 2s ease;
+
+}
+.child-thumbnail:hover {
+    cursor: pointer;
+    height: 19rem;
+}
+img
+{
+    height:10em; width:10em;
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+    border-radius: 10px;
+
+}
