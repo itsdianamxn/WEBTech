@@ -1,3 +1,13 @@
+html{
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+}
+
 :root{
     font-size:16px;
     font-family:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -34,7 +44,7 @@ main{
     margin-left: 5rem;
     margin-top: 5rem;
     padding: 1rem;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     border-left: 18px solid #aa7d3d;
     border-top: 18px solid #aa7d3d;
@@ -45,17 +55,18 @@ main{
 
 .navbar{
     width: 5rem;
-    height: 100vh;
+    height: 100%;
     position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 0;
     background-color: var(--bg-secondary);
     transition: width 400ms ease;
     border-right: 3px solid var(--border-color);
     border-top: 3px solid var(--border-color);
 }
 
-.navbar:hover{
-    width: 16rem;
-}
 
 .north-navbar{
     position: fixed;
@@ -74,9 +85,27 @@ main{
     margin: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: flex-start;
     width: 100%;
+    height: 91%
 }  
+
+.navbar-nav .first {
+    margin-bottom: auto; /* Pushes the first div to the top */
+}
+
+.navbar-nav .last {
+    border-top: 3px solid var(--border-color);
+    margin-top: auto; /* Pushes the last div to the bottom */
+}
+
+
+/* .navbar-nav .nav-item:last-child{
+    margin-top: auto;
+    border-top: 3px solid var(--border-color);
+} */
+
+
 
 .north-nav{
     list-style: none;
@@ -94,9 +123,6 @@ main{
     width: 100%;
 }
 
-.nav-item:last-child{
-    margin-top: auto;
-}
 
 .north-nav-item{
     height: 100%;
@@ -119,6 +145,8 @@ main{
     filter:opacity(1);
     background-color: var(--bg-third);
 }
+
+
 
 .profile-nav-link{
     display: flex;
@@ -178,6 +206,10 @@ main{
 .logo svg{
     transform: rotate(0deg);
     transition: var(--transition-speed);
+}
+
+.logo .nav-link:hover{
+    background-color: var(--bg-secondary);
 }
 
 .navbar:hover .logo svg{

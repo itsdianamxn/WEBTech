@@ -89,13 +89,15 @@ html{
     align-items: center;
   }
   
-    button#submit {
+    a#submit {
     width: 30%;
     height: 80%;
     padding-bottom: 10px;
     margin-bottom: 20px; /* adjust as needed */
     font-size: 1.8rem;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 10px 20px;
     cursor: pointer;
     text-align: center;
@@ -107,11 +109,11 @@ html{
     border-radius: 15px;
     box-shadow: 0 9px #999;
 }
-    button#submit:hover {
+    a#submit:hover {
         background-color: #3e8e41;
     }
 
-    button#submit:active{
+    a#submit:active{
         transform: translateY(10%);
     }
 
