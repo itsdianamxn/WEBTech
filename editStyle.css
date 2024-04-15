@@ -157,7 +157,7 @@ body.edit::-webkit-scrollbar-thumb {
         transform: translateY(4px);
     }
     
-  .regButton{
+  .save-button{
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -167,7 +167,7 @@ body.edit::-webkit-scrollbar-thumb {
     margin: 0.5rem 0 0.5rem 0;
     gap: 25%;
   }
-  .regButton label{
+  .save-button label{
     width: 45%;
     height: 50px;
     width: 100%;
@@ -180,7 +180,7 @@ body.edit::-webkit-scrollbar-thumb {
     gap: 25%;
   }
 
-  .childRegButton{
+  .childsave-button{
     height: 25%;
   }
 
@@ -222,10 +222,10 @@ body.edit::-webkit-scrollbar-thumb {
     }
    
     
-    .regButton{
+    .save-button{
         height: 100%;
     }
-    .regButton label{
+    .save-button label{
         height: 100%;
     }
     
