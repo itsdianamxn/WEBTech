@@ -40,8 +40,6 @@ img
   border: 10px solid #e6a953;
   border-style:ridge;
   border-radius: 20px;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
 .child-thumbnail
@@ -77,7 +75,7 @@ img
 }
 
 .child-thumbnail:hover{
-    height: 20rem;
+    height: 22rem;
 }
 
 .child-thumbnail:hover .dropdown{ 

@@ -14,7 +14,19 @@ body
   /*justify-content: left;*/
   align-items: start;  
   background-color: #ffbc5c;
-  overflow: hidden;
+  overflow: auto;
+}
+
+body.edit::-webkit-scrollbar {
+  width: 0.35rem;
+}
+
+body.edit::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+body.edit::-webkit-scrollbar-thumb {
+  background: black;
 }
 
 img
