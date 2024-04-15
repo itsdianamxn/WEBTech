@@ -10,10 +10,21 @@ body.edit{
     justify-content: center;
     align-items: center;  
     background-color: #ffbc5c;
-    overflow: hidden;
     font-family:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    overflow: hidden;
 
   }
+body.edit::-webkit-scrollbar {
+    width: 0.35rem;
+}
+
+body.edit::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+body.edit::-webkit-scrollbar-thumb {
+    background: black;
+}
 
   .childeditInputs{
     width: 100%;
@@ -117,7 +128,7 @@ body.edit{
     font-size:100%;
   }  
 
-  button#reg{
+  a#reg{
     width: 70%;
     width: 40%;
     display: flex;
@@ -136,11 +147,11 @@ body.edit{
     box-shadow: 0 5px #666;
     font-size:2rem;
     }
-    button#reg:hover{
+    a#reg:hover{
         background-color: #4a7fcc;
     }
 
-    button#reg:active{
+    a#reg:active{
         background-color: #4a7fcc;
         box-shadow: 0 5px #666;
         transform: translateY(4px);
@@ -192,7 +203,7 @@ body.edit{
         align-items:center;  
         
     }
-    button#reg{
+    a#reg{
         width: 40%;
         height: 40%;
         font-size:350%;
@@ -201,7 +212,7 @@ body.edit{
         margin: 0 15% 0 15%;
         
     }
-    button#reg:active{
+    a#reg:active{
         transform: translateY(10%);
     }
 
