@@ -1,0 +1,98 @@
+
+html{
+    width: 100%;
+    height: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+}   
+
+body{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #ffbc5c;
+    margin: auto;
+    overflow: hidden;
+}
+
+
+
+.container{
+    width: 25%;
+    border-right: 3px solid #aa7d3d;
+    background-color: white;
+    padding-left: 5px;
+    margin:0;
+    overflow: auto;
+}
+
+.container::-webkit-scrollbar {
+    width: 0.35rem;
+}
+
+.container::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+.container::-webkit-scrollbar-thumb {
+    background: black;
+}
+
+.logs-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+
+.logs-header{
+    text-align: center;
+}
+
+.logs-day{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: #ffcc9c73;
+    transition: height 0.2s ease;
+    width: 80%;
+    border: 1px solid #80562e;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.logs-day ul{
+    font-size: 1.5rem;
+}
+
+.calendar{
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+    padding-left: 5px;
+    margin:0;
+}
+
+.dow-style{
+    color: black; 
+    background: #5c9fff;
+}
+
+tr td{
+    text-align: center
+    
+}
+
+tr td:hover{
+    background-color: white;
+    border-radius: 50%;
+}
