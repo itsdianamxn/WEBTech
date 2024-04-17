@@ -85,7 +85,9 @@ body{
 
 .dow-style{
     color: black; 
-    background: #5c9fff;
+    background:#6053e6;
+    margin: 5rem;
+
 }
 
 tr td{
@@ -96,26 +98,31 @@ tr td{
 tr td:hover{
     background-color: white;
     border-radius: 50%;
-}
-.center-text {
+
+}.center-text {
     text-align: center;
     color: orange;
     font-size: 1.5rem;
   }
   
-  .styled-table {
-    background-color: #ffc5c5;
+  .calendar-table {
+    align-self: center;
+    background-color: rgba(255, 166, 0, 0.656);
     text-align: center;
+    width:85%;
+    height: 90%;
     border-collapse: collapse; /* For cellspacing */
-    width: 100%; /* For full width */
-    border-radius: 15px; /* For rounded corners */
+    
   }
-  
-  .styled-table td, .styled-table th {
+.calendar-table td, .calendar-table th {
+
     padding: 21px; /* For cellpadding */
   }
   
+  .faded {
+    opacity: 0.2;
+  }
   .caption-top {
-    caption-side: top;
+    caption-side: top; 
   }
   
