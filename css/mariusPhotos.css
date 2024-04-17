@@ -1,16 +1,15 @@
+body {
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 
-body{
-    flex-wrap: wrap;
-    display: flex;
-    flex-direction: row;
-    overflow-y: auto;
-    overflow-x: hidden;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  }
-  .image-preview
-  {
-    margin: 5px;
-    text-align:center;
-    background-color: beige;
-    width:120px;
-  }
+.image-preview {
+  margin: 5px;
+  text-align: center;
+  background-color: beige;
+  width: 120px;
+}

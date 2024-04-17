@@ -1,18 +1,16 @@
-html
-{
+html {
   width: 100%;
   height: 100%;
 }
 
-body
-{
+body {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   width: 100%;
   height: 100%;
   display: flex;
-  
+
   /*justify-content: left;*/
-  align-items: start;  
+  align-items: start;
   background-color: #ffbc5c;
   overflow: auto;
 }
@@ -29,18 +27,15 @@ body.edit::-webkit-scrollbar-thumb {
   background: black;
 }
 
-img
-{
+img {
   margin: 2px;
 }
 
-.files
-{
+.files {
   margin: 10px;
 }
 
-.container
-{
+.container {
   width: 140px;
   height: 90%;
   display: flex;
@@ -50,14 +45,13 @@ img
   padding-top: 1px;
   background-color: white;
   border: 10px solid #e6a953;
-  border-style:ridge;
+  border-style: ridge;
   border-radius: 20px;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
-.child-thumbnail
-{
+.child-thumbnail {
   background-color: #ffcc9c73;
   width: 100px;
   border: 1px solid #80562e;
@@ -66,19 +60,16 @@ img
   padding: 5px;
 }
 
-.child-thumbnail:hover
-{
+.child-thumbnail:hover {
   background-color: #cce6ff99;
 }
 
-.image-preview
-{
+.image-preview {
   display: inline-block;
   margin: 4px;
 }
 
-table
-{
-  width:100%;
-  height:100%;
+table {
+  width: 100%;
+  height: 100%;
 }

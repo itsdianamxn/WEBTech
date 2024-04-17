@@ -97,3 +97,25 @@ tr td:hover{
     background-color: white;
     border-radius: 50%;
 }
+.center-text {
+    text-align: center;
+    color: orange;
+    font-size: 1.5rem;
+  }
+  
+  .styled-table {
+    background-color: #ffc5c5;
+    text-align: center;
+    border-collapse: collapse; /* For cellspacing */
+    width: 100%; /* For full width */
+    border-radius: 15px; /* For rounded corners */
+  }
+  
+  .styled-table td, .styled-table th {
+    padding: 21px; /* For cellpadding */
+  }
+  
+  .caption-top {
+    caption-side: top;
+  }
+  

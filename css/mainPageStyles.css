@@ -1,17 +1,17 @@
-html{
+html {
     width: 100%;
     height: 100%;
 }
 
-body{
+body {
     height: 100%;
     width: 100%;
 
 }
 
-:root{
-    font-size:16px;
-    font-family:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+:root {
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     width: 100%;
     height: 100%;
     --text-primary: #392a74;
@@ -22,6 +22,7 @@ body{
     --border-color: #aa7d3d;
     --transition-speed: 600ms;
 }
+
 body::-webkit-scrollbar {
     width: 0.35rem;
 }
@@ -34,13 +35,13 @@ body::-webkit-scrollbar-thumb {
     background: black;
 }
 
-body.mainPage{
+body.mainPage {
     background-color: var(--bg-primary);
     margin: 0;
     padding: 0;
 }
 
-main{
+main {
     margin-left: 5rem;
     margin-top: 5rem;
     padding: 1rem;
@@ -50,10 +51,10 @@ main{
     border-top: 18px solid #aa7d3d;
     border-bottom: hidden;
     border-right: hidden;
-    border-style:ridge;
+    border-style: ridge;
 }
 
-.navbar{
+.navbar {
     width: 5rem;
     height: 100%;
     position: fixed;
@@ -68,7 +69,7 @@ main{
 }
 
 
-.north-navbar{
+.north-navbar {
     position: fixed;
     height: 5rem;
     top: 0;
@@ -79,7 +80,7 @@ main{
     align-items: center;
 }
 
-.navbar-nav{    
+.navbar-nav {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -88,20 +89,22 @@ main{
     justify-content: flex-start;
     width: 100%;
     height: 91%
-}  
+}
 
 .navbar-nav .first {
-    margin-bottom: auto; /* Pushes the first div to the top */
+    margin-bottom: auto;
+    /* Pushes the first div to the top */
 }
 
 .navbar-nav .last {
     border-top: 3px solid var(--border-color);
-    margin-top: auto; /* Pushes the last div to the bottom */
+    margin-top: auto;
+    /* Pushes the last div to the bottom */
 }
 
 
 
-.north-nav{
+.north-nav {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -113,17 +116,17 @@ main{
     height: 5rem;
 }
 
-.nav-item{
+.nav-item {
     width: 100%;
 }
 
 
-.north-nav-item{
+.north-nav-item {
     height: 100%;
     width: 20%;
 }
 
-.nav-link{
+.nav-link {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -135,14 +138,14 @@ main{
     border-bottom: 5px solid var(--border-color);
 }
 
-.nav-link:hover{
-    filter:opacity(1);
+.nav-link:hover {
+    filter: opacity(1);
     background-color: var(--bg-third);
 }
 
 
 
-.profile-nav-link{
+.profile-nav-link {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -153,43 +156,45 @@ main{
     transition: var(--transition-speed);
 }
 
-.profile-nav-link:hover{
+.profile-nav-link:hover {
     background-color: var(--bg-third);
 }
 
-.link-text{
+.link-text {
     display: none;
     margin-left: 0.3rem;
 }
 
-.nav-link svg{
+.nav-link svg {
     min-width: 2rem;
     margin: 0 1.5rem;
 }
 
-.navbar:hover{
-    width: 16rem;;
+.navbar:hover {
+    width: 16rem;
+    ;
 }
 
-.navbar:hover .link-text{
+.navbar:hover .link-text {
     display: block;
 }
 
-.fa-primary{
+.fa-primary {
     color: var(--text-primary);
 }
 
-.fa-secondary{
+.fa-secondary {
     color: var(--text-secondary);
 }
 
-.fa-primary, .fa-secondary{
+.fa-primary,
+.fa-secondary {
     transition: var(--transition-speed);
 }
 
-.logo{
-    font-weight:bold;
-    text-transform: uppercase;   
+.logo {
+    font-weight: bold;
+    text-transform: uppercase;
     text-align: center;
     color: var(--text-secondary);
     font-size: 1.5rem;
@@ -197,21 +202,21 @@ main{
     width: 100%;
 }
 
-.logo svg{
+.logo svg {
     transform: rotate(0deg);
     transition: var(--transition-speed);
 }
 
-.logo .nav-link:hover{
+.logo .nav-link:hover {
     background-color: var(--bg-secondary);
 }
 
-.navbar:hover .logo svg{
+.navbar:hover .logo svg {
     transform: rotate(-180deg);
 }
 
-.profile-picture{
-    width: auto ;
+.profile-picture {
+    width: auto;
     height: 5rem;
     border-radius: 50%;
     margin: 1rem;

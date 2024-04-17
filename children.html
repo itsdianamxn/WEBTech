@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-      <title>Children</title>
-      <link rel="stylesheet" href="css/children.css" type="text/css">
-      <script type="text/java-script">
+
+<head>
+    <title>Children</title>
+    <link rel="stylesheet" href="css/children.css" type="text/css">
+    <script type="text/java-script">
         function refreshIframe() {
             var webpageUrl = "mariusPhotos.html?children=";
 
@@ -24,54 +25,57 @@
             iframe.src = webpageUrl;
         }
     </script>
-    </head>
-    <body onload="refreshIframe()">
-        <div style="height: 100%; width: 100%; display: flex; justify-content: flex-start; align-items: flex-start;">
-            
+</head>
+
+<body onload="refreshIframe()">
+    <div style="height: 100%; width: 100%; display: flex; justify-content: flex-start; align-items: flex-start;">
+
         <div class="container" id="all-children">
             <div class="child-thumbnail" id="child-1">
-                <input type="checkbox" id="1-checkbox" name="1-checkbox"  style="display: none;">
+                <input type="checkbox" id="1-checkbox" name="1-checkbox" style="display: none;">
                 <span class="child-name">Andreea</span><br>
-                <img src="pics/girl1.jpg"  alt="Child picture" 
+                <img src="pics/girl1.jpg" alt="Child picture"
                     style="height:60px; width:60px; display: block; margin-left:auto; margin-right:auto;">
-                    <div class="dropdown">
-                        <a href="food-calendar.html" target="calendarFrame">Food</a>
-                        <a href="sleep-calendar.html" target="calendarFrame">Sleep</a>
-                        <a href="health-calendar.html" target="calendarFrame">Health</a>
-                        <a href="evolution-calendar.html" target="calendarFrame">Evolution</a>
-                        <a href="groups.html" target="calendarFrame">Groups</a>
-                    </div>
+                <div class="dropdown">
+                    <a href="food-calendar.html" target="calendarFrame">Food</a>
+                    <a href="sleep-calendar.html" target="calendarFrame">Sleep</a>
+                    <a href="health-calendar.html" target="calendarFrame">Health</a>
+                    <a href="evolution-calendar.html" target="calendarFrame">Evolution</a>
+                    <a href="groups.html" target="calendarFrame">Groups</a>
+                </div>
             </div>
-            <div class="child-thumbnail" id="child-2" >                
-                <input type="checkbox" id="2-checkbox" name="2-checkbox"  style="display: none;"> 
+            <div class="child-thumbnail" id="child-2">
+                <input type="checkbox" id="2-checkbox" name="2-checkbox" style="display: none;">
                 <span class="child-name">Marius</span><br>
-                <img src="pics/marius.jpg"  alt="Child picture"
+                <img src="pics/marius.jpg" alt="Child picture"
                     style="height:60px; width:60px; display: block; margin-left:auto; margin-right:auto;">
-                    <div class="dropdown">
-                        <a href="food-calendar.html" target="calendarFrame">Food</a>
-                        <a href="sleep-calendar.html" target="calendarFrame">Sleep</a>
-                        <a href="health-calendar.html" target="calendarFrame">Health</a>
-                        <a href="evolution-calendar.html" target="calendarFrame">Evolution</a>
-                        <a href="groups.html" target="calendarFrame">Groups</a>
-                    </div>
+                <div class="dropdown">
+                    <a href="food-calendar.html" target="calendarFrame">Food</a>
+                    <a href="sleep-calendar.html" target="calendarFrame">Sleep</a>
+                    <a href="health-calendar.html" target="calendarFrame">Health</a>
+                    <a href="evolution-calendar.html" target="calendarFrame">Evolution</a>
+                    <a href="groups.html" target="calendarFrame">Groups</a>
+                </div>
             </div>
-            <div class="child-thumbnail" id="child-3" >                
-                <input type="checkbox" id="3-checkbox" name="3-checkbox"  style="display: none;"> 
+            <div class="child-thumbnail" id="child-3">
+                <input type="checkbox" id="3-checkbox" name="3-checkbox" style="display: none;">
                 <span class="child-name">Maia</span><br>
-                <img src="pics/girl3.jpg"  alt="Child picture" 
+                <img src="pics/girl3.jpg" alt="Child picture"
                     style="height:60px; width:60px; display: block; margin-left:auto; margin-right:auto;">
-                    <div class="dropdown">
-                        <a href="food-calendar.html" target="calendarFrame">Food</a>
-                        <a href="sleep-calendar.html" target="calendarFrame">Sleep</a>
-                        <a href="health-calendar.html" target="calendarFrame">Health</a>
-                        <a href="evolution-calendar.html" target="calendarFrame">Evolution</a>
-                        <a href="groups.html" target="calendarFrame">Groups</a>
-                    </div>
+                <div class="dropdown">
+                    <a href="food-calendar.html" target="calendarFrame">Food</a>
+                    <a href="sleep-calendar.html" target="calendarFrame">Sleep</a>
+                    <a href="health-calendar.html" target="calendarFrame">Health</a>
+                    <a href="evolution-calendar.html" target="calendarFrame">Evolution</a>
+                    <a href="groups.html" target="calendarFrame">Groups</a>
+                </div>
             </div>
         </div>
         <div class="calendar-container">
-            <iframe name="calendarFrame" src="food-calendar.html" style="height: 100%; width: 100%; border: none;"></iframe>
+            <iframe name="calendarFrame" src="food-calendar.html"
+                style="height: 100%; width: 100%; border: none;"></iframe>
         </div>
-        </div>
-    </body>
+    </div>
+</body>
+
 </html>

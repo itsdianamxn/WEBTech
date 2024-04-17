@@ -1,6 +1,6 @@
-:root{
-    font-size:16px;
-    font-family:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+:root {
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     width: 100%;
     height: 100%;
 
@@ -12,16 +12,16 @@
     --border-color: #aa7d3d;
 }
 
-body{
+body {
     background: var(--bg-primary);
     width: 100%;
     font-size: 2rem;
     overflow: hidden;
-    display:flex;
+    display: flex;
     justify-content: center;
 }
-input[type="button"]
-{
+
+input[type="button"] {
     margin-bottom: 20px;
     display: inline-block;
     padding: 20px;
@@ -37,32 +37,32 @@ input[type="button"]
     font-size: 2rem;
 
 }
-input[type="button"]:hover {
-        background-color: var(--text-secondary);
-    }
-input[type="button"]:active{
-        transform: translateY(10%);
-    }
 
-.profile-picture{
+input[type="button"]:hover {
+    background-color: var(--text-secondary);
+}
+
+input[type="button"]:active {
+    transform: translateY(10%);
+}
+
+.profile-picture {
     border-radius: 50%;
     margin: 1rem;
     justify-self: center;
 }
 
-@media screen and (max-width: 1000px)
-{
-    input[type="button"]
-{
+@media screen and (max-width: 1000px) {
+    input[type="button"] {
         width: 90%;
         font-size: 130%;
         padding: 20px;
 
     }
-    table
-    {
+
+    table {
         font-size: 190%;
 
     }
-    
+
 }
