@@ -119,8 +119,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   font-size: 100%;
 }
 
-a#reg {
-  width: 70%;
+#reg {
   width: 40%;
   display: flex;
   justify-content: center;
@@ -139,13 +138,13 @@ a#reg {
   font-size: 2rem;
 }
 
-a#reg:hover {
+#reg:hover {
   background-color: #4a7fcc;
 }
 
-a#reg:active {
+#reg:active {
   background-color: #4a7fcc;
-  box-shadow: 0 5px #666;
+  box-shadow: 0 3px #333; /* Slightly reduced shadow for the pressed effect */
   transform: translateY(4px);
 }
 

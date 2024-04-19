@@ -44,6 +44,8 @@ input[type="button"]:hover {
 
 input[type="button"]:active {
     transform: translateY(10%);
+    box-shadow: 0 3px #333; /* Slightly reduced shadow for the pressed effect */
+
 }
 
 .profile-picture {

@@ -45,7 +45,7 @@ body::-webkit-scrollbar-thumb {
     justify-content: space-between;
     align-items: center;
     background-color: #ffe4be;
-    border: 18px solid #aa7d3d;
+    border: 12px solid #aa7d3d;
     border-style: ridge;
     margin-bottom: 10px;
     padding: 0 1rem;
