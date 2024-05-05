@@ -145,7 +145,7 @@ a#submit:active {
 
   form.loginBox {
     width: 90%;
-    height: 50%;
+    height: 75%;
     justify-content: flex-start;
   }
 
@@ -153,9 +153,12 @@ a#submit:active {
     height: 75%;
   }
 
-  div .loginInputField label,
+  div .loginInputField label {
+    font-size: 4.5rem;
+  }
+
   div .loginInputField input {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
   }
 
   div .loginButton {
@@ -164,10 +167,10 @@ a#submit:active {
     justify-content: space-around;
   }
 
-  div .loginButton button#submit {
+  div .loginButton a#submit {
     width: 30%;
     height: 75%;
-    font-size: 2.5rem;
+    font-size: 4.5rem;
     justify-self: flex-start;
   }
 
