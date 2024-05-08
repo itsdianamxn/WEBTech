@@ -26,6 +26,12 @@ body::-webkit-scrollbar-thumb {
     background: black;
 }
 
+
+.notif-title{
+    margin-left: 7.5%; 
+    font-size: 3.5rem;
+}
+
 .notifications-list{
     width: 85%;
     height: 100%;
@@ -52,8 +58,16 @@ body::-webkit-scrollbar-thumb {
 }
 
 
+.notifs{
+    height: 100%; 
+    display: flex; 
+    justify-content: flex-start; 
+    align-items: center; 
+    margin-left: 2rem;
+}
+
 .notification-text{
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: flex-start;
     font-size: 1.5rem;
@@ -65,10 +79,11 @@ body::-webkit-scrollbar-thumb {
 
 
 
+
 .new-notification-header, .old-notification-header{
     position: relative; 
     border-left: 3px solid var(--border-color);
-    display: flex;
+    display: block;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
@@ -212,4 +227,96 @@ img
     justify-content: flex-start;
     align-items: flex-start;
     padding-left: 10px;
+}
+
+
+
+
+@media only screen and  (max-width: 800px) {
+    
+    .notif-title{
+        margin-left: 0; 
+        font-size: 2rem;
+    }
+    
+    .notifications-body{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+
+    }
+
+    .notifs{
+        width: 95%;
+        margin-left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .notification{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+        align-items: flex-start;
+        box-sizing: border-box;
+        padding: 0;
+        width: 100%;
+    }
+
+    .new-notification-header, .old-notification-header{
+        border: none;
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin: 0;
+        padding: 0;
+    }
+
+
+    .new-notification-header::after {
+        right: 0;
+    }
+
+    .notification-title{
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-left: 0;     
+        padding: 5px;
+    }
+
+    .notification-time{
+       position: absolute;
+        margin: 0;
+        bottom: 0;
+        right: 0;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        align-self: flex-end;
+        justify-self: flex-end;
+    }
+
+
+    .notification-text{
+        display: none;
+    }
+
+    
+    .notification:hover .notification-text{
+        display: block;
+        padding-left: 5px;
+    }
+
+    .notification:hover .old-notification-header, .notification:hover .new-notification-header{
+        border-bottom: 3px solid var(--border-color);
+    }
+
+
+    
 }
