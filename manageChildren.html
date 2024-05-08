@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <title>Manage</title>
     <link rel="stylesheet" href="css/manageStyles.css" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-    <div class="container" id="all-children">
+    <div class="whole-page">
+    <div class="container">
         <div class="child-thumbnail" id="child-1">
             <div class="nameContainer">
                 <svg onclick="location.href='deleteChild.php'" aria-hidden="true" focusable="false" data-prefix="fad"
@@ -32,9 +34,11 @@
                 </svg>
             </div>
 
-            <span class="supplementary-info" hidden>
-                This is some supplementary information about Andreea.
-            </span>
+            <ul class="supplementary-info">
+                <li class="info">Lazurca</li>
+                <li class="info">Age: 5</li>
+                <li class="info">Birthdate: 31.03.2019</li>
+            </ul>
             <img src="pics/girl1.jpg" alt="Child picture">
         </div>
         <div class="child-thumbnail" id="child-2">
@@ -61,6 +65,11 @@
                     </g>
                 </svg>
             </div>
+            <ul class="supplementary-info">
+                <li class="info">Popescu</li>
+                <li class="info">Age: 8</li>
+                <li class="info">Birthdate: 30.12.2015</li>
+            </ul>
             <img src="pics/marius.jpg" alt="Child picture">
         </div>
         <div class="child-thumbnail" id="child-3">
@@ -85,13 +94,18 @@
                     </g>
                 </svg>
             </div>
-
+            <ul class="supplementary-info">
+                <li class="info">Anghel</li>
+                <li class="info">Age: 3</li>
+                <li class="info">Birthdate: 14.02.2021</li>
+            </ul>
             <img src="pics/girl3.jpg" alt="Child picture">
         </div>
     </div>
     <div class="button-container">
         <button class="add-button" onclick="location.href='registerChild.html'"> ADD </button>
         <button class="exit-button" onclick="location.href='profile.html'">EXIT</button>
+    </div>
     </div>
 
 </body>

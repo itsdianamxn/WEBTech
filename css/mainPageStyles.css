@@ -20,6 +20,8 @@ body {
     --bg-secondary: #e6a953;
     --bg-third: #ff7b5c;
     --border-color: #aa7d3d;
+    --navbar-color: #5c9fff;
+    --navbar-border-color: #7b5cff;
     --transition-speed: 600ms;
 }
 
@@ -60,10 +62,10 @@ main {
     flex-direction: column;
     justify-content: space-between;
     margin-bottom: 0;
-    background-color: var(--bg-secondary);
+    background-color: var(--navbar-color);
     transition: width 400ms ease;
-    border-right: 3px solid var(--border-color);
-    border-top: 3px solid var(--border-color);
+    border-right: 3px solid var(--navbar-border-color);
+    border-top: 3px solid var(--navbar-border-color);
 }
 
 
@@ -72,8 +74,8 @@ main {
     height: 5rem;
     top: 0;
     width: 100%;
-    background-color: var(--bg-secondary);
-    border-bottom: 3px solid var(--border-color);
+    background-color: var(--navbar-color);
+    border-bottom: 3px solid var(--navbar-border-color);
     display: flex;
     align-items: center;
 }
@@ -95,7 +97,7 @@ main {
 }
 
 .navbar-nav .last {
-    border-top: 3px solid var(--border-color);
+    border-top: 3px solid var(--navbar-border-color);
     margin-top: auto;
     /* Pushes the last div to the bottom */
 }
@@ -133,7 +135,7 @@ main {
     color: var(--text-primary);
     text-decoration: none;
     transition: var(--transition-speed);
-    border-bottom: 5px solid var(--border-color);
+    border-bottom: 5px solid var(--navbar-border-color);
 }
 
 .nav-link:hover {
@@ -147,7 +149,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    border-left: 3px solid var(--border-color);
+    border-left: 3px solid var(--navbar-border-color);
     height: 5rem;
     color: var(--text-primary);
     text-decoration: none;
