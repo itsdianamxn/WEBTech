@@ -281,3 +281,28 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 
 
 }
+
+@media only screen and (max-width: 800px){
+  
+  .childRegisterInputs{
+    height: 55%;
+  }
+
+  .childInputField{
+    font-size: 110%;
+  }
+
+  .childInputField label{
+    padding-bottom: 10px;
+  }
+
+  .childRegButton{
+    font-size: 70%;
+    height: 20%;
+  }
+
+  a#reg{
+    height: 40%;
+    width: 40%;
+  }
+}
