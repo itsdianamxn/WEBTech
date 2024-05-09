@@ -2,34 +2,14 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
     <title>Children</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/children.css" type="text/css">
-    <script type="text/java-script">
-        function refreshIframe() {
-            var webpageUrl = "mariusPhotos.html?children=";
-
-            var childrenNode = document.getElementById("all-children");
-            for (var i = 0; i < childrenNode.children.length; i++) {
-                // Do something with each child element
-                var check = document.getElementById((i+1)+"-checkbox");
-                var thumb = document.getElementById("child-" + (i+1));
-                thumb.style.backgroundColor = check.checked ? "#9ccfff99" : "#ffcc9c73";
-                if (check.checked) 
-                    webpageUrl += i + ",";
-            }
-
-            // Get a reference to the iframe element
-            var iframe = document.getElementById("webpage-iframe");
-
-            // Set the src property of the iframe to the URL of the webpage
-            iframe.src = webpageUrl;
-        }
-    </script>
 </head>
 
 <body onload="refreshIframe()">
-    <div style="height: 100%; width: 100%; display: flex; justify-content: flex-start; align-items: flex-start;">
-
+    <div class="body-container">
         <div class="container" id="all-children">
             <div class="child-thumbnail" id="child-1">
                 <input type="checkbox" id="1-checkbox" name="1-checkbox" style="display: none;">
