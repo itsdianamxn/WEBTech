@@ -87,7 +87,6 @@ body{
     color: black; 
     background:#6053e6;
     margin: 5rem;
-
 }
 
 tr td{
@@ -99,7 +98,8 @@ tr td:hover{
     background-color: white;
     border-radius: 50%;
 
-}.center-text {
+}
+.center-text {
     text-align: center;
     color: orange;
     font-size: 1.5rem;
@@ -115,7 +115,6 @@ tr td:hover{
     
   }
 .calendar-table td, .calendar-table th {
-
     padding: 21px; /* For cellpadding */
   }
   
@@ -125,4 +124,63 @@ tr td:hover{
   .caption-top {
     caption-side: top; 
   }
-  
+
+
+@media only screen and (max-width: 800px){
+
+    body{
+        flex-direction: column;
+    }
+
+    .container{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        height: 35%;
+        width: 100vw;
+    }
+
+    .logs-body{
+        flex-direction: row; 
+        align-items: flex-start; 
+        justify-content: flex-start;
+        height: 100%;
+        width: 100%;
+       
+    }
+
+    .logs-day{
+        width: 100%;
+        height: auto;
+        padding-top: 5px;
+    }
+
+    .logs-day h2{
+        margin-top: 0;
+    }
+
+    .logs-day ul, .logs-day h2{
+        font-size: 1rem;
+        padding-left: 15px;
+    }
+    
+    .logs-header{
+        display: none;
+    }
+
+    .center-text{
+        font-size: 1rem;
+    
+    }
+
+    .calendar{
+        width: 100%;
+        height: 65%;
+        padding-bottom: 5px;
+    }
+
+    .calendar-table td, .calendar-table th {
+        padding: 5px; /* For cellpadding */
+      }
+}
