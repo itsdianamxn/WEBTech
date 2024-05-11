@@ -64,6 +64,14 @@ img {
   background-color: #cce6ff99;
 }
 
+.child-photo{
+  height:60px; 
+  width:60px; 
+  display: block; 
+  margin-left:auto; 
+  margin-right:auto;
+}
+
 .image-preview {
   display: inline-block;
   margin: 4px;
@@ -72,4 +80,32 @@ img {
 table {
   width: 100%;
   height: 100%;
+}
+
+@media only screen and (max-width: 800px){
+  
+  
+  body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0;
+  }
+
+  .container{
+    flex-direction: row;
+    width: 90%;
+    height: 130px;
+    padding-bottom: 5px;
+    overflow-x: auto;
+    align-items: center;
+  }
+
+  .files{
+    margin: 0;
+  }
+  tr{
+    padding-top: 5px;
+  }
 }
