@@ -296,6 +296,9 @@ main {
         display: none;
     }
     
+    .nav-item{
+        width: 17%;
+    }
 
     .logo {
         display: none;
