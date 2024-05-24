@@ -90,7 +90,7 @@ form.loginBox {
   align-items: center;
 }
 
-a#submit {
+button#submit {
   width: 30%;
   height: 80%;
   padding-bottom: 10px;
@@ -112,11 +112,11 @@ a#submit {
   box-shadow: 0 9px #999;
 }
 
-a#submit:hover {
+button#submit:hover {
   background-color: #3e8e41;
 }
 
-a#submit:active {
+button#submit:active {
   transform: translateY(10%);
 }
 
@@ -167,7 +167,7 @@ a#submit:active {
     justify-content: space-around;
   }
 
-  div .loginButton a#submit {
+  div .loginButton button#submit {
     width: 30%;
     height: 75%;
     font-size: 4.5rem;

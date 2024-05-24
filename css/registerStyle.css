@@ -250,7 +250,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     margin: 0;
   }
 
-  a#reg {
+  button#reg {
     width: 40%;
     height: 40%;
     font-size: 350%;
@@ -260,7 +260,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 
   }
 
-  a#reg:active {
+  button#reg:active {
     transform: translateY(10%);
   }
 

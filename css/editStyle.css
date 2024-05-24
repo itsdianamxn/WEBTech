@@ -134,7 +134,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   font-size: 100%;
 }
 
-a#reg {
+button#reg {
   width: 70%;
   width: 40%;
   display: flex;
@@ -154,11 +154,11 @@ a#reg {
   font-size: 2rem;
 }
 
-a#reg:hover {
+button#reg:hover {
   background-color: #4a7fcc;
 }
 
-a#reg:active {
+button#reg:active {
   background-color: #4a7fcc;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
