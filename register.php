@@ -43,7 +43,7 @@ $stmt->bindParam(':lastName', htmlspecialchars($_POST['lastName']));
 $stmt->bindParam(':relationship', htmlspecialchars($_POST['relationSelect']));
 $stmt->bindParam(':email', htmlspecialchars($_POST['email']));
 $stmt->bindParam(':dob', htmlspecialchars($_POST['dob']));
-$stmt->bindParam(':password', password_hash(htmlspecialchars($_POST['dob']), PASSWORD_DEFAULT));
+$stmt->bindParam(':password', password_hash(htmlspecialchars($_POST['password']), PASSWORD_DEFAULT));
 
 if ($stmt->execute())
 {

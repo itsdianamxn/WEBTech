@@ -1,45 +1,49 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "children";
+    session_start();
+    if (!(array_key_exists('id', $_SESSION)))
+    {
+        header("Location: login.html");
+        exit();
+    }
+    $userId = $_SESSION['id'];
+    
+    // Database connection settings
+    $dbhost = 'localhost';  // or your host
+    $dbname = 'children';
+    $dbusername = 'root';
+    $dbpassword = '';
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+    /*
+    $_POST['firstName']	Diana-Alexandra
+    $_POST['lastName']	Maxiniuc
+    $_POST['relationSelect']	Parent
+    $_POST['email']	dianalexandramaxiniuc@gmail.com
+    $_POST['dob']	no value
+    $_POST['password']	1111
+    $_POST['secondPassword']	1111
+    */
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+    // Create a new PDO instance
+    $conn = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbusername, $dbpassword);
 
-// Prepare and bind
-$stmt = $conn->prepare("UPDATE users SET first_name=?, last_name=?, relationship=?, email=?, dob=?, password=? WHERE user_id=?");
-$stmt->bind_param("ssssssi", $firstName, $lastName, $relationship, $email, $dob, $hashedPassword, $userId);
+    // Set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// Validate and set parameters
-$firstName = htmlspecialchars($_POST['firstName']);
-$lastName = htmlspecialchars($_POST['lastName']);
-$relationship = htmlspecialchars($_POST['relationSelect']);
-$email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
-$dob = $_POST['dob']; // Consider validating the date format
-$password = $_POST['password'];
-$hashedPassword = password_hash($password, PASSWORD_DEFAULT); // Hash the password
+    // Get the user ID from the session or another source
+    $userId = $_SESSION['id'];
 
-session_start();
-if (isset($_SESSION['user_id'])) {
-    $userId = $_SESSION['user_id']; // Assuming user ID is stored in session
-} else {
-    die("User not logged in.");
-}
+    try {
+        // Prepare an SQL statement
+        $stmt = $conn->prepare("UPDATE users SET firstName = ?, lastName = ?, relationship = ?, dob = ?, password = ? WHERE id = ?");
+        // Bind parameters
+        $stmt->execute([$_POST['firstName'], $_POST['lastName'], $_POST['relationSelect'], 
+                        $_POST['dob'], password_hash(htmlspecialchars($_POST['password']), PASSWORD_DEFAULT), $userId]);
 
-// Execute the statement
-if ($stmt->execute()) {
-    echo "Profile updated successfully!";
-} else {
-    echo "Error: " . $stmt->error;
-}
+        echo "Profile updated successfully!";
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
 
-// Close connections
-$stmt->close();
-$conn->close();
+    // Close connection
+    $conn = null;
 ?>

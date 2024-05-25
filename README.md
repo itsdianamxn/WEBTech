@@ -1,1 +1,1 @@
-welcomePage.html is the first page to be accessed.
+welcomePage.php is the first page to be accessed.

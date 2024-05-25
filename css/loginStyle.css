@@ -186,7 +186,6 @@ button#submit:active {
 
 }
 
-
 @media (max-height: 660px) {
   form.loginBox {
     height: 90%;

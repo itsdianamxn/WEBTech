@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    if (!(array_key_exists('id', $_SESSION)))
+    {
+        header("Location: login.html");
+        exit();
+    }
+    $userId = $_SESSION['id'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,9 +22,13 @@
     <nav class="north-navbar">
         <ul class="north-nav">
             <li class="north-nav-item">
-                <a href="profile.html" target="mainFrame" class="profile-nav-link">
+                <a href="profile.php" target="mainFrame" class="profile-nav-link">
                     <span style="font-size: 160%;">Profile</span>
-                    <img src="profilePic.jpg" alt="Profile Picture" class="profile-picture">
+                    <img src="pics/profiles/<?php 
+                        if (file_exists('pics/profiles/'.$_SESSION['id'].'.jpg'))
+                        echo $_SESSION['id'];
+                        else echo '0';
+                    ?>.jpg" alt="Profile Picture" class="profile-picture">
                 </a>
             </li>
         </ul>
@@ -99,7 +113,7 @@
                 </a>
             </li>
             <li class="nav-item last">
-                <a href="welcomePage.html" class="nav-link">
+                <a href="welcomePage.php" class="nav-link">
                     <span class="link-text">Logout</span>
                     <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="door-open" role="img"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
