@@ -13,11 +13,11 @@ $_POST['secondPassword']	1111
 // Database connection settings
 $dbhost = 'localhost';  // or your host
 $dbname = 'children';
-$username = 'root';
-$password = '';
+$dbusername = 'root';
+$dbpassword = '';
 
 // Create a new PDO instance
-$conn = new PDO("mysql:host=$dbhost;dbname=$dbname", $username, $password);
+$conn = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbusername, $dbpassword);
 
 // Set the PDO error mode to exception
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

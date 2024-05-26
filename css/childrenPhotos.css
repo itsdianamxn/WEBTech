@@ -14,10 +14,14 @@ div {
   display: flex;
 }
 
-
 .image-preview {
   margin: 5px;
   text-align: center;
   background-color: beige;
+  width: 120px;
+  border-radius: 5px;
+}
+
+.image-preview-img {
   width: 120px;
 }

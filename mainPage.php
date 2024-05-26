@@ -65,7 +65,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="media.html" target="mainFrame" class="nav-link">
+                <a href="media.php" target="mainFrame" class="nav-link">
                     <span class="link-text">Multimedia</span>
                     <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="camera-retro" role="img"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"

@@ -1,4 +1,3 @@
-
 <?php
     session_start();
     if (!(array_key_exists('id', $_SESSION)))
@@ -9,7 +8,7 @@
     $userId = $_SESSION['id'];
 
     // Database connection settings
-    $dbhost = 'localhost';  // or your host
+    $dbhost = 'localhost';
     $dbname = 'children';
     $dbusername = 'root';
     $dbpassword = '';
