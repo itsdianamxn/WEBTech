@@ -38,7 +38,6 @@
             $email = $result['email'];
             $dob = $result['dob'];
         }
-        // echo $result['firstName'], $result['lastName'], $result['relationship'], $result['email'], $result['dob'];
 
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
@@ -69,12 +68,12 @@
             <form id="editPage" action="edit.php" method="post">
                 <div class="inputField">
                     <label style="display: flex; align-items: center;" for="firstName">First name</label>
-                    <input type="text" id="firstName" name="firstName" value="<?php echo  $firstname; ?>" required>
+                    <input type="text" id="firstName" name="firstName" value="<?php echo $firstname; ?>" required>
 
                 </div>
                 <div class="inputField">
                     <label style="display: flex; align-items: center;" for="lastName">Last name</label>
-                    <input type="text" id="lastName" name="lastName" value="<?php echo  $lastname; ?>">
+                    <input type="text" id="lastName" name="lastName" value="<?php echo $lastname; ?>">
                 </div>
                 <div class="inputField">
                     <label style="display: flex; align-items: center;">Relationship to children</label>

@@ -1,14 +1,16 @@
 <?php
     session_start();
+// phpinfo();
     if (!(array_key_exists('id', $_SESSION)))
     {
         header("Location: login.html");
         exit();
     }
     $userId = $_SESSION['id'];
+    $childID = $_POST['childId'];
 
-    $target_dir = "pics/profiles/";
-    $target_file = $target_dir . $userId . ".jpg";
+    $target_dir = "pics/childrenProfiles/";
+    $target_file = $target_dir . $childID . ".jpg";
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
@@ -25,10 +27,10 @@
     }
 
     // Check if file already exists
-    if (file_exists($target_file)) {
-        echo "Sorry, file already exists.";
-        $uploadOk = 0;
-    }
+    // if (file_exists($target_file)) {
+    //     echo "Sorry, file already exists.";
+    //     $uploadOk = 0;
+    // }
 
     // Check file size
     if ($_FILES["fileToUpload"]["size"] > 5000000) {
@@ -48,7 +50,7 @@
         // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+            header("Location: editChild.php?ID=". $childId);
         } else {
             echo "Sorry, there was an error uploading your file.";
         }

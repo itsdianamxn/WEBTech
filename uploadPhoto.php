@@ -72,7 +72,6 @@
 
             if ($stmt->execute())
             {
-                // Redirect to login page
                 header("Location: childrenPhotos.php?children=". htmlspecialchars($_POST['childId']));
                 exit();
             }
