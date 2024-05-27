@@ -24,8 +24,13 @@ body {
 }
 
 img {
-  margin: 2px;
+
+  height:80px;
+  display: block;
+  margin-left:auto;
+  margin-right:auto;
 }
+
 
 .files {
   margin: 10px;
@@ -124,7 +129,10 @@ table {
     height: 5rem;
     width: 90%;
   }
-
+  img
+  {
+    height: 50px;
+  }
   .child-thumbnail{
     height: 3rem;
     width: 5rem;

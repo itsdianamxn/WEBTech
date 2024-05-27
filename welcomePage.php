@@ -12,20 +12,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Welcome to Child Manager!</title>
-    <link rel="stylesheet" href="css/welcomePageStyle.css" type="text/css">
+    <link rel="stylesheet" href="../css/welcomePageStyle.css" type="text/css">
 </head>
 
 <body class="welcome">
     <div class="register-page">
         <h1 class="title">Welcome to<br> Child Manager!</h1>
         <div class="buttons-container">
-            <form class="welcomePage" action="welcomePage.php" method="post">
+            <form class="welcomePage" action="controller/welcomePage.php" method="post">
 
                 <div class="welcomeButtons">
-                    <a href="login.html" class="login" id="login">
+                    <a href="view/login.html" class="login" id="login">
                         <h1>Login</h1>
                     </a>
-                    <a href="register.html" class="register-first-page" id="register-first">
+                    <a href="view/register.html" class="register-first-page" id="register-first">
                         <h1>Register</h1>
                     </a>
                 </div>
