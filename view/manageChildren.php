@@ -39,9 +39,6 @@
 
 
 <head>
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="-1">
-    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
         <meta charset="UTF-8">
     <title>Manage</title>
     <link rel="stylesheet" href="../css/manageStyles.css" type="text/css">

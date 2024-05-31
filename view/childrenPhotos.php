@@ -33,10 +33,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="-1">
-    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">      
+    <head>  
     <title>Multimedia for <?php echo $children; ?></title>
       <link rel="stylesheet" href="../css/childrenPhotos.css">
     </head>

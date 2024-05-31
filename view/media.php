@@ -36,9 +36,6 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="-1">
-    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
           <meta charset="UTF-8">
       <title>Multimedia</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">

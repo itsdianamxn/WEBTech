@@ -12,7 +12,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Welcome to Child Manager!</title>
-    <link rel="stylesheet" href="../css/welcomePageStyle.css" type="text/css">
+    <link rel="stylesheet" href="./css/welcomePageStyle.css" type="text/css">
 </head>
 
 <body class="welcome">

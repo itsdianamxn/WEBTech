@@ -13,11 +13,8 @@
 
 
 <head>
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="-1">
-    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
     
-    <meta charset="UTF-8">
+ <meta charset="UTF-8">
     <title>Child Manager</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/mainPageStyles.css" type="text/css">
@@ -118,7 +115,7 @@
                 </a>
             </li>
             <li class="nav-item last">
-                <a href="welcomePage.php" class="nav-link">
+                <a href="../welcomePage.php" class="nav-link">
                     <span class="link-text">Logout</span>
                     <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="door-open" role="img"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"

@@ -40,6 +40,8 @@
                         $_POST['dob'], password_hash(htmlspecialchars($_POST['password']), PASSWORD_DEFAULT), $userId]);
 
         echo "Profile updated successfully!";
+        header("Location: ../view/profile.php");
+
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
     }
