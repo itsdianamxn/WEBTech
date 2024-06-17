@@ -7,29 +7,12 @@
     }
     $userId = $_SESSION['id'];
 
-    // Database connection settings
-    $dbhost = 'localhost';
-    $dbname = 'children';
-    $dbusername = 'root';
-    $dbpassword = '';
+    require_once '../model/User.php';
+    require_once '../model/Child.php';
 
-    // Create a new PDO instance
-    $conn = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbusername, $dbpassword);
-
-    // Set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    try {
-        // Prepare an SQL statement
-        $stmt = $conn->prepare("SELECT * FROM children WHERE parent_ID=?");
-        // Bind parameters and execute the prepared statement
-        $stmt->execute([$userId]);
-    } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
-    }
-
-    // Close connection
-    $conn = null;
+    $u = new User();
+    $u->load($userId);
+    $children = $u->getChildren();
 ?>
 
 <!DOCTYPE html>
@@ -76,23 +59,22 @@
         <div class="container" id="all-children">
             <?php
                 $endl = "\n";
-                while ($result = $stmt->fetch())
+                if ($children == null)
                 {
-                    $firstname = $result['firstname'];
-                    $lastname = $result['lastname'];
-                    $dob = $result['dob'];
-                    $ID = $result['ID'];
-
-                    echo '      <div class="child-thumbnail" id="child-'.$ID.'" onclick="updatePictures('.$ID.')">' . $endl;
-                    echo '      <input type="checkbox" id="'.$ID.'-checkbox" name="'.$ID.'-checkbox"  style="display: none;">' . $endl;
-                    echo '      <span class="child-name">'.$firstname.'</span><br>' . $endl;
-                    echo '      <img class="child-photo" src="../pics/childrenProfiles/'; 
-                        if (file_exists('../pics/childrenProfiles/'.$ID.'.jpg'))
-                            echo $ID;
-                        else echo '0';
-                    echo '.jpg" alt="Child picture">' . $endl;
-                    echo '      </div>' . $endl;
+                    echo 'no children';
                 }
+                else
+                    foreach ($children as $child) {
+                        echo '      <div class="child-thumbnail" id="child-'.$child->getID().'" onclick="updatePictures('.$child->getID().')">' . $endl;
+                        echo '      <input type="checkbox" id="'.$child->getID().'-checkbox" name="'.$child->getID().'-checkbox"  style="display: none;">' . $endl;
+                        echo '      <span class="child-name">'.$child->getFirstname().'</span><br>' . $endl;
+                        echo '      <img class="child-photo" src="../pics/childrenProfiles/'; 
+                            if (file_exists('../pics/childrenProfiles/'.$child->getID().'.jpg'))
+                                echo $child->getID();
+                            else echo '0';
+                        echo '.jpg" alt="Child picture">' . $endl;
+                        echo '      </div>' . $endl;
+                    }
             ?>
         </div>
         <iframe class = "files" id="webpage-iframe" style="width: 80%; height: 80%;"></iframe>

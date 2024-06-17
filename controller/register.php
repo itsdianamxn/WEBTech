@@ -10,42 +10,26 @@ $_POST['password']	1111
 $_POST['secondPassword']	1111
 */
 
-// Database connection settings
-$dbhost = 'localhost';  // or your host
-$dbname = 'children';
-$dbusername = 'root';
-$dbpassword = '';
-
-// Create a new PDO instance
-$conn = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbusername, $dbpassword);
-
-// Set the PDO error mode to exception
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-// Prepare and bind
-$stmt = $conn->prepare("SELECT 1 FROM users WHERE email = :email");
-$stmt->bindParam(':email', htmlspecialchars($_POST['email']));
-
-// Execute the prepared statement
-$stmt->execute();
-$result = $stmt->fetch(PDO::FETCH_ASSOC);
+require_once '../model/Database.php';
+$db = new Database();
+$result = $db->select("SELECT 1 FROM users WHERE email = :email", [':email'=> htmlspecialchars($_POST['email'])]);
 
 if ($result) {
     // Email already exists. Try again.
     header("Location: ../view/register.html?error=alreadyExists");
     exit();
 }
+require_once '../model/User.php';
+$user = new User();
+$user->setFirstname(htmlspecialchars($_POST['firstName']));
+$user->setLastname(htmlspecialchars($_POST['lastName']));
+$user->setEmail(htmlspecialchars($_POST['email']));
+$user->setPassword(htmlspecialchars($_POST['password']));
+$user->setRelation(htmlspecialchars($_POST['relationSelect']));
+$user->setDOB(htmlspecialchars($_POST['dob']));
+$user->setPassword(password_hash(htmlspecialchars($_POST['password']), PASSWORD_DEFAULT));
 
-$stmt = $conn->prepare('INSERT INTO users (firstName, lastName, relationship, email, dob, password) ' . 
-                                'VALUES (:firstName, :lastName, :relationship, :email, :dob, :password)');
-$stmt->bindParam(':firstName', htmlspecialchars($_POST['firstName']));
-$stmt->bindParam(':lastName', htmlspecialchars($_POST['lastName']));
-$stmt->bindParam(':relationship', htmlspecialchars($_POST['relationSelect']));
-$stmt->bindParam(':email', htmlspecialchars($_POST['email']));
-$stmt->bindParam(':dob', htmlspecialchars($_POST['dob']));
-$stmt->bindParam(':password', password_hash(htmlspecialchars($_POST['password']), PASSWORD_DEFAULT));
-
-if ($stmt->execute())
+if ($user->save())
 {
     // Redirect to login page
     header("Location: ../view/login.html");
