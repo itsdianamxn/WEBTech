@@ -1,146 +1,97 @@
-<?php
-    session_start();
-    if (!(array_key_exists('id', $_SESSION)))
-    {
-        header("Location: ../view/login.html");
-        exit();
-    }
-    $userId = $_SESSION['id'];
-
-    $children = "";
-    if (isset($_GET["children"])){
-        $children =  htmlspecialchars($_GET["children"]);
-        if (str_ends_with($children, ","))
-        {
-            $children = substr($children, 0, strlen($children) - 1);
-        }
-    }
-    $childrenIds = explode(",", $children); // transform from string to array
-    $endl = "\n";
-
-    // Database connection settings
-    $dbhost = 'localhost';
-    $dbname = 'children';
-    $dbusername = 'root';
-    $dbpassword = '';
-
-    // Create a new PDO instance
-    $conn = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbusername, $dbpassword);
-    // Set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia for <?php echo htmlspecialchars($_GET["children"]); ?></title>
+    <link rel="stylesheet" href="../css/childrenPhotos.css">
+</head>
+<body>
+    <?php
+        session_start();
+        if (!array_key_exists('id', $_SESSION)) {
+            header("Location: ../view/login.html");
+            exit();
+        }
+        $userId = $_SESSION['id'];
+        $children = isset($_GET["children"]) ? htmlspecialchars($_GET["children"]) : "";
 
-    <head>  
-    <title>Multimedia for <?php echo $children; ?></title>
-      <link rel="stylesheet" href="../css/childrenPhotos.css">
-    </head>
-    <body>
-        
+        if ($children != "") {
+            echo '<h2>Pictures of ';
+            $children = rtrim($children, ',');
+            $childrenIds = explode(",", $children);
 
-        <?php 
-            if ($children != "")
-            {
-                echo '<h2>Pictures of ';
-                try {
-                    // Prepare an SQL statement
-                    $in  = str_repeat('?,', count($childrenIds) - 1) . '?';
-                    $stmt = $conn->prepare("SELECT * FROM children WHERE ID in ($in)");
-                    // Bind parameters and execute the prepared statement
-                    $stmt->execute($childrenIds);
-                } catch (PDOException $e) {
-                    echo "Error: " . $e->getMessage();
-                }
+            try {
+                $dbhost = 'localhost';
+                $dbname = 'children';
+                $dbusername = 'root';
+                $dbpassword = '';
+                $conn = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbusername, $dbpassword);
+                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                $in = str_repeat('?,', count($childrenIds) - 1) . '?';
+                $stmt = $conn->prepare("SELECT * FROM children WHERE ID in ($in)");
+                $stmt->execute($childrenIds);
 
                 $first = true;
-                while ($result = $stmt->fetch())
-                {
-                    if ($first)
-                    {
+                while ($result = $stmt->fetch()) {
+                    if ($first) {
                         $first = false;
-                    }
-                    else
-                    {
+                    } else {
                         echo ', ';
                     }
                     echo $result['firstname'];
                 }
                 echo '</h2>';
-            }
-            else
-            {
-                echo 'Nothing to display.<br>Select at least a child to view photos.';
-                exit();
-            }
 
-            if ($children != "" && count($childrenIds) == 1) {
-                echo '  <form action="../controller/uploadPhotoController.php"  method="post" enctype="multipart/form-data">' . $endl;
-                echo '    Select new file for upload:' . $endl;
-                echo '    <input type="hidden" name="childId" id="childId" value="' . $childrenIds[0] . '">' . $endl;
-                echo '    <input type="file" name="fileToUpload" id="fileToUpload">' . $endl;
-                echo '    <input type="submit" value="Upload" name="submit">' . $endl;
-                echo '  </form>' . $endl;
-            } 
-        ?>
-
-        <div>
-            <?php
-                    try {
-                        // Prepare an SQL statement
-                        $in  = str_repeat('?,', count($childrenIds) - 1) . '?';
-                        $stmt = $conn->prepare("SELECT * FROM images WHERE child_ID in ($in)");
-                        // Bind parameters and execute the prepared statement
-                        $stmt->execute($childrenIds);
-                    } catch (PDOException $e) {
-                        echo "Error: " . $e->getMessage();
-                    }
-
-                    while ($result = $stmt->fetch())
-                    {
-                        $title = substr($result['Picture'], strlen("../pics/"));
-                        $dot = strrpos($title, '.');
-                        $title = ucwords(str_replace(['_', '-', '.', ','], ' ', substr($title, 0, $dot)));
-                        echo '    <span class="image-preview">' . $title . '<br>' . $endl;
-                        echo '        <img class="image-preview-img" src="' . $result['Picture'] . '" alt="' . $title . '" onclick="loadHighResImage(this.src, this.alt)">' . $endl;
-                        echo '        <br>' . $result['uploadDate'] . $endl;
-                        echo '    </span>' . $endl;
-                    }
-
-                    // Close connection
-                    $conn = null;
-
-            ?>
-        </div>
-        <script>
-            function loadHighResImage(imgSrc, title) {
-                var highResImg = document.getElementById("hires-img");
-                if (highResImg == null)
-                {
-                    highResImg = document.createElement("img");
-                    highResImg.id="hires-img";
-
-                    // Set the style of the high-res image to be centered and have a max-width of 100%
-                    highResImg.style.position = "fixed";
-                    highResImg.style.top = "50%";
-                    highResImg.style.left = "50%";
-                    highResImg.style.transform = "translate(-50%, -50%)";
-                    highResImg.style.maxWidth = "100%";
-                    highResImg.style.maxHeight = "100%";
-
-                    // Append the high-res image to the body of the HTML document
-                    document.body.appendChild(highResImg);
-
-                    // Remove the high-res image when it is clicked
-                    highResImg.onclick = function() {
-                        document.body.removeChild(highResImg);
-                    };
+                if (count($childrenIds) == 1) {
+                    echo '<form action="../controller/uploadPhotoController.php" method="post" enctype="multipart/form-data">';
+                    echo 'Select new file for upload:';
+                    echo '<input type="hidden" name="childId" id="childId" value="' . $childrenIds[0] . '">';
+                    echo '<input type="file" name="fileToUpload" id="fileToUpload">';
+                    echo '<input type="submit" value="Upload" name="submit">';
+                    echo '</form>';
                 }
 
-                highResImg.src = imgSrc;
-                highResImg.alt = title;
+                $stmt = $conn->prepare("SELECT * FROM images WHERE child_ID in ($in)");
+                $stmt->execute($childrenIds);
+                while ($result = $stmt->fetch()) {
+                    $title = ucwords(str_replace(['_', '-', '.', ','], ' ', pathinfo($result['Picture'], PATHINFO_FILENAME)));
+                    echo '<span class="image-preview">' . $title . '<br>';
+                    echo '<img class="image-preview-img" src="' . $result['Picture'] . '" alt="' . $title . '" onclick="loadHighResImage(this.src, this.alt)"><br>';
+                    echo $result['uploadDate'];
+                    echo '</span>';
+                }
+            } catch (PDOException $e) {
+                echo "Error: " . $e->getMessage();
             }
-        </script>
-    </body>
+        } else {
+            echo 'Nothing to display.<br>Select at least a child to view photos.';
+        }
+    ?>
+
+    <div></div>
+
+    <script>
+        function loadHighResImage(imgSrc, title) {
+            var highResImg = document.getElementById("hires-img");
+            if (highResImg == null) {
+                highResImg = document.createElement("img");
+                highResImg.id = "hires-img";
+                highResImg.style.position = "fixed";
+                highResImg.style.top = "50%";
+                highResImg.style.left = "50%";
+                highResImg.style.transform = "translate(-50%, -50%)";
+                highResImg.style.maxWidth = "100%";
+                highResImg.style.maxHeight = "100%";
+                document.body.appendChild(highResImg);
+                highResImg.onclick = function() {
+                    document.body.removeChild(highResImg);
+                };
+            }
+            highResImg.src = imgSrc;
+            highResImg.alt = title;
+        }
+    </script>
+</body>
 </html>
