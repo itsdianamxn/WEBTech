@@ -7,36 +7,16 @@
     }
     $userId = $_SESSION['id'];
 
-    // Database connection settings
-    $dbhost = 'localhost';
-    $dbname = 'children';
-    $dbusername = 'root';
-    $dbpassword = '';
+    require_once '../model/User.php';
+    $u = new User();
+    $u->load($userId);
 
-    // Create a new PDO instance
-    $conn = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbusername, $dbpassword);
-
-    // Set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    try {
-        // Prepare an SQL statement
-        $stmt = $conn->prepare("SELECT * FROM children WHERE parent_ID=?");
-        // Bind parameters and execute the prepared statement
-        $stmt->execute([$userId]);
-
-    } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
-    }
-
-    // Close connection
-    $conn = null;
+    require_once '../model/Child.php';
+    $children = $u->getChildren();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
-
 
 <head>
         <meta charset="UTF-8">
@@ -50,16 +30,11 @@
     <div class="container">
         <?php
             $endl = "\n";
-            while ($result = $stmt->fetch())
+            foreach ($children as $child)
             {
-                $firstname = $result['firstname'];
-                $lastname = $result['lastname'];
-                $dob = $result['dob'];
-                $ID = $result['ID'];
-
-                echo '<div class="child-thumbnail" id="child-'. $ID .'">' . $endl;
+                echo '<div class="child-thumbnail" id="child-'. $child->getID() .'">' . $endl;
                 echo '  <div class="nameContainer">' . $endl;
-                echo '      <svg onclick="location.href=\'deleteChild.php?ID=' . $ID . '\'" aria-hidden="true" focusable="false" data-prefix="fad"' . $endl;
+                echo '      <svg onclick="location.href=\'deleteChild.php?ID=' . $child->getID() . '\'" aria-hidden="true" focusable="false" data-prefix="fad"' . $endl;
                 echo '          data-icon="square-xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="-200 -200 700 700"' . $endl;
                 echo '          class="svg-inline--fa fa-square-xmark fa-w-14 fa-xs" width="3rem" height="3rem">' . $endl;
                 echo '          <g class="fa-group">' . $endl;
@@ -68,8 +43,8 @@
                 echo '                  class="fa-secondary"></path>' . $endl;
                 echo '          </g>' . $endl;
                 echo '      </svg>' . $endl;
-                echo '      <span class="child-name">' . $firstname . '</span>' . $endl;
-                echo '      <svg onclick="location.href=\'editChild.php?ID=' . $ID . '\'" aria-hidden="true" focusable="false" data-prefix="fad"' . $endl;
+                echo '      <span class="child-name">' . $child->getFirstname() . '</span>' . $endl;
+                echo '      <svg onclick="location.href=\'editChild.php?ID=' . $child->getID() . '\'" aria-hidden="true" focusable="false" data-prefix="fad"' . $endl;
                 echo '          data-icon="pen-to-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="-30 -230 800 800"' . $endl;
                 echo '          class="svg-inline--fa fa-pen-to-square fa-w-14 fa-xs" width="3rem" height="3rem">' . $endl;
                 echo '          <g class="fa-group">' . $endl;
@@ -80,13 +55,13 @@
                 echo '      </svg>' . $endl;
                 echo '  </div>' . $endl;
                 echo '  <ul class="supplementary-info">' . $endl;
-                echo '      <li class="info">'. $lastname .'</li>' . $endl;
-                echo '      <li class="info">Age: ' . date_diff(date_create($dob), date_create(date("Y-m-d")))->format('%y') . '</li>' . $endl;
-                echo '      <li class="info">Birthdate: ' . $dob . '</li>' . $endl;
+                echo '      <li class="info">'. $child->getLastname() .'</li>' . $endl;
+                echo '      <li class="info">Age: ' . date_diff(date_create($child->getDOB()), date_create(date("Y-m-d")))->format('%y') . '</li>' . $endl;
+                echo '      <li class="info">Birthdate: ' . $child->getDOB() . '</li>' . $endl;
                 echo '  </ul>' . $endl;
                 echo '  <img src="../pics/childrenProfiles/'; 
-                    if (file_exists('../pics/childrenProfiles/'.$ID.'.jpg'))
-                        echo $ID;
+                    if (file_exists('../pics/childrenProfiles/'. $child->getID() .'.jpg'))
+                        echo $child->getID();
                     else echo '0';
                 echo '.jpg" alt="Child picture">' . $endl;
                 echo '</div>' . $endl;

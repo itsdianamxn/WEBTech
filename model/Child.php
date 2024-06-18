@@ -127,8 +127,8 @@ class Child
 
         ];
         
-        $res = $db->execute('UPDATE users SET' .
-        'firstname = :firstName, lastname = :lastName, dob =:dob, stage = :stage Parent_ID = :ParentID ' .
+        $res = $db->execute('UPDATE children SET ' .
+        'firstname = :firstName, lastname = :lastName, dob = :dob, stage = :stage, parent_ID = :ParentID ' .
         'WHERE ID = ' . $this->id, $params);
         return $res;
     }
