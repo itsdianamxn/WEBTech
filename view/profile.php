@@ -6,6 +6,10 @@
         exit();
     }
     $userId = $_SESSION['id'];
+
+    require_once '../model/User.php';
+    $u = new User();
+    $u->load($userId);
 ?>
 
 <!DOCTYPE html>
@@ -24,8 +28,8 @@
 <body>
   <div class="container">
     <img src="../pics/profiles/<?php 
-          if (file_exists('../pics/profiles/'.$_SESSION['id'].'.jpg'))
-              echo $_SESSION['id'];
+          if (file_exists('../pics/profiles/' . $u->getID() . '.jpg'))
+              echo $u->getID();
           else echo '0';
     ?>.jpg" style="width:10%" alt="Profile Picture" class="profile-picture">
 
@@ -40,7 +44,7 @@
           Parent name:
         </td>
         <td class = "info">
-          <strong><?php echo  $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?></strong>
+          <strong><?php echo $u->getFirstname() . ' ' . $u->getLastname(); ?></strong>
         </td>
       </tr>
       <tr>
@@ -48,7 +52,7 @@
           Email:
         </td>
         <td class = "info">
-          <strong><?php echo  $_SESSION['email']; ?></strong>
+          <strong><?php echo $u->getEmail(); ?></strong>
         </td>
       </tr>
       <tr>

@@ -97,7 +97,7 @@ class Child
         $this->ParentID = $ParentID;
     }
 
-    public function save()
+    public function add()
     {
         $db = new Database();
         $params = [
@@ -112,6 +112,24 @@ class Child
         $res = $db->execute('INSERT INTO children (firstname, lastname, dob, stage, parent_ID) ' . 
                                        'VALUES (:firstName, :lastName, :dob, :stage, :ParentID)', $params);
 
+        return $res;
+    }
+    public function save()
+    {
+        $db = new Database();
+        $params = [
+            ':firstName' => $this->firstname,
+            ':lastName' => $this->lastname,
+            ':dob' => $this->dob,
+            ':stage' => $this->stage,
+            ':ParentID' => $this->ParentID,
+
+
+        ];
+        
+        $res = $db->execute('UPDATE users SET' .
+        'firstname = :firstName, lastname = :lastName, dob =:dob, stage = :stage Parent_ID = :ParentID ' .
+        'WHERE ID = ' . $this->id, $params);
         return $res;
     }
     public function getPictures()

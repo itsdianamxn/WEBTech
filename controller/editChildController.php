@@ -12,55 +12,24 @@ if (isset($_POST['childId'])) {
     header("Location: ../view/editChild.php?error=missingChildId");
     exit();
 }
+require_once '../model/Child.php';
+$c = new Child();
+$c->load($child_id);
+$c->setFirstname(htmlspecialchars($_POST['firstName']));
+$c->setLastname(htmlspecialchars($_POST['lastName']));
+$c->setDOB(htmlspecialchars($_POST['dob']));
+$c->setStage(htmlspecialchars($_POST['stageSelect']));
+$c->setParentID($userId);
 
-// Database connection settings
-$dbhost = 'localhost';  // or your host
-$dbname = 'children';
-$dbusername = 'root';
-$password = '';
-
-try {
-    // Create a new PDO instance
-    $conn = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbusername, $password);
-
-    // Set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    // Prepare the SQL statement for updating the children table
-    $stmt = $conn->prepare('UPDATE children 
-                            SET firstname = :firstname, 
-                                lastname = :lastname, 
-                                dob = :dob, 
-                                stage = :stage 
-                            WHERE ID = :child_id');
-    
-    // Get the POST values and sanitize them
-    $firstname = htmlspecialchars($_POST['firstName']);
-    $lastname = htmlspecialchars($_POST['lastName']);
-    $dob = htmlspecialchars($_POST['dob']);
-    $stage = htmlspecialchars($_POST['stageSelect']);
-    
-    // Bind the parameters to the statement
-    $stmt->bindParam(':firstname', $firstname);
-    $stmt->bindParam(':lastname', $lastname);
-    $stmt->bindParam(':dob', $dob);
-    $stmt->bindParam(':stage', $stage);
-    $stmt->bindParam(':child_id', $child_id);
-    
-    // Execute the statement
-    if ($stmt->execute()) {
-        // Redirect to all children list
-        header("Location: ../view/manageChildren.php?success=1");
-    } else {
-        // Error
-        header("Location: ../view/editChild.php?error=executionFailed");
-    }
-} catch (PDOException $e) {
-    // Error handling
-    header("Location: ../view/editChild.php?error=" . $e->getMessage());
+if ($c->save())
+{
+    echo "Child profile updated successfully!";
+    header("Location: ../view/manageChildren.php?success=1");
+}
+else
+{
+    // Error
+    header("Location: ../view/editChild.php?error=dbError");
     exit();
 }
-
-// Close connection
-$conn = null;
 ?>

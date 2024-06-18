@@ -12,7 +12,7 @@ $_POST['secondPassword']	1111
 
 require_once '../model/Database.php';
 $db = new Database();
-$result = $db->select("SELECT 1 FROM users WHERE email = :email", [':email'=> htmlspecialchars($_POST['email'])]);
+$result = $db->select("SELECT 1 FROM users WHERE email = :email", true, [':email'=> htmlspecialchars($_POST['email'])]);
 
 if ($result) {
     // Email already exists. Try again.
@@ -29,7 +29,7 @@ $user->setRelation(htmlspecialchars($_POST['relationSelect']));
 $user->setDOB(htmlspecialchars($_POST['dob']));
 $user->setPassword(password_hash(htmlspecialchars($_POST['password']), PASSWORD_DEFAULT));
 
-if ($user->save())
+if ($user->add())
 {
     // Redirect to login page
     header("Location: ../view/login.html");

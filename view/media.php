@@ -61,7 +61,7 @@
                 $endl = "\n";
                 if ($children == null)
                 {
-                    echo 'no children';
+                    //echo 'no children';
                 }
                 else
                     foreach ($children as $child) {

@@ -7,45 +7,25 @@
     }
     $userId = $_SESSION['id'];
     
-    // Database connection settings
-    $dbhost = 'localhost';  // or your host
-    $dbname = 'children';
-    $dbusername = 'root';
-    $dbpassword = '';
 
-    /*
-    $_POST['firstName']	Diana-Alexandra
-    $_POST['lastName']	Maxiniuc
-    $_POST['relationSelect']	Parent
-    $_POST['email']	dianalexandramaxiniuc@gmail.com
-    $_POST['dob']	no value
-    $_POST['password']	1111
-    $_POST['secondPassword']	1111
-    */
+    require_once '../model/User.php';
+    $u = new User();
+    $u->load($userId);
+    $u->setFirstname(htmlspecialchars($_POST['firstName']));
+    $u->setLastname(htmlspecialchars($_POST['lastName']));
+    $u->setRelation(htmlspecialchars($_POST['relationSelect']));
+    $u->setDOB(htmlspecialchars($_POST['dob']));
+    $u->setPassword(password_hash(htmlspecialchars($_POST['password']), PASSWORD_DEFAULT));
 
-    // Create a new PDO instance
-    $conn = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbusername, $dbpassword);
-
-    // Set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    // Get the user ID from the session or another source
-    $userId = $_SESSION['id'];
-
-    try {
-        // Prepare an SQL statement
-        $stmt = $conn->prepare("UPDATE users SET firstName = ?, lastName = ?, relationship = ?, dob = ?, password = ? WHERE id = ?");
-        // Bind parameters
-        $stmt->execute([$_POST['firstName'], $_POST['lastName'], $_POST['relationSelect'], 
-                        $_POST['dob'], password_hash(htmlspecialchars($_POST['password']), PASSWORD_DEFAULT), $userId]);
-
+    
+    if ($u->save())
+    {
         echo "Profile updated successfully!";
         header("Location: ../view/profile.php");
-
-    } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
     }
-
-    // Close connection
-    $conn = null;
+    else
+    {
+        // Error
+        header("Location: ../view/profile.html?error=dbError");
+    }
 ?>

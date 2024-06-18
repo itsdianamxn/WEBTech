@@ -107,7 +107,7 @@ class User
     {
         $this->dob = $dob;
     }
-    public function save()
+    public function add()
     {
         $db = new Database();
         $params = [
@@ -121,6 +121,23 @@ class User
         $res = $db->execute('INSERT INTO users (firstName, lastName, relationship, email, dob, password) ' . 
                                        'VALUES (:firstName, :lastName, :relationship, :email, :dob, :password)', $params);
 
+        return $res;
+    }
+    public function save()
+    {
+        $db = new Database();
+        $params = [
+            ':firstName' => $this->firstname,
+            ':lastName' => $this->lastname,
+            ':relationship' => $this->relationship,
+            ':email' => $this->email,
+            ':dob' => $this->dob,
+            ':password' => $this->password,
+            ':id' =>  $this->id
+        ];
+        $res = $db->execute('UPDATE users SET ' .
+            'firstName = :firstName, lastName = :lastName, relationship = :relationship, email = :email, dob =:dob, password = :password ' .
+            'WHERE ID = :id', $params);
         return $res;
     }
     public function getChildren()
