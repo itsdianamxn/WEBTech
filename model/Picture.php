@@ -70,22 +70,30 @@ class Picture
     {
         $this->picture = $path;
     }
-    public function setDate($date)
-    {
-        $this->date = $date;
-    }
 
-    public function save()
+    public function add()
     {
         $db = new Database();
         $params = [
             ':childID' => $this->childID,
             ':picture' => $this->picture,
-            ':date' => $this->date,
         ];
-        $res = $db->execute('INSERT INTO images (child_ID, Picture, uploadDate) ' . 
-                                       'VALUES (:childID, :picture, :date)', $params);
+        $res = $db->execute('INSERT INTO images (child_ID, Picture) ' . 
+                                       'VALUES (:childID, :picture)', $params);
 
+        return $res;
+    }
+    public function save()
+    {
+        $db = new Database();
+        $params = [
+            ':child_ID' => $this->childID,
+            ':picture' => $this->picture,
+        ];
+        
+        $res = $db->execute('UPDATE images SET ' .
+        'child_ID = :child_ID, Picture = :picture ' .
+        'WHERE ID = ' . $this->id, $params);
         return $res;
     }
 }

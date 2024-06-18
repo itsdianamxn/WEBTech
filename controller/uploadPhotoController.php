@@ -44,6 +44,7 @@
         echo "Only JPG, JPEG, PNG & GIF files are allowed. Your file is a ". $imageFileType . "<br>\n";
         $uploadOk = 0;
     }
+    $child_id = htmlspecialchars($_POST['childId']);
 
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
@@ -52,27 +53,16 @@
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             echo "The file ". htmlspecialchars(basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.<br>\n";
+    
+            require_once '../model/Picture.php';
+        
+            $p = new Picture();
+            $p->setChildID($child_id);
+            $p->setPicture($target_file);
 
-            // insert into database
-
-            // Database connection settings
-            $dbhost = 'localhost';  // or your host
-            $dbname = 'children';
-            $dbusername = 'root';
-            $dbpassword = '';
-
-            // Create a new PDO instance
-            $conn = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbusername, $dbpassword);
-            // Set the PDO error mode to exception
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            $stmt = $conn->prepare('INSERT INTO images (child_ID, Picture) VALUES (:child_ID, :Picture)');
-            $stmt->bindParam(':child_ID', htmlspecialchars($_POST['childId']));
-            $stmt->bindParam(':Picture', $target_file);
-
-            if ($stmt->execute())
+            if ($p->add())
             {
-                header("Location: ../view/childrenPhotos.php?children=". htmlspecialchars($_POST['childId']));
+                header("Location: ../view/childrenPhotos.php?children=" . $child_id);
                 exit();
             }
             else
@@ -84,5 +74,5 @@
             echo "Sorry, there was an error uploading your file.<br>\n";
         }
     }
-    echo 'Click <a href="childrenPhotos.php?children=' . htmlspecialchars($_POST['childId']) . '">here</a> to go back to current pictures.';
+    echo 'Click <a href="childrenPhotos.php?children=' . $child_id . '">here</a> to go back to current pictures.';
 ?>

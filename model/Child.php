@@ -123,8 +123,6 @@ class Child
             ':dob' => $this->dob,
             ':stage' => $this->stage,
             ':ParentID' => $this->ParentID,
-
-
         ];
         
         $res = $db->execute('UPDATE children SET ' .
@@ -132,6 +130,7 @@ class Child
         'WHERE ID = ' . $this->id, $params);
         return $res;
     }
+    
     public function getPictures()
     {
         $this->pictures = [];
@@ -147,5 +146,18 @@ class Child
 
         }
     }
+//     public function addPicture($picture)
+//     {
+// //        $picture = new Picture();
+
+//         $db = new Database();
+//         $params = [
+//             ':child_ID' => $this->id,
+//             ':Picture' => $picture,
+//         ];
+
+//         $res = $db->execute('INSERT INTO images (child_ID, Picture) VALUES (:child_ID, :Picture)');
+//         return $res;
+//     }
 }
 ?>
