@@ -39,7 +39,4 @@ else
     // Error
     header("Location: ../view/register.html?error=dbError");
 }
-
-// Close connection
-$conn = null;
 ?>

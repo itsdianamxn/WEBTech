@@ -41,6 +41,5 @@ class Database
         $result = $stmt->execute($params);
         return  $result;
     }
-
 }
 ?>
