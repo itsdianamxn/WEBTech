@@ -31,12 +31,14 @@ img {
   margin: 2px;
 }
 
-.files {
+ .files {
   margin: 10px;
-}
+  border: 10px solid #aa7d3d; 
+  border-style: ridge;
+} 
 
 .container {
-  width: 140px;
+  width: 140px; 
   height: 90%;
   display: flex;
   flex-direction: column;
@@ -58,6 +60,9 @@ img {
   margin: 5px;
   border-radius: 5px;
   padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .child-thumbnail:hover {
@@ -104,6 +109,7 @@ table {
 
   .files{
     margin: 0;
+    border: none;
   }
   tr{
     padding-top: 5px;
