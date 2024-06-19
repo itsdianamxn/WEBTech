@@ -41,7 +41,7 @@ img {
   display: flex;
   flex-direction: column;
   /*justify-content: space-evenly;*/
-  align-items: flex-start;
+  align-items: center;
   padding-top: 1px;
   background-color: white;
   border: 10px solid #e6a953;
