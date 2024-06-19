@@ -8,19 +8,25 @@ $userId = $_SESSION['id'];
 
 $children = isset($_GET["children"]) ? htmlspecialchars($_GET["children"]) : "";
 
+require_once "../model/Child.php";
+require_once "../model/Picture.php";
+require_once "../model/Database.php";
+
+$database = new Database();
+
 if ($children != "") {
     $children = rtrim($children, ',');
     $childrenIds = explode(",", $children);
 
     try {
-        $dbhost = 'localhost';
-        $dbname = 'children';
-        $dbusername = 'root';
+        $dbhost = $database->getDbhost();
+        $dbname = $database->getDbname();
+        $dbusername = $database->getDbusername();
         $dbpassword = '';
-        $conn = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbusername, $dbpassword);
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $conn = $database->getConnection();
 
         $in = str_repeat('?,', count($childrenIds) - 1) . '?';
+        $child = new Child();
         $stmt = $conn->prepare("SELECT * FROM children WHERE ID in ($in)");
         $stmt->execute($childrenIds);
 
@@ -41,13 +47,63 @@ if ($children != "") {
                 'uploadDate' => $result['uploadDate']
             ];
         }
-
-        echo json_encode(['children' => $childrenData, 'images' => $imagesData]);
+        // if(count($childrenData) > 0 && count($imagesData) > 0)
+        //     echo json_encode(['children' => $childrenData, 'images' => $imagesData]);
 
     } catch (PDOException $e) {
         echo json_encode(['error' => $e->getMessage()]);
     }
-} else {
-    echo json_encode(['error' => 'No children specified']);
-}
+} 
+if ($children != "") {
+            echo '<h2>Pictures of ';
+            $children = rtrim($children, ',');
+            $childrenIds = explode(",", $children);
+
+            try {
+                $dbhost = 'localhost';
+                $dbname = 'children';
+                $dbusername = 'root';
+                $dbpassword = '';
+                $conn = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbusername, $dbpassword);
+                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                $in = str_repeat('?,', count($childrenIds) - 1) . '?';
+                $stmt = $conn->prepare("SELECT * FROM children WHERE ID in ($in)");
+                $stmt->execute($childrenIds);
+
+                $first = true;
+                while ($result = $stmt->fetch()) {
+                    if ($first) {
+                        $first = false;
+                    } else {
+                        echo ', ';
+                    }
+                    echo $result['firstname'];
+                }
+                echo '</h2>';
+
+                if (count($childrenIds) == 1) {
+                    echo '<form action="../controller/uploadPhotoController.php" method="post" enctype="multipart/form-data">';
+                    echo 'Select new file for upload:';
+                    echo '<input type="hidden" name="childId" id="childId" value="' . $childrenIds[0] . '">';
+                    echo '<input type="file" name="fileToUpload" id="fileToUpload">';
+                    echo '<input type="submit" value="Upload" name="submit">';
+                    echo '</form>';
+                }
+
+                $stmt = $conn->prepare("SELECT * FROM images WHERE child_ID in ($in)");
+                $stmt->execute($childrenIds);
+                while ($result = $stmt->fetch()) {
+                    $title = ucwords(str_replace(['_', '-', '.', ','], ' ', pathinfo($result['Picture'], PATHINFO_FILENAME)));
+                    echo '<span class="image-preview">' . $title . '<br>';
+                    echo '<img class="image-preview-img" src="' . $result['Picture'] . '" alt="' . $title . '" onclick="loadHighResImage(this.src, this.alt)"><br>';
+                    echo $result['uploadDate'];
+                    echo '</span>';
+                }
+            } catch (PDOException $e) {
+                echo "Error: " . $e->getMessage();
+            }
+        } else {
+            echo 'Nothing to display.<br>Select at least a child to view photos.';
+        }
 ?>

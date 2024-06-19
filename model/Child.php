@@ -146,6 +146,8 @@ class Child
 
         }
     }
+
+    
 //     public function addPicture($picture)
 //     {
 // //        $picture = new Picture();

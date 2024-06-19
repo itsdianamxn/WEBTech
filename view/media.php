@@ -1,30 +1,14 @@
-<?php
-    session_start();
-    if (!(array_key_exists('id', $_SESSION)))
-    {
-        header("Location: ../view/login.html");
-        exit();
-    }
-    $userId = $_SESSION['id'];
-
-    require_once '../model/User.php';
-    require_once '../model/Child.php';
-
-    $u = new User();
-    $u->load($userId);
-    $children = $u->getChildren();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-          <meta charset="UTF-8">
+        <meta charset="UTF-8">
       <title>Multimedia</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="../css/mediaStyle.css">
+      <?php require_once "../controller/mediaController.php"; ?>
       <script>
-        function refreshIframe() {
+        function refreshIframe() { 
             var webpageUrl = "childrenPhotos.php?children=";
 
             var childrenNode = document.getElementById("all-children");
