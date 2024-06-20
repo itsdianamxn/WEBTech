@@ -14,12 +14,16 @@ try {
     $pdo = $database->getConnection(); // Assuming you have a method to get PDO connection
     $tables = $pdo->query("SHOW TABLES")->fetchAll(PDO::FETCH_COLUMN);
     $data = [];
+    // $tables.header_remove('users');
+    // foreach ($tables as $table) {
+    //     if($table != 'users'){
+    //     $stmt = $pdo->query("SELECT * FROM $table");
+    //     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    //     $data[$table] = $result;
+    // }
+    // }
 
-    foreach ($tables as $table) {
-        $stmt = $pdo->query("SELECT * FROM $table");
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $data[$table] = $result;
-    }
+    $stmt = $pdo->query("SELECT * FROM users where ID = ");
 
     $json_data = json_encode($data);
     

@@ -27,6 +27,30 @@ document.getElementById('extract-button').addEventListener('click', function() {
 });
 
 document.getElementById('import-button').addEventListener('click', function() {
-    fetch('../controller/importController.php')
+    document.getElementById('file-input').click();
+});
 
+document.getElementById('file-input').addEventListener('change', function() {
+    const file = this.files[0];
+    if (file) {
+        const formData = new FormData();
+        formData.append('file', file);
+
+        fetch('../controller/importController.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                document.getElementById('input').textContent = 'File uploaded successfully';
+            } else {
+                document.getElementById('input').textContent = 'Error: ' + data.error;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('input').textContent = 'Error uploading file';
+        });
+    }
 });

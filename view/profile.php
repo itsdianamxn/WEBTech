@@ -80,6 +80,7 @@
         <tr>
           <td colspan=2 class="buttons">
             <input type="button" id="import-button" value="Import">
+            <input type="file" id="file-input" style="display: none;">
             <pre id="input"></pre>
           </td>
         </tr>
