@@ -38,7 +38,7 @@
     <nav class="navbar">
         <ul class="navbar-nav">
             <li class="logo">
-                <a class="nav-link">
+                <a class="nav-link no-animation">
                     <span class="link-text">Childcare Manager</span>
                     <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="angle-double-right"
                         role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"

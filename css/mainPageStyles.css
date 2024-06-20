@@ -1,14 +1,3 @@
-html {
-    width: 100%;
-    height: 100vh;
-}
-
-body {
-    height: 100vh;
-    width: 100%;
-
-}
-
 :root {
     font-size: 16px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -68,7 +57,6 @@ main {
     border-top: 3px solid var(--navbar-border-color);
 }
 
-
 .north-navbar {
     position: fixed;
     height: 5rem;
@@ -88,7 +76,7 @@ main {
     flex-direction: column;
     justify-content: flex-start;
     width: 100%;
-    height: 91%
+    height: 91%;
 }
 
 .navbar-nav .first {
@@ -101,8 +89,6 @@ main {
     margin-top: auto;
     /* Pushes the last div to the bottom */
 }
-
-
 
 .north-nav {
     list-style: none;
@@ -121,7 +107,6 @@ main {
     height: 5rem;
 }
 
-
 .north-nav-item {
     height: 100%;
     width: 20%;
@@ -135,32 +120,37 @@ main {
     height: 5rem;
     color: var(--text-primary);
     text-decoration: none;
-    transition: var(--transition-speed);
+    transition: transform 0.2s ease-in-out, color var(--transition-speed), background-color var(--transition-speed);
     border-bottom: 5px solid var(--navbar-border-color);
 }
 
-.logo .nav-link:hover{
+/* Ensure icons have a consistent and larger size */
+.nav-link svg {
+    width: 40px;
+    height: 40px;
+    min-width: 2rem;
+    margin: 0 1.5rem;
+}
+
+/* Hover effects */
+.logo .nav-link:hover {
     background-color: var(--navbar-color);
     color: var(--text-primary);
 }
 
-.logo .nav-link:hover .fa-secondary{
+.logo .nav-link:hover .fa-secondary {
     color: var(--text-primary);
-
 }
 
 .nav-link:hover {
-    filter: opacity(1);
+    transform: scale(1.1);
     background-color: var(--bg-third);
     color: var(--bg-primary);
 }
 
-
-
 .nav-link:hover .fa-secondary {
     color: var(--bg-primary);
 }
-
 
 .profile-nav-link {
     height: 100%;
@@ -188,11 +178,6 @@ main {
     margin-left: 0.3rem;
 }
 
-.nav-link svg {
-    min-width: 2rem;
-    margin: 0 1.5rem;
-}
-
 .navbar:hover {
     width: 16rem;
 }
@@ -216,7 +201,6 @@ main {
 
 .logo {
     font-weight: bold;
-    text-transform: uppercase;
     text-align: center;
     color: var(--text-secondary);
     font-size: 1.5rem;
@@ -229,7 +213,6 @@ main {
     transition: var(--transition-speed);
 }
 
-
 .navbar:hover .logo svg {
     transform: rotate(-180deg);
 }
@@ -241,15 +224,19 @@ main {
     margin: 1rem;
     justify-self: center;
 }
+.navbar-nav li:first-child .nav-link:hover {
+    transform: none;
+    background-color: var(--navbar-color);
+    color: var(--text-primary);
+}
 
-
-@media only screen and  (max-width: 800px) {
-    html{
+@media only screen and (max-width: 800px) {
+    html {
         height: 100vh;
         width: auto;
     }
-    
-    .north-navbar{
+
+    .north-navbar {
         top: 0;
         width: 100%;
         height: 10vh;
@@ -258,62 +245,72 @@ main {
         font-size: 100%;
     }
 
-    .north-navbar{
+    .north-navbar {
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
         align-items: flex-start;
     }
 
-    .north-nav{
+    .north-nav {
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
     }
 
-    .north-nav-item{
+    .north-nav-item {
         width: 50%;
     }
 
-    .navbar{
+    .navbar {
         bottom: 0;
         width: 100%;
         height: 9vh;
-        border-top : 2px solid var(--navbar-border-color);
-        margin: 0;  
+        border-top: 2px solid var(--navbar-border-color);
+        margin: 0;
         display: flex;
         flex-direction: row;
         align-items: flex-end;
         padding-bottom: 5px;
     }
 
-    .navbar:hover{
+    .navbar:hover {
         width: 100%;
     }
 
     .navbar:hover .link-text {
         display: none;
     }
-    
-    .nav-item{
+
+    .nav-item {
         width: 17%;
     }
 
     .logo {
         display: none;
     }
+    .no-animation {
+        transition: none;
+    }
+    
+    /* Remove animation for the first item */
+    .no-animation:hover {
+        transform: none;
+        background-color: var(--navbar-color);
+        color: var(--text-primary);
+    }
 
-    .navbar-nav{
+    .navbar-nav {
         flex-direction: row;
         height: 9vh;
     }
 
-    .nav-link{
+    .nav-link {
         justify-content: center;
         height: 10vh;
     }
-    
+
     .navbar-nav .last {
         border-top: none;
         margin-top: auto;
@@ -324,23 +321,24 @@ main {
         border-left: none;
     }
 
-    .nav-link{
+    .nav-link {
         border-bottom: none;
     }
 
-    .north-nav-item{
+    .north-nav-item {
         font-size: 80%;
     }
 
-    .profile-picture{
+    .profile-picture {
         height: 9vh;
     }
 
-    html{
+    html {
         overflow: hidden;
         height: 100vh;
-        width: 100%;        
+        width: 100%;
     }
+
     body {
         display: flex;
         flex-direction: column;
@@ -349,22 +347,16 @@ main {
         width: 100%;
     }
 
-
-    main{ 
+    main {
         flex-grow: 1;
         margin: 0;
         margin-top: 10vh;
         padding: 0;
         border: none;
-        /* border: 18px solid #aa7d3d;
-        border-style: ridge; */
-
     }
 
-    .profile-nav-link{
+    .profile-nav-link {
         height: 10vh;
         margin: 0;
-
     }
-
 }
