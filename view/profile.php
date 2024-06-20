@@ -40,7 +40,7 @@
 
     <table>
       <tr>
-        <td>
+        <td class = "name">
           Parent name:
         </td>
         <td class = "info">
@@ -48,21 +48,25 @@
         </td>
       </tr>
       <tr>
-        <td>
-          Email:
+      <td class = "name">
+      Email:
         </td>
         <td class = "info">
           <strong><?php echo $u->getEmail(); ?></strong>
         </td>
       </tr>
       <tr>
-        <td>
-          Phone number:
+      <td class = "name">
+      Phone number:
         </td>
         <td class = "info">
           <strong><?php echo  $_SESSION['phone']; ?></strong>
         </td>
       </tr>
+    </table>
+    </div>
+
+    <table>
       <tr>
         <td colspan=2 class="buttons">
           <input type="button" value="Edit Your Profile" onclick="location.href='editProfile.php'">
@@ -84,7 +88,6 @@
         </td>
       </tr>
     </table>
-  </div>
 </body>
 
 </html>

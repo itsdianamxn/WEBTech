@@ -11,10 +11,13 @@
     --bg-third: #ff7b5c;
     --border-color: #aa7d3d;
 }
-
+form
+{
+    margin-right: 10px;
+}
 body {
     background: var(--bg-primary);
-    width: 100%;
+    width: 80%;
     font-size: 2rem;
     overflow: hidden;
     display: flex;
@@ -50,6 +53,9 @@ input[type="button"]:active {
     box-shadow: 0 3px #333; /* Slightly reduced shadow for the pressed effect */
 
 }
+table {
+margin-right: 10px;
+}
 
 tr{
     display: flex;
@@ -71,11 +77,11 @@ td{
     display: flex;
     background-color: #ffdeae;
     border: 2px solid black;
-    width: 75%;
+    width: 100%;
     padding-left: 5px;
-    overflow-x: auto;
+    overflow-x: hidden;
+    margin: 20px;
 }
-
 
 .profile-picture {
     border-radius: 50%;
@@ -84,21 +90,52 @@ td{
 }
 
 @media screen and (max-width: 800px) {
-    body{
-        overflow-y: auto;
+    .profile-picture {
+        border-radius: 0px;
+        margin: 0px;
+        visibility: hidden;
     }
-    
+    td{
+        padding:10px;
+        width: 20%;
+    }
+    td.name{
+        padding:0px;
+        width: 0%;
+        visibility: hidden;
+
+    }
+
+    body{
+    width: 100%;
+    font-size: 1.7rem;
+    padding-left: 0px;
+    flex-direction: column;
+
+    }
+    input#fileToUpload
+    {
+        margin-right: 0px;
+    }
     input[type="button"] {
         width: 90%;
         font-size: 80%;
-        padding: 20px;
+        padding-right: 20px;
 
+    }
+    .info{
+        display: flex;
+        background-color: var(--bg-primary);
+        border: 0px;
+        width: 100%;
+        padding-left: 5px;
+        overflow-x: hidden;
+        margin: 0px;
     }
 
     table {
         font-size: 70%;
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
     }
