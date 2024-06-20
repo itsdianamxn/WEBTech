@@ -12,17 +12,17 @@
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-    // Check if image file is a actual image or fake image
-    if (isset($_POST["submit"])) {
-        $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-        if($check !== false) {
-            echo "File is an image - " . $check["mime"] . ".<br>\n";
-            $uploadOk = 1;
-        } else {
-            echo "File is not an image.<br>\n";
-            $uploadOk = 0;
-        }
-    }
+    // // Check if image file is a actual image or fake image
+    // if (isset($_POST["submit"])) {
+    //     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+    //     if($check !== false) {
+    //         echo "File is an image - " . $check["mime"] . ".<br>\n";
+    //         $uploadOk = 1;
+    //     } else {
+    //         echo "File is not an image.<br>\n";
+    //         $uploadOk = 0;
+    //     }
+    // }
 
     // Check if file already exists
     $i = 0;
@@ -32,18 +32,23 @@
         $i++;
     }
     $target_file = $target_file_tmp;
-
     // Check file size
-    if ($_FILES["fileToUpload"]["size"] > 5000000) {
+    $maxFileSize = 5000000; // 5MB for images
+    if (in_array($imageFileType, array("mp4", "avi", "mov", "wmv"))) {
+        $maxFileSize = 100000000; // 100MB for videos
+    }
+    if ($_FILES["fileToUpload"]["size"] > $maxFileSize) {
         echo "Your file is too large. Your file is " . $_FILES["fileToUpload"]["size"] . " bytes.<br>\n";
         $uploadOk = 0;
     }
 
     // Allow certain file formats
-    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
-        echo "Only JPG, JPEG, PNG & GIF files are allowed. Your file is a ". $imageFileType . "<br>\n";
+    $allowedTypes = array("jpg", "png", "jpeg", "gif", "mp4", "avi", "mov", "wmv");
+    if (!in_array($imageFileType, $allowedTypes)) {
+        echo "Only " . implode(", ", $allowedTypes) . " files are allowed. Your file is a ". $imageFileType . "<br>\n";
         $uploadOk = 0;
     }
+
     $child_id = htmlspecialchars($_POST['childId']);
 
     // Check if $uploadOk is set to 0 by an error
