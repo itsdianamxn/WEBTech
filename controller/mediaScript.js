@@ -8,7 +8,7 @@ function refreshIframe() {
         }
         var id = childrenNode.children[i].id.substring("child-".length);
         // Do something with each child element
-        var check = document.getElementById(id+"-checkbox");
+        var check = document.getElementById(id + "-checkbox");
         var thumb = document.getElementById("child-" + id);
         thumb.style.backgroundColor = check.checked ? "#9ccfff99" : "#ffcc9c73";
         if (check.checked) 

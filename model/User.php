@@ -162,10 +162,15 @@ class User
     public function delete()
     {
         $db = new Database();
+        $this->getChildren();
+        foreach ($this->children as $child) {
+            $child->delete();
+        }
         $db->execute('DELETE FROM users WHERE ID = :id', [':id' => $this->id]);
         if (file_exists('../pics/profiles/' . $this->id . '.jpg')) {
             unlink($file);
         }
     }
+    
 }
 ?>

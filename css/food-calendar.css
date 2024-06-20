@@ -61,7 +61,7 @@ body{
     background-color: #ffcc9c73;
     transition: height 0.2s ease;
     width: 80%;
-    border: 1px solid #80562e;
+    border: 1px solid #1e163e;
     margin: 5px;
     border-radius: 5px;
     padding: 5px;
@@ -101,7 +101,7 @@ tr td:hover{
 }
 .center-text {
     text-align: center;
-    color: orange;
+    color: 1e163e;
     font-size: 1.5rem;
   }
   

@@ -31,7 +31,7 @@ form.loginBox {
   width: 40%;
   height: 65%;
   padding: 9px;
-  border: 18px solid #e6a953;
+  border: 18px solid #1e163e;
   border-style: ridge;
   border-radius: 20px;
   display: flex;
@@ -78,7 +78,7 @@ form.loginBox {
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
-  border-color: #80562e;
+  border-color: #1e163e;
   font-size: 1.5rem;
 }
 

@@ -79,7 +79,7 @@ select {
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
-  border-color: #80562e;
+  border-color: #1e163e;
   font-size: 1.2rem;
 }
 
@@ -94,7 +94,7 @@ select[name="relationSelect"] {
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
-  border-color: #80562e;
+  border-color: #1e163e;
 }
 
 select[name="relationSelect"]:hover {

@@ -13,7 +13,7 @@ if ($u->find($email))
         $_SESSION['firstname'] = $u->getFirstname();
         $_SESSION['lastname'] = $u->getLastname();
         $_SESSION['email'] = $u->getEmail();
-        $_SESSION['phone'] = "07" . rand(0, 90000) . '0'. $_SESSION['id'];
+        // $_SESSION['phone'] = "07" . rand(0, 90000) . '0'. $_SESSION['id'];
     } else {
         // Invalid email/password combination!
         header("Location: ../view/login.html?msg=badCredentials/pwd");

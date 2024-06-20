@@ -11,7 +11,7 @@ body {
 
   /*justify-content: left;*/
   align-items: start;
-  background-color: #ffbc5c;
+  background-color: #8a76db;
   overflow: hidden;
 }
 
@@ -45,7 +45,7 @@ img {
   align-items: center;
   padding-top: 1px;
   background-color: white;
-  border: 10px solid #e6a953;
+  border: 10px solid #1e163e;
   border-style: ridge;
   border-radius: 20px;
 }
@@ -59,7 +59,7 @@ img {
   background-color: #ffcc9c73;
   transition: height 0.2s ease;
   width: 7rem;
-  border: 1px solid #80562e;
+  border: 1px solid #1e163e;
   margin: 5px;
   border-radius: 5px;
   padding: 5px;
@@ -100,7 +100,7 @@ img {
   width: 82%;
   height: 80%;
   margin-left: 10px;
-  border: 18px solid #aa7d3d;
+  border: 18px solid #1e163e;
   border-style: ridge;
 }
 

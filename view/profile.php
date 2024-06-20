@@ -41,7 +41,7 @@
     <table>
       <tr>
         <td class = "name">
-          Parent name:
+          Your name:
         </td>
         <td class = "info">
           <strong><?php echo $u->getFirstname() . ' ' . $u->getLastname(); ?></strong>
@@ -57,34 +57,54 @@
       </tr>
       <tr>
       <td class = "name">
+      Taking care of:
+        </td>
+        <td class = "info">
+        <?php
+        $number = count($u->getChildren());
+        echo "<strong>" . $number . "</strong>";
+        if ($number == 1)
+        {
+          echo " child";
+        }
+        else echo "&nbsp;children" ?>
+        </td>
+      </tr>
+      <!-- <tr>
+      <td class = "name">
       Phone number:
         </td>
         <td class = "info">
           <strong><?php echo  $_SESSION['phone']; ?></strong>
         </td>
-      </tr>
+      </tr> -->
     </table>
     </div>
 
     <table>
       <tr>
-        <td colspan=2 class="buttons">
+        <td class="buttons">
           <input type="button" value="Edit Your Profile" onclick="location.href='editProfile.php'">
         </td>
       </tr>
       <tr>
-        <td colspan=2 class="buttons">
+        <td class="buttons">
           <input type="button" value="Manage children" onclick="location.href='manageChildren.php'">
         </td>
       </tr>
       <tr>
-        <td colspan=2 class="buttons">
+        <td class="buttons">
           <input type="button" value="Import">
         </td>
       </tr>
       <tr>
-        <td colspan=2 class="buttons">
+        <td class="buttons">
           <input type="button" value="Export">
+        </td>
+      </tr>
+      <tr>
+        <td class="buttons">
+          <input type="button"  id="delete" value="Delete">
         </td>
       </tr>
     </table>

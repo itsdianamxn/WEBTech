@@ -30,7 +30,7 @@ body::-webkit-scrollbar-thumb {
 h2 {
   width: 100%;
   text-align: center;
-  color: blue;
+  color: 1e163e;
 }
 
 div {
@@ -78,7 +78,7 @@ div {
   justify-content: flex-end;
   background-color: beige;
   border-radius: 2%;
-  border-color: #e6a953;
+  border-color: #1e163e;
   border-style: ridge;
   width: 140px;
   border-radius: 5px;
