@@ -1,6 +1,8 @@
 <?php
 
 require_once 'Database.php';
+require_once 'Child.php';
+
 
 class User
 {
@@ -140,11 +142,12 @@ class User
             'WHERE ID = :id', $params);
         return $res;
     }
+
     public function getChildren()
     {
         $this->children = [];
         $db = new Database();
-        $stmt = $db->select('SELECT ID FROM children where parent_ID = :parent', false, [':parent'=>$this->id]);
+        $stmt = $db->select('SELECT ID FROM children WHERE parent_ID = :parent', false, [':parent'=>$this->id]);
         while ($result = $stmt->fetch())
         {
             $child = new Child();
@@ -154,6 +157,15 @@ class User
             }
         }
         return $this->children;
+    }
+
+    public function delete()
+    {
+        $db = new Database();
+        $db->execute('DELETE FROM users WHERE ID = :id', [':id' => $this->id]);
+        if (file_exists('../pics/profiles/' . $this->id . '.jpg')) {
+            unlink($file);
+        }
     }
 }
 ?>

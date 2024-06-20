@@ -1,6 +1,8 @@
 <?php
 
 require_once 'Database.php';
+require_once 'Picture.php';
+
 
 class Child
 {
@@ -135,16 +137,32 @@ class Child
     {
         $this->pictures = [];
         $db = new Database();
-        $res = $db->select('SELECT Picture FROM images where child_ID = :child', [':child'=>$this->id]);
-        while ($res->fetch())
+        $res = $db->select('SELECT * FROM images where child_ID = :child', false, [':child'=>$this->id]);
+        while ($row = $res->fetch())
         {
             $picture = new Picture();
-            if($picture->load(($res['ID'])))
+            if($picture->load($row['ID']))
             {
-                $this->pictures[$res['ID']] = $picture;
+                $this->pictures[$row['ID']] = $picture;
             }
 
         }
+        return $this->picture;
+    }
+
+    public function delete()
+    {
+        if (file_exists('../pics/childrenProfiles/' . $this->id . '.jpg')) {
+            unlink('../pics/childrenProfiles/' . $this->id . '.jpg');
+        }
+        $db = new Database();
+        $this->getPictures();
+        foreach ($this->pictures as $picture) {
+            $picture->delete();
+        }
+        // $db->execute('DELETE FROM images WHERE child_ID = :id', [':id' => $this->id]);
+        $db->execute('DELETE FROM children WHERE ID = :id', [':id' => $this->id]);
+
     }
 
     

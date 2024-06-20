@@ -40,9 +40,11 @@
     <title>Children</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/children.css" type="text/css">
+    <script src="../controller/mediaScript.js"></script>
+
 </head>
 
-<body onload="refreshIframe()">
+<body>
     <div class="body-container">
         <div class="container" id="all-children">
         <?php

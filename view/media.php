@@ -12,7 +12,7 @@
         <div class="container" id="all-children">
         <?php require_once "../controller/mediaController.php"; ?>
         </div>
-        <iframe class = "files" id="webpage-iframe" style="width: 80%; height: 80%;"></iframe>
+        <iframe class="files" id="webpage-iframe" style="width: 80%; height: 80%;"></iframe>
         
     </body>
 </html>

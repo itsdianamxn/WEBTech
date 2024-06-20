@@ -117,7 +117,7 @@ if ($children != "") {
                     } else {
                         echo '<span class="image-preview">';
                         echo '  <div class="nameContainer">' . $endl;
-                        echo '      <svg onclick="location.href=\'deleteChild.php?ID=' . $child->getID() . '\'" aria-hidden="true" focusable="false" data-prefix="fad"' . $endl;
+                        echo '      <svg onclick="location.href=\'deletePhoto.php?ID=' . $child->getID() . '\'" aria-hidden="true" focusable="false" data-prefix="fad"' . $endl;
                         echo '          data-icon="square-xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="-200 -200 700 700"' . $endl;
                         echo '          class="svg-inline--fa fa-square-xmark fa-w-14 fa-xs" width="3rem" height="3rem">' . $endl;
                         echo '          <g class="fa-group">' . $endl;

@@ -17,7 +17,7 @@ class Picture
     public function load($id)
     {
         $db = new Database();
-        $result = $db->select("SELECT * FROM images WHERE id = :id", [':id'=>$id]);
+        $result = $db->select("SELECT * FROM images WHERE id = :id", true, [':id'=>$id]);
         if ($result)
         {
             $this->id = $result['ID'];
@@ -95,6 +95,17 @@ class Picture
         'child_ID = :child_ID, Picture = :picture ' .
         'WHERE ID = ' . $this->id, $params);
         return $res;
+    }
+    
+    public function delete()
+    {
+        if (file_exists($this->picture)) {
+            unlink($this->picture);
+        }
+        $db = new Database();
+
+        $db->execute('DELETE FROM images WHERE ID = :id', [':id' => $this->id]);
+
     }
 }
 ?>
