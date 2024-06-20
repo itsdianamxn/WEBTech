@@ -101,17 +101,23 @@ input[type="file"] {
   display: none;
 }
 
+.upload-form p
+{
+  margin-left: 20px;
+
+}
+
 .custom-file-upload,
 input[type="submit"] {
-  width: 15%;
+  width: 25%;
   height: 80%;
+  padding-top: 10px;
   padding-bottom: 10px;
-  margin-bottom: 20px;
-  font-size: 1rem;
+  margin: 20px;
+  font-size: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 20px;
   cursor: pointer;
   text-align: center;
   text-decoration: none;

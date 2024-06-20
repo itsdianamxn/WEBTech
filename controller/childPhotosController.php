@@ -102,7 +102,7 @@ if ($children != "") {
 
                 $stmt = $conn->prepare("SELECT * FROM images WHERE child_ID in ($in)");
                 $stmt->execute($childrenIds);
-                echo '<div class="photos-container">';
+                echo '<div class="">';
 
                 while ($result = $stmt->fetch()) {
                     $mediaFilePath = pathinfo($result['Picture'], PATHINFO_FILENAME);
