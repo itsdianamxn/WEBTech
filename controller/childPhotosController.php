@@ -109,11 +109,11 @@ if ($children != "") {
 
                     $title = ucwords(str_replace(['_', '-', '.', ','], ' ', $mediaFilePath));
                     if (in_array(pathinfo($result['Picture'], PATHINFO_EXTENSION), array("mp4", "avi", "mov", "wmv"))) {
-                        echo '<video width="400" controls>';
-                        echo '<source src="' . $result['Picture'] . '" type="video/' . pathinfo($result['Picture'], PATHINFO_EXTENSION) . '">';
-                        echo 'Your browser does not support the video tag.';
-                        echo '</video>';
-                        echo '<br>';
+                        echo '<span class="image-preview">' . $title;
+                        echo '<img class="image-preview-img" src="../pics/genericVideo.png" alt="' . $title . 
+                            '" onclick="loadVideo(\'' . $result['Picture'] . '\', this.alt)"><br>';
+                        echo $result['uploadDate'];
+                        echo '</span>';
                     } else {
                         echo '<span class="image-preview">' . $title;
                         echo '<img class="image-preview-img" src="' . $result['Picture'] . '" alt="' . $title . '" onclick="loadHighResImage(this.src, this.alt)"><br>';
