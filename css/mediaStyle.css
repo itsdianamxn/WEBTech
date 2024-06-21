@@ -11,7 +11,7 @@ body {
 
   /*justify-content: left;*/
   align-items: start;
-  background-color: #ffbc5c;
+  background-color: #90c0ce;
   overflow: auto;
 }
 
@@ -32,9 +32,7 @@ img {
 }
 
  .files {
-  margin: 10px;
-  border: 10px solid #aa7d3d; 
-  border-style: ridge;
+  border: 10px #9074dc; 
 } 
 
 .container {
@@ -46,7 +44,9 @@ img {
   align-items: center;
   padding-top: 1px;
   background-color: white;
-  border: 10px solid #e6a953;
+  border: 10px solid  #443494;
+
+  ;
   border-style: ridge;
   border-radius: 20px;
   overflow-y: auto;

@@ -16,5 +16,4 @@ if (isset($_GET["ID"]) )
 }
 
 header("Location: ../view/manageChildren.php");
-
 ?>

@@ -6,7 +6,7 @@
 
     --text-primary: #392a74;
     --text-secondary: #1e163e;
-    --bg-primary: #ffbb5c95;
+    --bg-primary: #90c0ce;
     --bg-secondary: #e6a953;
     --bg-third: #ff7b5c;
     --border-color: #1e163e;
@@ -53,6 +53,7 @@ input[type="button"]:active {
     box-shadow: 0 3px #333; /* Slightly reduced shadow for the pressed effect */
 
 }
+
 table {
 margin-right: 10px;
 }
@@ -92,7 +93,18 @@ input#delete:active{
     overflow-x: hidden;
     margin: 20px;
 }
-
+input[type="file"]
+{
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+input#file-input
+{
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
 .profile-picture {
     border-radius: 50%;
     margin: 1rem;

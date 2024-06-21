@@ -89,7 +89,7 @@
       <tr>
           <td class="buttons">
             <input type="button" id="import-button" value="Import">
-            <input type="file" id="file-input" style="display: none;">
+            <input type="file" id="file-input">
             <pre id="input"></pre>
           </td>
       </tr>

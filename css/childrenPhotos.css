@@ -13,6 +13,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  background: #9074dc;
+
 }
 
 body::-webkit-scrollbar {
@@ -30,7 +32,7 @@ body::-webkit-scrollbar-thumb {
 h2 {
   width: 100%;
   text-align: center;
-  color: 1e163e;
+  color: #1d172c;
 }
 
 div {
@@ -62,10 +64,10 @@ div {
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
-  background-color: #ffbc5c;
+  background-color: #90c0ce00;
   font-size: 1.5rem;
   font-weight: bold;
-  color: red;
+  color: #1d172c;
 }
 
 .image-preview {
