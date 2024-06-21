@@ -5,22 +5,19 @@ if (!isset($_SESSION['id'])) {
     exit();
 }
 $userId = $_SESSION['id'];
-require_once "../model/Database.php";
+require_once "../model/User.php";
+require_once "../model/Child.php";
+
 
 header('Content-Type: application/json');
 
 try {
-    $database = new Database();
-    $pdo = $database->getConnection(); // Assuming you have a method to get PDO connection
-    $data = [];
+    $user = new User();
+    $user->load($userId);
+    $data['users'] = $user;
 
-    $stmt = $pdo->query("SELECT * FROM users where ID = " . $userId);
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $data['users'] = $result;
-
-    $stmt = $pdo->query("SELECT * FROM children where parent_ID = " . $userId);
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $data['children'] = $result;
+    $children = $user->getChildren();
+    $data['children'] = $children;
 
     $stmt = $pdo->query("SELECT * FROM images where child_ID in (SELECT ID FROM children where parent_ID = " . $userId . ")");
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

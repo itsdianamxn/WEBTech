@@ -23,8 +23,8 @@
     <title>ParentProfile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/profileStyle.css">
-    <script src="../controller/extractScript.js"></script>
-    <script src="../controller/editProfileScript.js"></script>
+    <script src="../scripts/extractScript.js"></script>
+    <script src="../scripts/editProfileScript.js"></script>
 
 
 
@@ -92,7 +92,7 @@
       
       <tr>
         <td class="buttons">
-          <input onclick="confirmDelete($u->getID())" type="button" id="delete" value="Delete">
+          <input onclick="confirmDelete(<?php echo $u->getID(); ?>)" type="button" id="delete" value="Delete">
         </td>
       </tr>
       <tr>

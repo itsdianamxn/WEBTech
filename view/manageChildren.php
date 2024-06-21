@@ -22,7 +22,7 @@
         <meta charset="UTF-8">
     <title>Manage</title>
     <link rel="stylesheet" href="../css/manageStyles.css" type="text/css">
-    <script src="../controller/manageChildrenScript.js"></script>
+    <script src="../scripts/manageChildrenScript.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
