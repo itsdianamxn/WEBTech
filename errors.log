@@ -1,0 +1,14 @@
+[21-Jun-2024 15:57:48 Europe/Berlin] PHP Warning:  Undefined variable $pdo in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\controller\extractController.php on line 33
+[21-Jun-2024 15:57:48 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\controller\extractController.php:33
+Stack trace:
+#0 {main}
+  thrown in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\controller\extractController.php on line 33
+[21-Jun-2024 16:01:48 Europe/Berlin] PHP Warning:  Undefined variable $chilArray in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\controller\extractController.php on line 41
+[21-Jun-2024 16:02:54 Europe/Berlin] PHP Warning:  Undefined variable $chilArray in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\controller\extractController.php on line 39
+[21-Jun-2024 16:11:47 Europe/Berlin] PHP Warning:  Undefined variable $chilArray in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\controller\extractController.php on line 39
+[21-Jun-2024 16:11:52 Europe/Berlin] PHP Warning:  Undefined variable $chilArray in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\controller\extractController.php on line 39
+[21-Jun-2024 16:13:05 Europe/Berlin] PHP Warning:  Undefined variable $chilArray in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\controller\extractController.php on line 39
+[21-Jun-2024 16:17:06 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Picture::getPath() in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\controller\extractController.php:48
+Stack trace:
+#0 {main}
+  thrown in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\controller\extractController.php on line 48

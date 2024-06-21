@@ -159,6 +159,7 @@ class User
         return $this->children;
     }
 
+
     public function delete()
     {
         $db = new Database();

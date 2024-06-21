@@ -58,7 +58,8 @@ class Picture
     public function getDescription()
     {
         return $this->message;
-    }   
+    }
+   
     public function addToTimeline($desc)
     {
         $this->timeline = true;
