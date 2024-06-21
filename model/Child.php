@@ -43,8 +43,20 @@ class Child
         $this->dob = $data['dob'];
         $this->stage = $data['stage'];
         $this->parentID = $parentID;
-        $this->add();
+        if(!$this->find($this->firstname, $this->lastname, $this->dob))
+            $this->add();
         echo json_encode('Child added: ' . $this->firstname);
+    }
+
+    public function find($firstname, $lastname, $dob)
+    {
+        $db = new Database();
+        $result = $db->select("SELECT * FROM children WHERE firstname = :firstname AND lastname = :lastname AND dob = :dob", true, [':firstname'=>$firstname, ':lastname'=>$lastname, ':dob'=>$dob]);
+        if ($result)
+        {
+            return true;
+        }
+        return false;
     }
 
     public function getID()

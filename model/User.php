@@ -64,7 +64,8 @@ class User
         $this->email = $data['email'];
         $this->relationship = $data['relationship'];
         $this->dob = $data['dob'];
-        $this->add();
+        if(!$this->find($this->email))
+            $this->add();
         echo json_encode(['error' => 'User added']);
     }
 

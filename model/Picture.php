@@ -53,12 +53,26 @@ class Picture
             ':timeline' => $this->timeline,
             ':message' => $this->message
         ];
-        $imageData = base64_decode($data['base64']);  
-        file_put_contents($this->picture . ".jpg" ,$imageData);   
-        $res = $db->execute('INSERT INTO images (child_ID, Picture, uploadDate, timeline, Message) ' . 
-                                       'VALUES (:child_ID, :picture, :uploadDate, :timeline, :message)', $params);                                  
-        error_log($res);
+        $res = null;
+        if(!$this->find($this->childID, $this->picture, $this->date))
+        {
+            $imageData = base64_decode($data['base64']);  
+            file_put_contents($this->picture . ".jpg" ,$imageData);   
+            $res = $db->execute('INSERT INTO images (child_ID, Picture, uploadDate, timeline, Message) ' . 
+                                        'VALUES (:child_ID, :picture, :uploadDate, :timeline, :message)', $params);                                  
+            error_log($res);
+        }
         return $res;
+    }
+
+    public function find($childId, $picture, $date){
+        $db = new Database();
+        $result = $db->select("SELECT * FROM images WHERE child_ID = :child_ID AND Picture = :picture AND uploadDate = :uploadDate", true, [':child_ID'=>$childId, ':picture'=>$picture, ':uploadDate'=>$date]);
+        if ($result)
+        {
+            return true;
+        }
+        return false;
     }
 
     public function getID()

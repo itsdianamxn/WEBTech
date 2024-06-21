@@ -118,6 +118,10 @@ pre
     justify-self: center;
 }
 
+.import-info{
+    display: none !important;
+}
+
 @media screen and (max-width: 800px) {
     .profile-picture {
         border-radius: 0px;
