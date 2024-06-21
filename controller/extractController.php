@@ -4,7 +4,7 @@ if (!isset($_SESSION['id'])) {
     header("Location: ../view/login.html");
     exit();
 }
-
+$userId = $_SESSION['id'];
 require_once "../model/Database.php";
 
 header('Content-Type: application/json');
@@ -12,14 +12,19 @@ header('Content-Type: application/json');
 try {
     $database = new Database();
     $pdo = $database->getConnection(); // Assuming you have a method to get PDO connection
-    $tables = $pdo->query("SHOW TABLES")->fetchAll(PDO::FETCH_COLUMN);
     $data = [];
 
-    foreach ($tables as $table) {
-        $stmt = $pdo->query("SELECT * FROM $table");
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $data[$table] = $result;
-    }
+    $stmt = $pdo->query("SELECT * FROM users where ID = " . $userId);
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $data['users'] = $result;
+
+    $stmt = $pdo->query("SELECT * FROM children where parent_ID = " . $userId);
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $data['children'] = $result;
+
+    $stmt = $pdo->query("SELECT * FROM images where child_ID in (SELECT ID FROM children where parent_ID = " . $userId . ")");
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $data['images'] = $result;
 
     $json_data = json_encode($data);
     
