@@ -35,6 +35,26 @@ class Picture
         return false;
     }
 
+    public function loadFromImport($data)
+    {
+        $this->childID = $data['child_ID'];
+        $this->picture = $data['Picture'];
+        $this->date = $data['uploadDate'];
+        $this->timeline = $data['timeline'];
+        $this->message = $data['Message'];
+        $db = new Database();
+        $params = [
+            ':child_ID' => $this->childID,
+            ':picture' => $this->picture,
+            ':uploadDate' => $this->date,
+            ':timeline' => $this->timeline,
+            ':message' => $this->message
+        ];
+        $res = $db->execute('INSERT INTO images (child_ID, Picture, uploadDate, timeline, Message) ' . 
+                                       'VALUES (:child_ID, :picture, :uploadDate, :timeline, :message)', $params);
+        return $res;
+    }
+
     public function getID()
     {
         return $this->id;

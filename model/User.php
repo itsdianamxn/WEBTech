@@ -56,6 +56,17 @@ class User
         return false;
     }
 
+    public function loadFromImport($data)
+    {
+        $this->firstname = $data['firstName'];
+        $this->lastname = $data['lastName'];
+        $this->password = $data['password'];
+        $this->email = $data['email'];
+        $this->relationship = $data['relationship'];
+        $this->dob = $data['dob'];
+        $this->add();
+    }
+
     public function getID()
     {
         return $this->id;

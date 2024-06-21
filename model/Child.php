@@ -35,6 +35,16 @@ class Child
         return false;
     }
 
+    public function loadFromImport($data)
+    {
+        $this->firstname = $data['firstname'];
+        $this->lastname = $data['lastname'];
+        $this->dob = $data['dob'];
+        $this->stage = $data['stage'];
+        $this->parentID = $data['parentID'];
+        $this->add();
+    }
+
     public function getID()
     {
         return $this->id;
