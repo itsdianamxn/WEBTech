@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 0); // Turn off error displaying
+ini_set('log_errors', 1); // Enable error logging
+ini_set('error_log', '../errors.log');
 session_start();
 if (!isset($_SESSION['id'])) {
     header("Location: ../view/login.html");
@@ -14,14 +17,42 @@ header('Content-Type: application/json');
 try {
     $user = new User();
     $user->load($userId);
-    $data['users'] = $user;
+    $userArray = [
+        'id' => $user->getId(),
+        'firstname' => $user->getFirstname(),
+        'lastname' => $user->getLastname(),
+        'email' => $user->getEmail(),
+        'relationship' => $user->getRelation(),
+        'dob' => $user->getDob(),
+    ];
+    $data['users'] = $userArray;
 
     $children = $user->getChildren();
-    $data['children'] = $children;
+    $childArray = [];
+    $pictures = [];
+    foreach($children as $child) {
+        $childArray[] = [
+            'id' => $child->getId(),
+            'firstname' => $child->getFirstname(),
+            'lastname' => $child->getLastname(),
+            'dob' => $child->getDob(),];
+        $pictures[] = $child->getPictures();
+    }
+    $data['children'] = $childArray;
+    $picturesArray = [];
+    foreach($pictures as $picture){
+        foreach($picture as $pic){
+            $picturesArray[] = [
+                'id' => $pic->getId(),
+                'childID' => $pic->getChildID(),
+                'path' => $pic->getPicture(),
+                'date' => $pic->getDate(),
+                'timeline' => $pic->getTimeline(),
+            ];
+        }
+    }
+    $data['pictures'] = $picturesArray;
 
-    $stmt = $pdo->query("SELECT * FROM images where child_ID in (SELECT ID FROM children where parent_ID = " . $userId . ")");
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $data['images'] = $result;
 
     $json_data = json_encode($data);
     

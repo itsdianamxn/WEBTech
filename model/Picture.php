@@ -28,7 +28,7 @@ class Picture
             $this->childID = $result['child_ID'];
             $this->picture = $result['Picture'];
             $this->date = $result['uploadDate'];
-
+            $this->timeline = $result['timeline'];
             return true;
         }
         return false;
@@ -44,6 +44,7 @@ class Picture
             $this->childID = $result['child_ID'];
             $this->picture = $result['Picture'];
             $this->date = $result['uploadDate'];
+            $this->timeline = $result['timeline'];
             return true;
         }
         return false;
@@ -66,6 +67,10 @@ class Picture
         return $this->date;
     }
     
+    public function getTimeline(){
+        return $this->timeline;
+    }
+
     public function setChildID($id)
     {
         $this->childID = $id;
@@ -74,6 +79,10 @@ class Picture
     {
         $this->picture = $path;
     }
+    
+    public function setTimeline($booleanValue){
+        $this->timeline = $booleanValue;
+    }
 
     public function add()
     {
@@ -81,9 +90,10 @@ class Picture
         $params = [
             ':childID' => $this->childID,
             ':picture' => $this->picture,
+            ':timeline' => '0',
         ];
-        $res = $db->execute('INSERT INTO images (child_ID, Picture) ' . 
-                                       'VALUES (:childID, :picture)', $params);
+        $res = $db->execute('INSERT INTO images (child_ID, Picture, timeline) ' . 
+                                       'VALUES (:childID, :picture, :timeline)', $params);
 
         return $res;
     }
@@ -93,10 +103,11 @@ class Picture
         $params = [
             ':child_ID' => $this->childID,
             ':picture' => $this->picture,
+            ':timeline'=> $this->timeline,
         ];
         
         $res = $db->execute('UPDATE images SET ' .
-        'child_ID = :child_ID, Picture = :picture ' .
+        'child_ID = :child_ID, Picture = :picture , timeline = :timeline' .
         'WHERE ID = ' . $this->id, $params);
         return $res;
     }
