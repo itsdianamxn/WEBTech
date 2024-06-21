@@ -7,44 +7,14 @@
         exit();
     }
     $userId = $_SESSION['id'];
-    $firstname = "unknown";
-    $lastname = "unknown";
-    $relationship = "unknown";
-    $email = "unknown";
-    $dob = "unknown";
-
-    // Database connection settings
-    $dbhost = 'localhost';  // or your host
-    $dbname = 'children';
-    $dbusername = 'root';
-    $dbpassword = '';
-
-    // Create a new PDO instance
-    $conn = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbusername, $dbpassword);
-
-    // Set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    try {
-        // Prepare an SQL statement
-        $stmt = $conn->prepare("SELECT firstName, lastName, relationship, email, dob FROM users WHERE id=?");
-        // Bind parameters and execute the prepared statement
-        $stmt->execute([$userId]);
-        if ($result = $stmt->fetch())
-        {
-            $firstname = $result['firstName'];
-            $lastname = $result['lastName'];
-            $relationship = $result['relationship'];
-            $email = $result['email'];
-            $dob = $result['dob'];
-        }
-
-    } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
-    }
-
-    // Close connection
-    $conn = null;
+    require_once "../model/User.php";
+    $user = new User();
+    $user->load($userId);
+    $firstname = $user->getFirstname();
+    $lastname = $user->getLastname();
+    $relationship =  $user->getRelation();
+    $email = $user->getEmail();
+    $dob = $user->getDOB();
 ?>
 
 <!DOCTYPE html>

@@ -6,35 +6,14 @@
         exit();
     }
     $userId = $_SESSION['id'];
+    require_once "../model/User.php";
 
-    // Database connection settings
-    $dbhost = 'localhost';
-    $dbname = 'children';
-    $dbusername = 'root';
-    $dbpassword = '';
-
-    // Create a new PDO instance
-    $conn = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbusername, $dbpassword);
-
-    // Set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    try {
-        // Prepare an SQL statement
-        $stmt = $conn->prepare("SELECT * FROM children WHERE parent_ID=?");
-        // Bind parameters and execute the prepared statement
-        $stmt->execute([$userId]);
-
-    } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
-    }
-
-    // Close connection
-    $conn = null;
-?>
+    $user = new User();
+    $user->load($userId);
+    $children = $user->getChildren();
+    ?>
 <!DOCTYPE html>
 <html lang="en">
-
 
 <head>
     <title>Children</title>
@@ -49,18 +28,14 @@
         <div class="container" id="all-children">
         <?php
             $endl = "\n";
-            while ($result = $stmt->fetch())
+            foreach($children as $child)
             {
-                $firstname = $result['firstname'];
-                $lastname = $result['lastname'];
-                $dob = $result['dob'];
-                $ID = $result['ID'];
-                echo '<div class="child-thumbnail" id="child-'. $ID .'">' . $endl;
-                echo '<input type="checkbox" id="' . $ID . '-checkbox" name="' . $ID . '-checkbox" style="display: none;">' . $endl;
-                echo '<span class="child-name">'. $firstname . '</span><br>' . $endl;
+                echo '<div class="child-thumbnail" id="child-'. $child->getID() .'">' . $endl;
+                echo '<input type="checkbox" id="' . $child->getID() . '-checkbox" name="' . $child->getID() . '-checkbox" style="display: none;">' . $endl;
+                echo '<span class="child-name">'. $child->getFirstname() . '</span><br>' . $endl;
                 echo '  <img class=profile src="../pics/childrenProfiles/'; 
-                    if (file_exists('../pics/childrenProfiles/'.$ID.'.jpg'))
-                        echo $ID;
+                    if (file_exists('../pics/childrenProfiles/'.$child->getID().'.jpg'))
+                        echo $child->getID();
                     else echo '0';
                 echo '.jpg" alt="Child picture">' . $endl;
         
@@ -72,8 +47,7 @@
                 echo '<a href="groups.html" target="calendarFrame">Groups</a>' . $endl;
                 echo '</div>' . $endl;
                 echo '</div>' . $endl;
-
-        } 
+            } 
         ?>
         </div>
         <div class="calendar-container">

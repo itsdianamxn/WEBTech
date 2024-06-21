@@ -5,45 +5,17 @@ if (!(array_key_exists('id', $_SESSION))) {
     exit();
 }
 $userId = $_SESSION['id'];
+$childID = $_GET['ID'];
 
-// Database connection settings
-$dbhost = 'localhost';  // or your host
-$dbname = 'children';
-$dbusername = 'root';
-$dbpassword = '';
-
-try {
-    // Create a new PDO instance
-    $conn = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbusername, $dbpassword);
-
-    // Set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    $childID = $_GET['ID'];
-
-    // Prepare an SQL statement
-    $stmt = $conn->prepare("SELECT firstname, lastname, dob, stage FROM children WHERE id=?");
-    // Bind parameters and execute the prepared statement
-    $stmt->execute([$childID]);
-    if ($result = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        $firstname = $result['firstname'];
-        $lastname = $result['lastname'];
-        $dob = $result['dob'];
-        $stage = $result['stage'];
-    } //else {
-    //     // Initialize variables to avoid undefined variable errors
-    //     $firstname = '';
-    //     $lastname = '';
-    //     $dob = '';
-    //     $stage = '';
-    // }
-} catch (PDOException $e) {
-    echo "Error: " . $e->getMessage();
-}
-
-// Close connection
-$conn = null;
+require_once "../model/Child.php";
+$child = new Child();
+$child->load($childID);
+$firstname = $child->getFirstname();
+$lastname = $child->getLastname();
+$dob = $child->getDOB();
+$stage = $child->getStage();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

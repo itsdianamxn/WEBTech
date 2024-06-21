@@ -147,7 +147,7 @@ class Child
             }
 
         }
-        return $this->picture;
+        return $this->pictures;
     }
 
     public function delete()
@@ -164,20 +164,5 @@ class Child
         $db->execute('DELETE FROM children WHERE ID = :id', [':id' => $this->id]);
 
     }
-
-    
-//     public function addPicture($picture)
-//     {
-// //        $picture = new Picture();
-
-//         $db = new Database();
-//         $params = [
-//             ':child_ID' => $this->id,
-//             ':Picture' => $picture,
-//         ];
-
-//         $res = $db->execute('INSERT INTO images (child_ID, Picture) VALUES (:child_ID, :Picture)');
-//         return $res;
-//     }
 }
 ?>

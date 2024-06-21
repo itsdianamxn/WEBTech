@@ -9,9 +9,6 @@ class Database
     private $dbpassword = '';
     private $conn;
 
-    
-
-
     public function __construct()
     {
         // Create a new PDO instance
@@ -43,28 +40,6 @@ class Database
         // Execute the prepared statement
         $result = $stmt->execute($params);
         return  $result;
-    }
-
-    public function getDbhost()
-    {
-        return $this->dbhost;
-    }
-    public function getDbname()
-    {
-        return $this->dbname;
-    }
-    public function getDbusername()
-    {
-        return $this->dbusername;
-    }
-    public function getDbpassword()
-    {
-        return $this->dbpassword;
-    }
-
-    public function getConnection()
-    {
-        return $this->conn;
-    }   
+    } 
 }
 ?>

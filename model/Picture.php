@@ -1,12 +1,16 @@
 <?php
 
 require_once 'Database.php';
+// ALTER TABLE `images` ADD `Message` TEXT NULL AFTER `timeline`;
 
 class Picture
 {
     private $id;
     private $childID;
     private $picture;
+    private $timeline;
+    
+    private $message;
     private $date;
 
     public function __construct()
