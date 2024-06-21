@@ -12,7 +12,6 @@ class Child
     private $dob;
     private $stage;
     private $parentID;
-    private $pictures;
 
     public function __construct()
     {
@@ -31,23 +30,6 @@ class Child
             $this->dob = $result['dob'];
             $this->stage = $result['stage'];
             $this->parentID = $result['parent_ID'];;
-            return true;
-        }
-        return false;
-    }
-
-    public function find($parentID)
-    {
-        $db = new Database();
-        $result = $db->select("SELECT * FROM children WHERE parent_ID = :parentID", true, [':parentID'=> $parentID]);
-        if ($result)
-        {
-            $this->id = $result['ID'];
-            $this->firstname = $result['firstname'];
-            $this->lastname = $result['lastname'];
-            $this->dob = $result['dob'];
-            $this->stage = $result['stage'];
-            $this->parentID = $result['parent_ID'];
             return true;
         }
         return false;
@@ -108,8 +90,6 @@ class Child
             ':dob' => $this->dob,
             ':stage' => $this->stage,
             ':ParentID' => $this->ParentID,
-
-
         ];
         $res = $db->execute('INSERT INTO children (firstname, lastname, dob, stage, parent_ID) ' . 
                                        'VALUES (:firstName, :lastName, :dob, :stage, :ParentID)', $params);
@@ -128,26 +108,29 @@ class Child
         ];
         
         $res = $db->execute('UPDATE children SET ' .
-        'firstname = :firstName, lastname = :lastName, dob = :dob, stage = :stage, parent_ID = :ParentID ' .
-        'WHERE ID = ' . $this->id, $params);
+            'firstname = :firstName, lastname = :lastName, dob = :dob, stage = :stage, parent_ID = :ParentID ' .
+            'WHERE ID = ' . $this->id, $params);
         return $res;
     }
     
-    public function getPictures()
+    // if $timeline then returns only timeline photos
+    public function getPictures($timeline)
     {
-        $this->pictures = [];
+        $pictures = [];
         $db = new Database();
-        $res = $db->select('SELECT * FROM images where child_ID = :child', false, [':child'=>$this->id]);
+        if ($timeline)
+            $res = $db->select('SELECT * FROM images where timeline and child_ID = :child', false, [':child'=>$this->id]);
+        else
+            $res = $db->select('SELECT * FROM images where child_ID = :child', false, [':child'=>$this->id]);
         while ($row = $res->fetch())
         {
             $picture = new Picture();
-            if($picture->load($row['ID']))
+            if ($picture->load($row['ID']))
             {
-                $this->pictures[$row['ID']] = $picture;
+                $pictures[$row['ID']] = $picture;
             }
-
         }
-        return $this->pictures;
+        return $pictures;
     }
 
     public function delete()
@@ -156,13 +139,12 @@ class Child
             unlink('../pics/childrenProfiles/' . $this->id . '.jpg');
         }
         $db = new Database();
-        $this->getPictures();
-        foreach ($this->pictures as $picture) {
+        $pictures = $this->getPictures(false);
+        foreach($pictures as $picture) {
             $picture->delete();
         }
         // $db->execute('DELETE FROM images WHERE child_ID = :id', [':id' => $this->id]);
         $db->execute('DELETE FROM children WHERE ID = :id', [':id' => $this->id]);
-
     }
 }
 ?>

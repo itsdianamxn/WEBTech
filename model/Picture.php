@@ -8,8 +8,7 @@ class Picture
     private $id;
     private $childID;
     private $picture;
-    private $timeline;
-    
+    private $timeline = false;
     private $message;
     private $date;
 
@@ -28,22 +27,9 @@ class Picture
             $this->childID = $result['child_ID'];
             $this->picture = $result['Picture'];
             $this->date = $result['uploadDate'];
+            $this->timeline = $result['timeline'];
+            $this->message = $result['Message'];
 
-            return true;
-        }
-        return false;
-    }
-
-    public function find($childID)
-    {
-        $db = new Database();
-        $result = $db->select("SELECT * FROM images WHERE child_ID = :childID", [':childID'=> $childID]);
-        if ($result)
-        {
-            $this->id = $result['ID'];
-            $this->childID = $result['child_ID'];
-            $this->picture = $result['Picture'];
-            $this->date = $result['uploadDate'];
             return true;
         }
         return false;
@@ -65,11 +51,20 @@ class Picture
     {
         return $this->date;
     }
-    
-    public function setChildID($id)
+    public function isTimeline()
     {
-        $this->childID = $id;
+        return $this->timeline;
     }
+    public function getDescription()
+    {
+        return $this->message;
+    }   
+    public function addToTimeline($desc)
+    {
+        $this->timeline = true;
+        $this->message = $desc;
+    }
+
     public function setPicture($path)
     {
         $this->picture = $path;
@@ -93,10 +88,12 @@ class Picture
         $params = [
             ':child_ID' => $this->childID,
             ':picture' => $this->picture,
+            ':timeline' => $this->timeline,
+            ':message' => $this->message
         ];
         
         $res = $db->execute('UPDATE images SET ' .
-        'child_ID = :child_ID, Picture = :picture ' .
+        'child_ID = :child_ID, Picture = :picture, timeline = :timeline, Message = :message ' .
         'WHERE ID = ' . $this->id, $params);
         return $res;
     }

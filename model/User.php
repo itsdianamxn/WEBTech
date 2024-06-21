@@ -171,6 +171,5 @@ class User
             unlink('../pics/profiles/' . $this->id . '.jpg');
         }
     }
-    
 }
 ?>

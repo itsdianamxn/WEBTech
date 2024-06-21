@@ -47,3 +47,16 @@ function loadVideo(videoSrc, title) {
 }
 
 
+function confirmDelete(_id) {    
+    if (confirm("Are you sure you want to delete this photo?")) {
+        location.href='../controller/deletePhoto.php?ID=' +  _id;
+    }
+}
+
+function addToTimeline(_id) {    
+    var msg = prompt("Please enter the event description");
+    if (msg)
+    {
+        location.href='../controller/addToTimeline.php?ID=' +  _id + "&msg=" + encodeURIComponent(msg);
+    }
+}
