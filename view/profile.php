@@ -26,8 +26,6 @@
     
     <script src="../scripts/editProfileScript.js"></script>
 
-
-
   </head>
 
   <body>

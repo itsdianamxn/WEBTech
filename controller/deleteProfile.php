@@ -6,9 +6,10 @@ if (!array_key_exists('id', $_SESSION)) {
 }
 $userId = $_SESSION['id'];
 require_once "../model/User.php";
-$u = new Child();
+$u = new User();
 $u->load($userId);
 $u->delete();
-
-header("Location: ../view/profile.php");
+//echo 'Success!';
+session_destroy();
+header("Location: ../view/login.html");
 ?>

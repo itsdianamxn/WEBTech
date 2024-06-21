@@ -70,7 +70,7 @@ if ($children != "") {
         } else {
             echo '<span class="image-preview">';
             echo '  <div class="nameContainer">' . $endl;
-            echo '      <svg onclick="location.href=\'deletePhoto.php?ID=' . $picture->getID() . '\'" aria-hidden="true" focusable="false" data-prefix="fad"' . $endl;
+            echo '      <svg onclick="' . $picture->delete() . " aria-hidden="true" focusable="false" data-prefix="fad"' . $endl;
             echo '          data-icon="square-xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="-200 -200 700 700"' . $endl;
             echo '          class="svg-inline--fa fa-square-xmark fa-w-14 fa-xs" width="3rem" height="3rem">' . $endl;
             echo '          <g class="fa-group">' . $endl;
@@ -79,7 +79,7 @@ if ($children != "") {
             echo '                  class="fa-secondary"></path>' . $endl;
             echo '          </g>' . $endl;
             echo '      </svg>' . $endl;
-            echo '      <svg onclick="location.href=\'addToTimeline.php?ID=' . $picture ->getID() . '\'" aria-hidden="true" focusable="false" data-prefix="fad"' . $endl;
+            echo '      <svg onclick="location.href=\'../view/addToTimeline.php?ID=' . $picture ->getID() . '\'" aria-hidden="true" focusable="false" data-prefix="fad"' . $endl;
             echo '          data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="-30 -230 800 800"' . $endl;
             echo '          class="svg-inline--fa-regular fa-star fa-w-14 fa-xs" width="3rem" height="3rem">' . $endl;
             echo '          <g class="fa-group">' . $endl;
