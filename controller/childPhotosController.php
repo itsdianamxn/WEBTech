@@ -5,6 +5,9 @@ if (!array_key_exists('id', $_SESSION)) {
     exit();
 }
 $userId = $_SESSION['id'];
+require_once '../model/User.php';
+$u = new User();
+$u->load($userId);
 
 $children = isset($_GET["children"]) ? htmlspecialchars($_GET["children"]) : "";
 

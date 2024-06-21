@@ -23,7 +23,7 @@
     <title>ParentProfile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/profileStyle.css">
-    
+
     <script src="../scripts/editProfileScript.js"></script>
 
   </head>
