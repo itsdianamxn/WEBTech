@@ -168,7 +168,7 @@ class User
         }
         $db->execute('DELETE FROM users WHERE ID = :id', [':id' => $this->id]);
         if (file_exists('../pics/profiles/' . $this->id . '.jpg')) {
-            unlink($file);
+            unlink('../pics/profiles/' . $this->id . '.jpg');
         }
     }
     

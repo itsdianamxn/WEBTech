@@ -14,6 +14,9 @@ header('Content-Type: application/json');
 try {
     $user = new User();
     $user->load($userId);
+    echo json_encode(['user' => $user]);
+    exit();
+
     $data['users'] = $user;
 
     $children = $user->getChildren();

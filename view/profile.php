@@ -23,10 +23,7 @@
     <title>ParentProfile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/profileStyle.css">
-    <script src="../scripts/extractScript.js"></script>
     <script src="../scripts/editProfileScript.js"></script>
-
-
 
   </head>
 
@@ -109,7 +106,8 @@
           </td>
       </tr>
     </table>
-          
+    <script src="../scripts/extractScript.js"></script>
+
   </body>
 
   </html>
