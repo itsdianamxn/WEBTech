@@ -61,7 +61,7 @@ tr{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 110%;
+    width: 100%;
 }
 
 td{

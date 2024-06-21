@@ -23,6 +23,8 @@
     <title>ParentProfile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/profileStyle.css">
+    <script src="../controller/extractScript.js"></script>
+
   </head>
 
   <body>
@@ -70,7 +72,8 @@
         else echo "&nbsp;children" ?>
         </td>
       </tr>
-      </div>
+      </table>
+    </div>
 
     <table>
       <tr>
@@ -84,27 +87,24 @@
         </td>
       </tr>
       <tr>
-          <td colspan=2 class="buttons">
+          <td class="buttons">
             <input type="button" id="import-button" value="Import">
             <input type="file" id="file-input" style="display: none;">
             <pre id="input"></pre>
           </td>
-        </tr>
+      </tr>
       <tr>
-      <td colspan=2 class="buttons">
+      <td class="buttons">
           <input type="button" id="extract-button" value="Export">
           <pre id="output"></pre>
           </td>
-        </tr>
       </tr>
       <tr>
         <td class="buttons">
-          <input type="button"  id="delete" value="Delete">
+          <input type="button" id="delete" value="Delete">
         </td>
       </tr>
-      
-      </table>
-      <script src="../controller/extractScript.js"></script>
+    </table>
           
   </body>
 
