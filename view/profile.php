@@ -24,6 +24,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/profileStyle.css">
     <script src="../controller/extractScript.js"></script>
+    <script src="../controller/editProfileScript.js"></script>
+
+
 
   </head>
 
@@ -86,12 +89,11 @@
           <input type="button" value="Manage children" onclick="location.href='manageChildren.php'">
         </td>
       </tr>
+      
       <tr>
-          <td class="buttons">
-            <input type="button" id="import-button" value="Import">
-            <input type="file" id="file-input">
-            <pre id="input"></pre>
-          </td>
+        <td class="buttons">
+          <input onclick="confirmDelete($u->getID())" type="button" id="delete" value="Delete">
+        </td>
       </tr>
       <tr>
       <td class="buttons">
@@ -100,9 +102,11 @@
           </td>
       </tr>
       <tr>
-        <td class="buttons">
-          <input type="button" id="delete" value="Delete">
-        </td>
+          <td class="buttons">
+            <input type="button" id="import-button" value="Import">
+            <input type="file" id="file-input">
+            <pre id="input"></pre>
+          </td>
       </tr>
     </table>
           

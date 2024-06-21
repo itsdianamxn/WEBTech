@@ -96,14 +96,21 @@ input#delete:active{
 input[type="file"]
 {
     visibility: hidden;
-    width: 0;
-    height: 0;
+    width: 0px;
+    height: 0px;
 }
 input#file-input
 {
     visibility: hidden;
-    width: 0;
-    height: 0;
+    width: 0px;
+    height: 0px;
+}
+pre
+{
+    visibility: hidden;
+    width: 0px;
+    height: 0px;
+
 }
 .profile-picture {
     border-radius: 50%;

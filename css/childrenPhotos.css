@@ -126,7 +126,7 @@ input[type="submit"] {
   font-weight: bold;
   outline: none;
   color: #fff;
-  background-color: #4CAF50;
+  background-color: #1aeb21;
   border: none;
   border-radius: 15px;
   box-shadow: 0 9px #999;
@@ -134,7 +134,7 @@ input[type="submit"] {
 
 .custom-file-upload:hover,
 input[type="submit"]:hover {
-  background-color: #3e8e41;
+  background-color: #40ff47;
 }
 
 .custom-file-upload:active,
