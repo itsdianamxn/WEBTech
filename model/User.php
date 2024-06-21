@@ -58,13 +58,14 @@ class User
 
     public function loadFromImport($data)
     {
-        $this->firstname = $data['firstName'];
-        $this->lastname = $data['lastName'];
-        $this->password = $data['password'];
+        error_log('User loadFromImport called with data: ' . json_encode($data));
+        $this->firstname = $data['firstname'];
+        $this->lastname = $data['lastname'];
         $this->email = $data['email'];
         $this->relationship = $data['relationship'];
         $this->dob = $data['dob'];
         $this->add();
+        echo json_encode(['error' => 'User added']);
     }
 
     public function getID()

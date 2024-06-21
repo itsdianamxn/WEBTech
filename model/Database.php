@@ -18,6 +18,11 @@ class Database
         $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
+    public function getConnection()
+    {
+        return $this->conn;
+    }
+
     public function select($sql, $fetch, $params)
     {
         // Prepare and bind

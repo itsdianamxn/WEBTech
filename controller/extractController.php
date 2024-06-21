@@ -35,19 +35,26 @@ try {
             'id' => $child->getId(),
             'firstname' => $child->getFirstname(),
             'lastname' => $child->getLastname(),
-            'dob' => $child->getDob(),];
-        $pictures[] = $child->getPictures();
+            'dob' => $child->getDob(),
+            'stage' => $child->getStage(),
+        ];
+        $pictures[] = $child->getPictures(false);
     }
     $data['children'] = $childArray;
     $picturesArray = [];
     foreach($pictures as $picture){
         foreach($picture as $pic){
+            
+            $picData = file_get_contents($pic->getPicture());
+            $base64 = base64_encode($picData);
             $picturesArray[] = [
                 'id' => $pic->getId(),
                 'childID' => $pic->getChildID(),
                 'path' => $pic->getPicture(),
                 'date' => $pic->getDate(),
-                'timeline' => $pic->getTimeline(),
+                'timeline' => $pic->isTimeline(),
+                'message' => $pic->getDescription(),
+                'base64' => $base64,
             ];
         }
     }

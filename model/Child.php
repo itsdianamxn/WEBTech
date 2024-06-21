@@ -35,14 +35,16 @@ class Child
         return false;
     }
 
-    public function loadFromImport($data)
+    public function loadFromImport($data, $parentID)
     {
+        error_log('Child loadFromImport called with data: ' . json_encode($data));
         $this->firstname = $data['firstname'];
         $this->lastname = $data['lastname'];
         $this->dob = $data['dob'];
         $this->stage = $data['stage'];
-        $this->parentID = $data['parentID'];
+        $this->parentID = $parentID;
         $this->add();
+        echo json_encode('Child added: ' . $this->firstname);
     }
 
     public function getID()
@@ -88,7 +90,7 @@ class Child
     }
     public function setParentID($ParentID)
     {
-        $this->ParentID = $ParentID;
+        $this->parentID = $ParentID;
     }
 
     public function add()
@@ -99,7 +101,7 @@ class Child
             ':lastName' => $this->lastname,
             ':dob' => $this->dob,
             ':stage' => $this->stage,
-            ':ParentID' => $this->ParentID,
+            ':ParentID' => $this->parentID,
         ];
         $res = $db->execute('INSERT INTO children (firstname, lastname, dob, stage, parent_ID) ' . 
                                        'VALUES (:firstName, :lastName, :dob, :stage, :ParentID)', $params);
@@ -114,7 +116,7 @@ class Child
             ':lastName' => $this->lastname,
             ':dob' => $this->dob,
             ':stage' => $this->stage,
-            ':ParentID' => $this->ParentID,
+            ':ParentID' => $this->parentID,
         ];
         
         $res = $db->execute('UPDATE children SET ' .

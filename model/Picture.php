@@ -1,5 +1,7 @@
 <?php
-
+ini_set('display_errors', 0); // Turn off error displaying
+ini_set('log_errors', 1); // Enable error logging
+ini_set('error_log', '../errors.log');
 require_once 'Database.php';
 // ALTER TABLE `images` ADD `Message` TEXT NULL AFTER `timeline`;
 
@@ -37,11 +39,12 @@ class Picture
 
     public function loadFromImport($data)
     {
-        $this->childID = $data['child_ID'];
-        $this->picture = $data['Picture'];
-        $this->date = $data['uploadDate'];
+        error_log('Picture loadFromImport called with data: ' . json_encode($data));
+        $this->childID = $data['childID'];
+        $this->picture = $data['path'];
+        $this->date = $data['date'];
         $this->timeline = $data['timeline'];
-        $this->message = $data['Message'];
+        $this->message = $data['message'];
         $db = new Database();
         $params = [
             ':child_ID' => $this->childID,
@@ -50,8 +53,11 @@ class Picture
             ':timeline' => $this->timeline,
             ':message' => $this->message
         ];
+        $imageData = base64_decode($data['base64']);  
+        file_put_contents($this->picture . ".jpg" ,$imageData);   
         $res = $db->execute('INSERT INTO images (child_ID, Picture, uploadDate, timeline, Message) ' . 
-                                       'VALUES (:child_ID, :picture, :uploadDate, :timeline, :message)', $params);
+                                       'VALUES (:child_ID, :picture, :uploadDate, :timeline, :message)', $params);                                  
+        error_log($res);
         return $res;
     }
 
@@ -79,6 +85,7 @@ class Picture
     {
         return $this->message;
     }
+
    
     public function addToTimeline($desc)
     {
@@ -89,6 +96,11 @@ class Picture
     public function setPicture($path)
     {
         $this->picture = $path;
+    }
+
+    public function setChildID($childID)
+    {
+        $this->childID = $childID;
     }
 
     public function add()
