@@ -1,5 +1,7 @@
 <?php
-
+ini_set('display_errors', 0); // Turn off error displaying
+ini_set('log_errors', 1); // Enable error logging
+ini_set('error_log', '../errors.log');
 class Database
 {
     // Database connection settings
@@ -33,6 +35,18 @@ class Database
         if ($res && $fetch)
         {
             return $stmt->fetch(PDO::FETCH_ASSOC);
+        }
+        return $stmt;
+    }
+
+    public function selectAll($sql, $fetch, $params){
+        $stmt = $this->conn->prepare($sql);
+
+        // Execute the prepared statement
+        $res = $stmt->execute($params);
+        if ($res && $fetch)
+        {
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
         return $stmt;
     }

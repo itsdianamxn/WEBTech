@@ -58,7 +58,6 @@ class User
 
     public function loadFromImport($data)
     {
-        error_log('User loadFromImport called with data: ' . json_encode($data));
         $this->firstname = $data['firstname'];
         $this->lastname = $data['lastname'];
         $this->email = $data['email'];

@@ -1,5 +1,7 @@
 <?php
-
+ini_set('display_errors', 0); // Turn off error displaying
+ini_set('log_errors', 1); // Enable error logging
+ini_set('error_log', '../errors.log');
 require_once 'Database.php';
 require_once 'Picture.php';
 require_once 'Schedule.php';
@@ -37,7 +39,6 @@ class Child
 
     public function loadFromImport($data, $parentID)
     {
-        error_log('Child loadFromImport called with data: ' . json_encode($data));
         $this->firstname = $data['firstname'];
         $this->lastname = $data['lastname'];
         $this->dob = $data['dob'];
@@ -57,6 +58,24 @@ class Child
             return true;
         }
         return false;
+    }
+
+    public function getSchedule(){
+        $db = new Database();
+        $result = $db->selectAll("SELECT * FROM schedule_events WHERE child_ID = :id", true, [':id' => $this->id]);
+        
+        $schedules = [];
+    
+        if($result){
+            foreach($result as $row){
+                
+                $schedule = new Schedule();
+                $schedule->load($row['ID']);
+                $schedules[] = $schedule->toArray();
+            }
+        }
+        error_log('Schedules loaded: '. json_encode($schedules));
+        return $schedules;
     }
 
     public function getID()

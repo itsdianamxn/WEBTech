@@ -81,7 +81,7 @@ class Picture
         $pictures = [];
         if ($result)
         {
-            error_log("Got pictures for child " . $childID );
+
             foreach ($result as $row)
             {
                 $pic = new Picture();

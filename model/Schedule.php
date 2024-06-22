@@ -1,5 +1,7 @@
 <?php
-
+ini_set('display_errors', 0); // Turn off error displaying
+ini_set('log_errors', 1); // Enable error logging
+ini_set('error_log', '../errors.log');
 require_once 'Database.php';
 
 class Schedule
@@ -40,6 +42,20 @@ class Schedule
             return true;
         }
         return false;
+    }
+
+    public function toArray()
+    {
+        return [
+            'id' => $this->id,
+            'type' => $this->type,
+            'child_ID' => $this->child_ID,
+            'message' => $this->message,
+            'recurrence' => $this->recurrence,
+            'expiration' => $this->expiration,
+            'date' => $this->date,
+            'time' => $this->time,
+        ];
     }
 
     public function add()

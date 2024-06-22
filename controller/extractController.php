@@ -30,6 +30,7 @@ try {
     $children = $user->getChildren();
     $childArray = [];
     $pictures = [];
+    $schedules = [];
     foreach($children as $child) {
         $childArray[] = [
             'id' => $child->getId(),
@@ -39,6 +40,7 @@ try {
             'stage' => $child->getStage(),
         ];
         $pictures[] = $child->getPictures(false);
+        $schedules[] = $child->getSchedule();
     }
     $data['children'] = $childArray;
     $picturesArray = [];
@@ -59,8 +61,11 @@ try {
         }
     }
     $data['pictures'] = $picturesArray;
-
-
+    // $scheduleArray = [];
+    // foreach($schedules as $schedule){
+    //     $scheduleArray[] = $schedule;  
+    // }
+    $data['schedule_events'] = $schedules;
     $json_data = json_encode($data);
     
     // Save the JSON data to a file

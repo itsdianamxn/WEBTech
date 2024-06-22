@@ -15,18 +15,6 @@ body::-webkit-scrollbar {
   height: 0px; /* Hide the horizontal scrollbar for WebKit browsers */
 }
 
-/* body.edit::-webkit-scrollbar {
-  width: 0.35rem;
-}
-
-body.edit::-webkit-scrollbar-track {
-  background: #9074DC;
-}
-
-body.edit::-webkit-scrollbar-thumb {
-  background: #9074DC;
-} */
-
 img {
   margin: 2px;
 }
