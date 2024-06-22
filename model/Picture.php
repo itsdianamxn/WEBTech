@@ -75,6 +75,23 @@ class Picture
         return false;
     }
 
+    public function getTimelineOfChild($childID){
+        $db = new Database();
+        $result = $db->select("SELECT * FROM images WHERE child_ID = :child_ID AND timeline = 1 ORDER BY uploadDate", false, [':child_ID'=>$childID]);
+        $pictures = [];
+        if ($result)
+        {
+            error_log("Got pictures for child " . $childID );
+            foreach ($result as $row)
+            {
+                $pic = new Picture();
+                $pic->load($row['ID']);
+                $pictures[] = $pic;
+            }
+        }
+        return $pictures;
+    }
+
     public function getID()
     {
         return $this->id;
