@@ -49,8 +49,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     if (isset($data['pictures'])) {
                         foreach ($data['pictures'] as $imageData) {
-                            $picture = new Picture();
+                            $picture = new Picture();   
                             $picture->loadFromImport($imageData);
+                        }
+                    }
+                    if(isset($data['schedule_events'])){
+                        foreach($data['schedule_events'] as $scheduleData){
+                            $schedule = new Schedule();
+                            $schedule->loadFromImport($scheduleData);
                         }
                     }
 

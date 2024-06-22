@@ -44,6 +44,29 @@ class Schedule
         return false;
     }
 
+    public function loadFromImport($data){
+        $this->type = $data['type'];
+        $this->child_ID = $data['child_ID'];
+        $this->message = $data['message'];
+        $this->recurrence = $data['recurrence'];
+        $this->expiration = $data['expiration'];
+        $this->date = $data['date'];
+        $this->time = $data['time'];
+        if(!$this->find($this->type, $this->child_ID, $this->message, $this->recurrence, $this->expiration, $this->date, $this->time))
+            $this->add();
+    }
+
+    public function find($type, $child_ID, $message, $recurrence, $expiration, $date, $time)
+    {
+        $db = new Database();
+        $result = $db->select("SELECT * FROM schedule_events WHERE type = :type AND child_ID = :child_ID AND message = :message AND recurrence = :recurrence AND expiration = :expiration AND date = :date AND time = :time", true, [':type' => $type, ':child_ID' => $child_ID, ':message' => $message, ':recurrence' => $recurrence, ':expiration' => $expiration, ':date' => $date, ':time' => $time]);
+        if ($result)
+        {
+            return true;
+        }
+        return false;
+    }
+
     public function toArray()
     {
         return [

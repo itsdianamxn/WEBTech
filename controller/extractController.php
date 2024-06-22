@@ -65,7 +65,13 @@ try {
     // foreach($schedules as $schedule){
     //     $scheduleArray[] = $schedule;  
     // }
-    $data['schedule_events'] = $schedules;
+    $scheduleArray = [];
+    foreach($schedules as $schedule){
+        foreach($schedule as $sched){
+            $scheduleArray[] = $sched;
+        }
+    }
+    $data['schedule_events'] = $scheduleArray;
     $json_data = json_encode($data);
     
     // Save the JSON data to a file
