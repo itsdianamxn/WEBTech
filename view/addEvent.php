@@ -8,6 +8,7 @@
     $userId = $_SESSION['id'];
     $type = $_GET['type'];
     $childId = $_GET['child'];
+    $action = isset($_GET['action']) ? $_GET['action'] : 'create'; // default is create
 
     require_once "../model/Child.php";
     $c = new Child();
@@ -19,7 +20,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Add/Modify Event</title>
+    <title><?php echo ($action == 'edit') ? 'Modify' : 'Create New'; ?> Event</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/registerStyle.css" type="text/css">
     <script language="javascript">
@@ -48,11 +49,11 @@
 
 <body class="register" onload="updateForm();">
     <div class="mainRegister">
-        <h1 class="title">New <?php echo $type; ?> Schedule for <?php echo $c->getFirstname(); ?></h1>
+        <h1 class="title"><?php echo ($action == 'edit' ? 'Modify ' : 'Create New ') . $type; ?> Schedule for <?php echo $c->getFirstname(); ?></h1>
         <div class="mainRegister">
             <form id="registerPage" action="../controller/eventController.php" method="post">
                 <input type="hidden" id="childId" name="childId" value="<?php echo $childId; ?>">
-                <input type="hidden" id="action" name="action" value="create">
+                <input type="hidden" id="action" name="action" value="<?php echo $action; ?>">
 
                 <div class="childRegisterInputs">
                     <div class="inputField" style="display:none;">

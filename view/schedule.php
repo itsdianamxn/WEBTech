@@ -58,7 +58,7 @@
         </div>
         <div class="logs-body">
             <button class="add-button" 
-                onclick="location.href='addEvent.php?type=<?php echo $type; ?>&child=<?php echo $childId; ?>'">
+                onclick="location.href='addEvent.php?action=create&type=<?php echo $type; ?>&child=<?php echo $childId; ?>'">
                 Add New <?php echo $type; ?> Schedule
             </button>
             <?php
@@ -96,7 +96,8 @@
                         echo '           <li><i>No expiration</i></li>' . $endl;
 
                     echo '       </ul>' . $endl;
-                    echo '       <div><a href="#">Modify</a> - '.
+                    echo '       <div><a href="../view/addEvent.php?action=edit&type='. $type .
+                                            '&child='.  $childId . '&scheduleID=' . $schedule->getId() . '">Modify</a> - '.
                                      '<a href="#" onclick="deleteSchedule(' . $schedule->getId() . ');">Delete</a></div>' . $endl;
                     echo '   </div>' . $endl . $endl;
                 }
