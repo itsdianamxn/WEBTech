@@ -20,7 +20,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/children.css" type="text/css">
     <script src="../scripts/mediaScript.js"></script>
-
 </head>
 
 <body>
@@ -40,10 +39,10 @@
                 echo '.jpg" alt="Child picture">' . $endl;
         
                 echo '<div class="dropdown">'. $endl;
-                echo '<a href="food-calendar.html" target="calendarFrame">Food</a>' . $endl;
-                echo '<a href="sleep-calendar.html" target="calendarFrame">Sleep</a>' . $endl;
-                echo '<a href="health-calendar.html" target="calendarFrame">Health</a>' . $endl;
-                echo '<a href="evolution-calendar.html" target="calendarFrame">Evolution</a>' . $endl;
+                echo '<a href="schedule.php?type=Feeding&child=' . $child->getID() . '" target="calendarFrame">Feeding</a>' . $endl;
+                echo '<a href="schedule.php?type=Sleep&child=' . $child->getID() . '" target="calendarFrame">Sleep</a>' . $endl;
+                echo '<a href="schedule.php?type=Medical&child=' . $child->getID() . '" target="calendarFrame">Medical</a>' . $endl;
+                echo '<a href="schedule.php?type=Evolution&child=' . $child->getID() . '" target="calendarFrame">Evolution</a>' . $endl;
                 echo '<a href="groups.html" target="calendarFrame">Groups</a>' . $endl;
                 echo '</div>' . $endl;
                 echo '</div>' . $endl;
@@ -51,7 +50,7 @@
         ?>
         </div>
         <div class="calendar-container">
-            <iframe name="calendarFrame" src="food-calendar.html"
+            <iframe name="calendarFrame" src="../view/schedule.php"
                 style="height: 100%; width: 100%; border: none;"></iframe>
         </div>
     </div>

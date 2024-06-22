@@ -16,5 +16,4 @@
     $p->addToTimeline($desc);
     $p->save();
     header("Location: ../view/timeline.php");
-
 ?>

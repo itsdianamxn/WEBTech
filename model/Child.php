@@ -2,7 +2,7 @@
 
 require_once 'Database.php';
 require_once 'Picture.php';
-
+require_once 'Schedule.php';
 
 class Child
 {
@@ -21,7 +21,7 @@ class Child
     public function load($id)
     {
         $db = new Database();
-        $result = $db->select("SELECT * FROM children WHERE id = :id", true, [':id'=>$id]);
+        $result = $db->select("SELECT * FROM children WHERE id = :id", true, [':id'=> $id]);
         if ($result)
         {
             $this->id = $result['ID'];
@@ -29,7 +29,7 @@ class Child
             $this->lastname = $result['lastname'];
             $this->dob = $result['dob'];
             $this->stage = $result['stage'];
-            $this->parentID = $result['parent_ID'];;
+            $this->parentID = $result['parent_ID'];
             return true;
         }
         return false;
@@ -83,7 +83,6 @@ class Child
     {
         return $this->parentID;
     }
-
     public function setFirstname($firstname)
     {
         $this->firstname = $firstname;
@@ -120,6 +119,7 @@ class Child
 
         return $res;
     }
+    
     public function save()
     {
         $db = new Database();
@@ -129,11 +129,12 @@ class Child
             ':dob' => $this->dob,
             ':stage' => $this->stage,
             ':ParentID' => $this->parentID,
+            ':id' => $this->id,
         ];
         
         $res = $db->execute('UPDATE children SET ' .
             'firstname = :firstName, lastname = :lastName, dob = :dob, stage = :stage, parent_ID = :ParentID ' .
-            'WHERE ID = ' . $this->id, $params);
+            'WHERE ID = :id', $params);
         return $res;
     }
     
@@ -157,17 +158,36 @@ class Child
         return $pictures;
     }
 
+    public function getSchedules($type)
+    {
+        $schedules = [];
+        $db = new Database();
+        $res = $db->select('SELECT * FROM schedule_events where type = :type and child_ID = :child', 
+                           false, [':child' => $this->id, ':type' => $type]);
+        while ($row = $res->fetch())
+        {
+            $schedule = new Schedule();
+            if ($schedule->load($row['ID']))
+            {
+                $schedules[$row['ID']] = $schedule;
+            }
+        }
+        
+        return $schedules;
+    }
+
     public function delete()
     {
         if (file_exists('../pics/childrenProfiles/' . $this->id . '.jpg')) {
             unlink('../pics/childrenProfiles/' . $this->id . '.jpg');
         }
+
         $db = new Database();
         $pictures = $this->getPictures(false);
         foreach($pictures as $picture) {
             $picture->delete();
         }
-        // $db->execute('DELETE FROM images WHERE child_ID = :id', [':id' => $this->id]);
+
         $db->execute('DELETE FROM children WHERE ID = :id', [':id' => $this->id]);
     }
 }

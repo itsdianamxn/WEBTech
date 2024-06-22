@@ -52,7 +52,7 @@
                         <button type="submit" id="reg">Register</a>
                     </div>
                     <div class="regButton">
-                        <a class=" Cancel" href="#" id="cancel">Cancel</a>
+                        <a class=" Cancel" onclick="history.go(-1)" id="cancel">Cancel</a>
                     </div>
                 </div>
             </form>
