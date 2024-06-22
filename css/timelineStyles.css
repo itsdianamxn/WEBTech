@@ -14,19 +14,26 @@ html {
     align-items: start;
     background-color: #9074DC;
     overflow: auto;
+    -ms-overflow-style: none;  /* Hide the scrollbar for Internet Explorer and Edge */
+    scrollbar-width: none;
   }
   
-  body.edit::-webkit-scrollbar {
+
+  body::-webkit-scrollbar {
+    width: 0px;  /* Hide the scrollbar for WebKit browsers */
+    height: 0px; /* Hide the horizontal scrollbar for WebKit browsers */
+  }
+  /* body.edit::-webkit-scrollbar {
     width: 0.35rem;
   }
   
   body.edit::-webkit-scrollbar-track {
-    background: var(--bg-secondary);
+    background: #9074DC;
   }
   
   body.edit::-webkit-scrollbar-thumb {
-    background: black;
-  }
+    background: #9074DC;
+  } */
 
   img {
     margin: 2px;
