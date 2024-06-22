@@ -50,7 +50,7 @@ if ($children == "") {
             if (empty($childPictures)) {
                 echo "No pictures found for " . htmlspecialchars($child->getLastName()) . ".";
             } else {
-                echo "<h2>" . htmlspecialchars($child->getFirstName()) . " " . htmlspecialchars($child->getLastName()) . "</h2>";
+                echo "<h2 class = \"name-container\">" . htmlspecialchars($child->getFirstName()) . " " . htmlspecialchars($child->getLastName()) . "</h2>";
                 echo "<div class=\"timelineContainer\">";
                 foreach ($childPictures as $pic) {
                     echo "<div class=\"timelineEvent\">\n";

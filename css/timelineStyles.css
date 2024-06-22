@@ -1,6 +1,7 @@
 html {
     width: 100%;
     height: 100%;
+    overflow: hidden;
   }
   
   body {
@@ -82,3 +83,24 @@ html {
     margin: 4px;
   }
 
+  @media only screen and (max-width: 800px){
+    body{
+        flex-direction: column;
+    }
+
+    .container{
+        flex-direction: row;
+        height: 25%;
+        width: 90%;
+    }
+
+    .child-thumbnail{
+        width: 80px;
+        height: 80px;
+    }
+    .child-photo{
+        height:50px; 
+        width:50px; 
+        margin-bottom: 5px;
+    }
+  }

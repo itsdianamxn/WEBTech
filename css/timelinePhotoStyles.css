@@ -37,24 +37,31 @@ html {
   } 
 
 
-.timelineEvent{
-    height: auto;
-    width: 100%;
+.timelineContainer {
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    padding : 12px;
-    margin: 5px;
-    border: 5px solid #443494;
-    border-radius: 10px;
-  }
+    flex-wrap: wrap;
+    gap: 20px; /* space between timeline events */
+}
 
-  .timelineContainer {
-    display: flex;
-    flex-direction: row;
-    height: 45%;
-  }
+.timelineEvent {
+    flex: 1 1 100px; /* grow and shrink, with a base width of 300px */
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffdeae;
+}
+
+.timelineEvent img {
+    max-width: 25%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.img-description {
+    margin: 10px 0;
+}
 
   .no-events{
     height: 35%;
@@ -68,11 +75,19 @@ html {
     height: 100%;
   }
 
-  .img-description{
+  .name-container{
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    font-style: italic;
-    font-size: 1.3rem;
+    align-items: center;
+    margin: 10px 0;
+  }
+
+  @media only screen and (max-width: 800px){
+    body{
+        justify-content: center;
+    }
+
+    .no-events{
+      font-size: 1.5rem;
+    }
   }
