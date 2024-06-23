@@ -1,8 +1,8 @@
-function deleteSchedule(_eventId)
-        {
-            if (confirm("Ok to delete <?php echo $type; ?> event?"))
-            {
-                document.getElementById('scheduleID').value = _eventId;
-                document.getElementById('deleteForm').submit();
-            }
-        }
+function deleteSchedule(_eventId, _eventType)
+{
+    if (confirm("Ok to delete " + _eventType + " event?"))
+    {
+        document.getElementById('scheduleID').value = _eventId;
+        document.getElementById('deleteForm').submit();
+    }
+}

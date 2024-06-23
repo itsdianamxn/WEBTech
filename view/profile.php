@@ -23,22 +23,24 @@
     <title>ParentProfile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/profileStyle.css">
-
     <script src="../scripts/editProfileScript.js"></script>
-
   </head>
 
   <body>
     <div class="container">
+
       <img src="../pics/profiles/<?php 
             if (file_exists('../pics/profiles/' . $u->getID() . '.jpg'))
                 echo $u->getID();
             else echo '0';
-      ?>.jpg" style="width:10%" alt="Profile Picture" class="profile-picture">
+      ?>.jpg" style="width:10%" alt="Profile Picture" class="profile-picture"
+        onclick="document.getElementById('fileToUpload').click();checkImageSet();">
 
-      <form action="../controller/updateProfileImage.php"  method="post" enctype="multipart/form-data">
+      <i>Click the profile image to change it</i>
+      <form action="../controller/updateProfileImage.php"  method="post"
+            enctype="multipart/form-data" style="display:none;">
           <input type="file" name="fileToUpload" id="fileToUpload">
-          <input type="submit" value="Change Profile Image" name="submit">
+          <input type="submit" value="Change Profile Image" name="submit" id="submitProfilePic">
       </form>
 
     <table>

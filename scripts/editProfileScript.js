@@ -4,3 +4,13 @@ function confirmDelete(_id) {
         top.location.reload();
     }
 }
+
+function checkImageSet()
+{
+  if (document.getElementById('fileToUpload').value != "")
+  {
+    document.getElementById('submitProfilePic').click();
+    return;
+  }
+  setTimeout(checkImageSet, 500);
+}

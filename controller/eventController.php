@@ -24,12 +24,14 @@
         $schedule->setExpiration($_POST['expiration']);
         $schedule->setTime($_POST['time']);
         $schedule->setDate($_POST['date']);
+
         $schedule->add();
     }
 
     if ($action == 'edit')
     {
         $schedule = new Schedule();
+        $schedule->load($_POST['eventId']);
         $schedule->setChildId($childId);
         $schedule->setType($type);
         $schedule->setMessage(htmlspecialchars($_POST['description']));
@@ -37,6 +39,7 @@
         $schedule->setExpiration($_POST['expiration']);
         $schedule->setTime($_POST['time']);
         $schedule->setDate($_POST['date']);
+
         $schedule->save();
     }
 

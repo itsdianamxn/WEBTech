@@ -27,8 +27,7 @@ $allPictures = [];
     <?php
         if ($children != "") {
             
-            echo '<div class="name-title">';
-            echo '<h2>Pictures of ';
+            echo '<div class="name-title"><h2>Pictures of ';
             $first = true;
 
             $children = rtrim($children, ',');
@@ -47,27 +46,25 @@ $allPictures = [];
                 }
                 echo $c->getFirstname();
             }
-            
-            echo '</h2>';   
-            echo "</div>\n";
+            echo "</h2></div>\n";
 
-            if (count($childrenIds) == 1) {
-                
-                echo '<form class="upload-form" action="../controller/uploadPhotoController.php" '.
-                        'method="post" enctype="multipart/form-data">';
-                echo '<p>Select new file for upload:</p>';
-                
-                echo '<input type="hidden" name="childId" id="childId" value="' . $childrenIds[0] . '">';
-                echo '<label for="fileToUpload" class="custom-file-upload">';
-                echo 'Choose a file';
-                echo '</label>';
-                echo '<input type="file" name="fileToUpload" id="fileToUpload">';
-                echo '<input type="submit" value="Upload" name="submit">';
-
-                echo '</form>';
-            }
-            
             echo "    <div class=''>\n";
+
+            if (count($childrenIds) == 1)
+            {
+                echo '<form class="upload-form" action="../controller/uploadPhotoController.php" style="display:none;" ' .
+                            'method="post" enctype="multipart/form-data" id="uploadChildPhoto">';
+                echo '  <input type="hidden" name="childId" id="childId" value="' . $childrenIds[0] . '">';
+                echo '  <input type="file" name="fileToUpload" id="fileToUpload">';
+                echo '  <input type="submit" value="Upload" name="submit" id="submitChildPic">';
+                echo '</form>';
+
+                echo '      <span class="image-preview">Add new resource';
+                echo '          <img class="image-preview-img" src="../pics/addPhoto.png" alt="Add new picture or movie" '.
+                                    'onclick="document.getElementById(\'fileToUpload\').click();checkImageSet();"><br>';
+                echo '      </span>';
+            }
+
             $endl = "\n";
             foreach($allPictures as $picture) {
                 $mediaFilePath = pathinfo($picture->getPicture(), PATHINFO_FILENAME);
@@ -82,7 +79,7 @@ $allPictures = [];
                 } else {
                     echo '<span class="image-preview">' . $endl;
                     echo '  <div class="nameContainer">' . $endl;
-                    echo '      <svg onclick="deletePicture(' . $picture->getID() . ')" aria-hidden="true" focusable="false" data-prefix="fad"' . $endl;
+                    echo '      <svg onclick="confirmDelete(' . $picture->getID() . ')" aria-hidden="true" focusable="false" data-prefix="fad"' . $endl;
                     echo '          data-icon="square-xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"' . $endl;
                     echo '          class="svg-inline--fa fa-square-xmark fa-w-14 fa-xs" width="2rem" height="2rem">' . $endl;
                     echo '          <g class="fa-group">' . $endl;

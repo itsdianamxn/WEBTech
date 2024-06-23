@@ -49,7 +49,9 @@ function loadVideo(videoSrc, title) {
 
 function confirmDelete(_id) {    
     if (confirm("Are you sure you want to delete this photo?")) {
-        location.href='../controller/deletePhoto.php?ID=' +  _id;
+        urlParams = new URLSearchParams(window.location.search);
+
+        location.href='../controller/deletePhoto.php?ID=' +  _id + "&children=" + urlParams.get('children');
     }
 }
 
@@ -59,4 +61,14 @@ function addToTimeline(_id) {
     {
         location.href='../controller/addToTimeline.php?ID=' +  _id + "&msg=" + encodeURIComponent(msg);
     }
+}
+
+function checkImageSet()
+{
+  if (document.getElementById('fileToUpload').value != "")
+  {
+    document.getElementById('submitChildPic').click();
+    return;
+  }
+  setTimeout(checkImageSet, 500);
 }

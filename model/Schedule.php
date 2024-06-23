@@ -18,6 +18,8 @@ class Schedule
     public function __construct()
     {
         $this->id = -1;
+        $this->time = '09:00';
+        $this->date = date('Y-m-d', mktime(0, 0, 0, date("m"), date("d")+1, date("Y")));
     }    
 
     public function load($id)
@@ -44,7 +46,8 @@ class Schedule
         return false;
     }
 
-    public function loadFromImport($data){
+    public function loadFromImport($data)
+    {
         $this->type = $data['type'];
         $this->child_ID = $data['child_ID'];
         $this->message = $data['message'];
@@ -52,19 +55,27 @@ class Schedule
         $this->expiration = $data['expiration'];
         $this->date = $data['date'];
         $this->time = $data['time'];
-        if(!$this->find($this->type, $this->child_ID, $this->message, $this->recurrence, $this->expiration, $this->date, $this->time))
+
+        if (!$this->exists())
             $this->add();
     }
 
-    public function find($type, $child_ID, $message, $recurrence, $expiration, $date, $time)
+    // returns true if the object exists in database, otherwise false
+    public function exists()
     {
         $db = new Database();
-        $result = $db->select("SELECT * FROM schedule_events WHERE type = :type AND child_ID = :child_ID AND message = :message AND recurrence = :recurrence AND expiration = :expiration AND date = :date AND time = :time", true, [':type' => $type, ':child_ID' => $child_ID, ':message' => $message, ':recurrence' => $recurrence, ':expiration' => $expiration, ':date' => $date, ':time' => $time]);
-        if ($result)
-        {
-            return true;
-        }
-        return false;
+        $params = [':type' => $this->type,
+                   ':child_ID' => $this->child_ID,
+                   ':message' => $this->message,
+                   ':recurrence' => $this->recurrence,
+                   ':expiration' => $this->expiration, 
+                   ':date' => $this->date,
+                   ':time' => $this->time];
+        $result = $db->select("SELECT * FROM schedule_events WHERE ".
+                        "type = :type AND child_ID = :child_ID AND message = :message AND " .
+                        "recurrence = :recurrence AND expiration = :expiration AND " .
+                        "date = :date AND time = :time", true, $params);
+        return $result;
     }
 
     public function toArray()
@@ -113,7 +124,7 @@ class Schedule
             ':id' => $this->id,
         ];
         
-        $res = $db->execute('UPDATE schedule_events SET time = :time, date = :date, ' .
+        $res = $db->execute('UPDATE schedule_events SET `time` = :time, `date` = :date, ' .
             'type = :type, child_ID = :child_ID, message = :message, recurrence = :recurrence, expiration = :expiration ' .
             'WHERE ID = :id', $params);
         return $res;

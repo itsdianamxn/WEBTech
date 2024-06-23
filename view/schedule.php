@@ -74,21 +74,25 @@
                                 $schedule->getTime()  . '</li>' . $endl;
                             break;
                         case 'Yearly':
+                        case "One-time":
                             $date = date_create($schedule->getDate());
                             echo '           <li>Date: ' . date_format($date, 'd-M') . ', time: ' .
                                 $schedule->getTime()  . '</li>' . $endl;
                             break;
                     }
 
-                    if ($schedule->getExpiration())
-                        echo '           <li>Expires: ' . $schedule->getExpiration() . '</li>' . $endl;
-                    else
-                        echo '           <li><i>No expiration</i></li>' . $endl;
+                    if ($schedule->getRecurrence() != "One-time")
+                    {
+                        if ($schedule->getExpiration())
+                            echo '           <li>Expires: ' . $schedule->getExpiration() . '</li>' . $endl;
+                        else
+                            echo '           <li><i>No expiration</i></li>' . $endl;
+                    }
 
                     echo '       </ul>' . $endl;
                     echo '       <div><a href="../view/addEvent.php?action=edit&type='. $type .
                         '&child='.  $childId . '&scheduleID=' . $schedule->getId() . '">Modify</a> - ' .
-                        '<a href="#" onclick="deleteSchedule(' . $schedule->getId() . ');">Delete</a></div>' . $endl;
+                        '<a href="#" onclick="deleteSchedule(' . $schedule->getId() . ', \'' . $schedule->getType() . '\');">Delete</a></div>' . $endl;
                     echo '   </div>' . $endl . $endl;
                 }
             ?>

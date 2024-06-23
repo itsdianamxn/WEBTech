@@ -9,10 +9,16 @@
     $type = $_GET['type'];
     $childId = $_GET['child'];
     $action = isset($_GET['action']) ? $_GET['action'] : 'create'; // default is create
+    $isEdit = $action == 'edit';
 
     require_once "../model/Child.php";
     $c = new Child();
     $c->load($childId);
+
+    require_once "../model/Schedule.php";
+    $event = new Schedule();
+    if ($isEdit)
+        $event->load($_GET['scheduleID']);
 ?>   
 
 <!DOCTYPE html>
@@ -20,19 +26,20 @@
 
 <head>
     <meta charset="UTF-8">
-    <title><?php echo ($action == 'edit') ? 'Modify' : 'Create New'; ?> Event</title>
+    <title><?php echo $isEdit ? 'Modify' : 'Create New'; ?> Event</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/editEvent.css" type="text/css">
     <script src="../scripts/eventScript.js"></script>
-
 </head>
 
 <body class="register" onload="updateForm();">
     <div class="mainRegister">
-        <h1 class="title"><?php echo ($action == 'edit' ? 'Modify ' : 'Create New ') . $type; ?> Schedule for <?php echo $c->getFirstname(); ?></h1>
+        <h1 class="title"><?php echo ($isEdit ? 'Modify ' : 'Create New ') . $type;
+             ?> Schedule for <?php echo $c->getFirstname(); ?></h1>
         <div class="mainRegister">
             <form id="registerPage" action="../controller/eventController.php" method="post">
                 <input type="hidden" id="childId" name="childId" value="<?php echo $childId; ?>">
+                <input type="hidden" id="eventId" name="eventId" value="<?php echo $event->getId(); ?>">
                 <input type="hidden" id="action" name="action" value="<?php echo $action; ?>">
 
                 <div class="childRegisterInputs">
@@ -47,30 +54,27 @@
                     </div>
                     <div class="inputField">
                         <label for="description">Description</label>
-                        <input type="text" id="description" name="description">
+                        <input type="text" id="description" name="description" value="<?php echo $event->getMessage(); ?>" required>
                     </div>
                     <div class="inputField">
                         <label>Recurrence</label>
                         <select name="recurrence" id="recurrence" onChange="updateForm();">
-                            <option value="One-time">One-time</option>
-                            <option value="Daily">Daily</option>
-                            <option value="Weekly">Weekly</option>
-                            <option value="Monthly">Monthly</option>
-                            <option value="Yearly">Yearly</option>
+                            <option value="One-time" <?php if ($event->getRecurrence() == "One-time") echo "selected"; ?>>One-time</option>
+                            <option value="Daily" <?php if ($event->getRecurrence() == "Daily") echo "selected"; ?>>Daily</option>
+                            <option value="Weekly" <?php if ($event->getRecurrence() == "Weekly") echo "selected"; ?>>Weekly</option>
+                            <option value="Monthly" <?php if ($event->getRecurrence() == "Monthly") echo "selected"; ?>>Monthly</option>
+                            <option value="Yearly" <?php if ($event->getRecurrence() == "Yearly") echo "selected"; ?>>Yearly</option>
                         </select>
                     </div>
 
                     <div class="inputField"> <!-- for all cases -->
                         <label>Time:</label>
-                        <input type="time" id="time" name="time" value="09:00">
+                        <input type="time" id="time" name="time" value="<?php echo $event->getTime(); ?>">
                     </div>
 
                     <div class="inputField" id="date"> <!-- not for 'Weekly'-->
                         <label>Date:</label>
-                        <input type="date" name="date" value="<?php
-                            $d = mktime(0, 0, 0, date("m")  , date("d")+1, date("Y"));
-                            echo date('Y-m-d', $d);
-                         ?>">
+                        <input type="date" name="date" value="<?php echo $event->getDate(); ?>">
                     </div>
 
                     <div class="inputField" id="dow"> <!-- only for Weekly -->
@@ -89,7 +93,7 @@
 
                 <div class="inputField" id="expiration">
                     <label>Expiry Date:</label>
-                    <input type="date" name="expiration">
+                    <input type="date" name="expiration" value="<?php echo $event->getExpiration(); ?>">
                 </div>
 
                 <div id="buttons">

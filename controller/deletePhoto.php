@@ -15,5 +15,5 @@ if (isset($_GET["ID"]) )
     $p->delete();
 }
 
-header("Location: ../view/media.php");
+    header("Location: ../view/childrenPhotos.php?children=" . $_GET["children"]);
 ?>
