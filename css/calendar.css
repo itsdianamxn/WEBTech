@@ -17,16 +17,14 @@ body{
     overflow: hidden;
 }
 
-
-
-.container{
-    width: 25%;
-    height: 100%;   
-    border-right: 3px solid #aa7d3d;
-    background-color: white;
-    padding-left: 5px;
-    margin:0;
-    overflow: auto;
+.input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 32px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .container::-webkit-scrollbar {

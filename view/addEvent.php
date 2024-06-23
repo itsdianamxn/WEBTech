@@ -22,29 +22,9 @@
     <meta charset="UTF-8">
     <title><?php echo ($action == 'edit') ? 'Modify' : 'Create New'; ?> Event</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/registerStyle.css" type="text/css">
-    <script language="javascript">
-        function updateForm()
-        {
-            switch (document.getElementById("recurrence").value)
-            {
-                case "Daily":
-                    document.getElementById("date").style.display = 'none';
-                    document.getElementById("dow").style.display = 'none';
-                    break;
-                case "Weekly":
-                    document.getElementById("date").style.display = 'none';
-                    document.getElementById("dow").style.display = 'block';
-                    break;
-                case "One-time":
-                case "Monthly":
-                case "Yearly":
-                    document.getElementById("date").style.display = 'block';
-                    document.getElementById("dow").style.display = 'none';
-                    break;
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="../css/editEvent.css" type="text/css">
+    <script src="../scripts/eventScript.js"></script>
+
 </head>
 
 <body class="register" onload="updateForm();">
