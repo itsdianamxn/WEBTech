@@ -2,6 +2,7 @@
 
 require_once 'Database.php';
 require_once 'Child.php';
+require_once 'Notification.php';
 
 
 class User
@@ -66,6 +67,28 @@ class User
         if(!$this->find($this->email))
             $this->add();
         echo json_encode(['error' => 'User added']);
+    }
+
+    public function getAllUserNotifications(){
+        $db = new Database();
+        $result = $db->selectAll("SELECT * FROM notifications WHERE user_ID = :user_ID", true, [':user_ID' => $this->id]);
+        $notifications = [];
+        if($result){
+            foreach($result as $row){
+                $notification = new Notification();
+                $notification->load($row['ID']);
+                $notifications[] = $notification;
+            }
+        }
+        return $notifications;
+    }
+
+    public function getNrNotifications(){
+        $db = new Database();
+        $result = $db->select("SELECT COUNT(*) as 'count' FROM notifications WHERE user_ID = :user_ID AND 'read' = 1", true, [':user_ID' => $this->id]);
+        error_log("Nr of notifs: " . json_encode($result));
+        if($result)
+            return $result['count'];
     }
 
     public function getID()
