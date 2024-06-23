@@ -1,11 +1,3 @@
-<?php
-    session_start();
-    session_unset();
-    session_destroy();
-    session_write_close();
-    setcookie(session_name(),'',0,'/');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,10 +8,11 @@
 </head>
 
 <body class="welcome">
+    <?php require_once __DIR__ . '/controller/welcomePageController.php';?>
     <div class="register-page">
         <h1 class="title">Welcome to<br> Child Manager!</h1>
         <div class="buttons-container">
-            <form class="welcomePage" action="controller/welcomePage.php" method="post">
+            <form class="welcomePage" action="/controller/welcomePageController.php" method="post">
 
                 <div class="welcomeButtons">
                     <a href="view/login.html" class="login" id="login">
