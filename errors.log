@@ -178,3 +178,54 @@ Stack trace:
 [23-Jun-2024 12:35:34 Europe/Berlin] old notification
 [23-Jun-2024 12:35:34 Europe/Berlin] Elapsed time: {"date":"2024-06-23 12:44:24.000000","timezone_type":3,"timezone":"Europe\/Bucharest"}
 [23-Jun-2024 12:35:34 Europe/Berlin] Current date: {"date":"2024-06-23 13:35:34.224257","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 14:13:51 Europe/Berlin] Nr of notifs: {"count":0}
+[23-Jun-2024 14:13:51 Europe/Berlin] User5 has 0unread notifications
+[23-Jun-2024 14:13:54 Europe/Berlin] [{},{},{}]
+[23-Jun-2024 14:13:54 Europe/Berlin] old notification
+[23-Jun-2024 14:13:54 Europe/Berlin] Elapsed time: {"date":"2024-06-23 11:52:05.000000","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 14:13:54 Europe/Berlin] Current date: {"date":"2024-06-23 15:13:54.720231","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 14:13:54 Europe/Berlin] old notification
+[23-Jun-2024 14:13:54 Europe/Berlin] Elapsed time: {"date":"2024-06-23 11:52:34.000000","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 14:13:54 Europe/Berlin] Current date: {"date":"2024-06-23 15:13:54.744785","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 14:13:54 Europe/Berlin] old notification
+[23-Jun-2024 14:13:54 Europe/Berlin] Elapsed time: {"date":"2024-06-23 12:44:24.000000","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 14:13:54 Europe/Berlin] Current date: {"date":"2024-06-23 15:13:54.748718","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 14:13:55 Europe/Berlin] [{},{},{}]
+[23-Jun-2024 14:13:55 Europe/Berlin] old notification
+[23-Jun-2024 14:13:55 Europe/Berlin] Elapsed time: {"date":"2024-06-23 11:52:05.000000","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 14:13:55 Europe/Berlin] Current date: {"date":"2024-06-23 15:13:55.043367","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 14:13:55 Europe/Berlin] old notification
+[23-Jun-2024 14:13:55 Europe/Berlin] Elapsed time: {"date":"2024-06-23 11:52:34.000000","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 14:13:55 Europe/Berlin] Current date: {"date":"2024-06-23 15:13:55.047563","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 14:13:55 Europe/Berlin] old notification
+[23-Jun-2024 14:13:55 Europe/Berlin] Elapsed time: {"date":"2024-06-23 12:44:24.000000","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 14:13:55 Europe/Berlin] Current date: {"date":"2024-06-23 15:13:55.051332","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 14:14:03 Europe/Berlin] [{},{},{}]
+[23-Jun-2024 14:14:03 Europe/Berlin] old notification
+[23-Jun-2024 14:14:03 Europe/Berlin] Elapsed time: {"date":"2024-06-23 11:52:05.000000","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 14:14:03 Europe/Berlin] Current date: {"date":"2024-06-23 15:14:03.710585","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 14:14:03 Europe/Berlin] old notification
+[23-Jun-2024 14:14:03 Europe/Berlin] Elapsed time: {"date":"2024-06-23 11:52:34.000000","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 14:14:03 Europe/Berlin] Current date: {"date":"2024-06-23 15:14:03.726421","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 14:14:03 Europe/Berlin] old notification
+[23-Jun-2024 14:14:03 Europe/Berlin] Elapsed time: {"date":"2024-06-23 12:44:24.000000","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 14:14:03 Europe/Berlin] Current date: {"date":"2024-06-23 15:14:03.741918","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 14:15:34 Europe/Berlin] Nr of notifs: {"count":0}
+[23-Jun-2024 14:15:34 Europe/Berlin] User5 has 0unread notifications
+[23-Jun-2024 14:15:44 Europe/Berlin] Nr of notifs: {"count":0}
+[23-Jun-2024 14:15:44 Europe/Berlin] User5 has 0unread notifications
+[23-Jun-2024 14:42:51 Europe/Berlin] Nr of notifs: {"count":0}
+[23-Jun-2024 14:42:51 Europe/Berlin] User5 has 0unread notifications
+[23-Jun-2024 15:27:04 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\Database.php:17
+Stack trace:
+#0 C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\Database.php(17): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue))
+#1 C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\User.php(44): Database->__construct()
+#2 C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\controller\login.php(7): User->find('diana@gmail.com')
+#3 {main}
+  thrown in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\Database.php on line 17
+[23-Jun-2024 15:27:11 Europe/Berlin] Nr of notifs: {"count":0}
+[23-Jun-2024 15:27:11 Europe/Berlin] User5 has 0unread notifications
+[23-Jun-2024 15:27:24 Europe/Berlin] Nr of notifs: {"count":0}
+[23-Jun-2024 15:27:24 Europe/Berlin] User5 has 0unread notifications
+[23-Jun-2024 15:46:03 Europe/Berlin] Nr of notifs: {"count":0}
+[23-Jun-2024 15:46:03 Europe/Berlin] User5 has 0unread notifications

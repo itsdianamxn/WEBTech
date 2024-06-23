@@ -9,32 +9,174 @@
 </head>
 <body>
     <h1>Child Manager Application - Comprehensive Documentation</h1>
+    <section>
+        <h2>Cuprins</h2>
+        <ul>
+            <li>
+                <a href="#authors">Autori</a>
+            </li>
+            <li>
+                <a href="#introduction">1. Introduction</a>
+                <ul>
+                    <li><a href="#purpose">1.1 Purpose</a></li>
+                    <li><a href="#audience">1.2 Intended audiences</a></li>
+                    <li><a href="#product-scope">1.3 Product scope</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href=#sys-arch>2. System Architecture and Overview</a>
+                <ul>
+                    <li><a href="#functs">Functionality of the product</a></li>
+                    <li><a href="#page-descriptions">2.2 Page descriptions</a>
+                        <ul>
+                            <li><a href="welcome-page">2.2.1 Welcome page</a></li>
+                            <li><a href="welcome-page">2.2.2 Login page</a></li>
+                            <li><a href="welcome-page">2.2.3 Registration page</a></li>
+                            <li><a href="welcome-page">2.2.4 Profile page</a></li>
+                            <li><a href="welcome-page">2.2.5 Child Registration page</a></li>
+                            <li><a href="welcome-page">2.2.6 Manage Children page</a></li>
+                            <li><a href="welcome-page">2.2.7 Notifications page</a></li>
+                            <li><a href="welcome-page">2.2.8 Media page</a></li>
+                            <li><a href="welcome-page">2.2.9 Timeline</a></li>
+                            <li><a href="#calendar-page">2.2.10 Calendar pages</a></li>
+                            <li><a href="#group-page">2.2.11 Group page</a></li>
+                            
+                        </ul>
+    
+                    </li>
+                    <li><a href="#product-functions">2.3 Product functions</a></li>
+                    <li><a href="#product-functions">2.4 User Classes and Characteristics</a></li>
+                    <li><a href="#product-functions">2.5 Design and Implementation constraints</a></li>
+
+                </ul>
+            </li>
+            <li><a href="#overall">2. Descriere Generală</a>
+                <ul>
+                    <li><a href="#product-perspective">2.1 Perspectiva produsului</a></li>
+                    <li><a href="#product-functions">2.2 Funcțiile produsului</a></li>
+                    <li><a href="#users">2.3 Clase și caracteristici ale utilizatorilor</a></li>
+                    <li><a href="#operating-environment">2.4 Mediul de operare</a></li>
+                    <li><a href="#documentation">2.5 Documentația pentru utilizator</a></li>
+                </ul>
+            </li>
+            <li><a href="#external">3. Interfețele aplicației </a>
+                <ul>
+                    <li><a href="#user-interface">3.1 Interfața utilizatorului </a>
+                        <ul>
+                            <li><a href="#admin">3.1.1 Pagina de admin </a></li>
+                            <li><a href="#login-page">3.1.2 Pagina de autentificare </a></li>
+                            <li><a href="#signup-page">3.1.3 Pagina de înregistrare </a></li>
+                            <li><a href="#forgot-page">3.1.4 Pagina de trimitere email pentru resetarea parolei</a></li>
+                            <li><a href="#home-page">3.1.6 Pagina de acasă </a></li>
+                            <li><a href="#favorites">3.1.7 Pagina cu actori favoriți</a></li>
+                            <li><a href="#actor-profile">3.1.8 Pagina cu profilul actorului</a></li>
+                            <li><a href="#news">3.1.9 Pagina de notificări</a></li>
+                            <li><a href="#help">3.1.10 Pagina de ajutor </a></li>
+                            <li><a href="#about">3.1.11 Pagina cu detalii despre noi</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#hardware-interface">3.2 Interfața Hardware </a></li>
+                    <li><a href="#software-interface">3.3 Interfața Software</a></li>
+                    <li><a href="#communication-interface">3.4 Interfața de comunicare</a></li>
+                </ul>
+            </li>
+            <li><a href="#system-features">4. Caracteristici ale sistemului</a>
+                <ul>
+                    <li><a href="#management">4.1 Gestionarea contului </a>
+                        <ul>
+                            <li><a href="#management-1">4.1.1 Descriere și generalități </a></li>
+                            <li><a href="#management-2">4.1.2 Actualizarea informațiilor</a></li>
+                            <li><a href="#management-3">4.1.3 Condiții de funcționare</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#logout">4.4 Secțiunea Logout</a>
+                        <ul>
+                            <li><a href="#logout-1">4.4.1 Descriere și generalități</a></li>
+                            <li><a href="#logout-2">4.4.2 Actualizarea informațiilor</a></li>
+                            <li><a href="#logout-3">4.4.3 Condiții de funcționare</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#admin-page">4.4 Secțiunea Admin</a>
+                        <ul>
+                            <li><a href="#admin-1">4.4.1 Descriere și generalități</a></li>
+                            <li><a href="#admin-2">4.4.2 Actualizarea informațiilor</a></li>
+                            <li><a href="#admin-3">4.4.3 Condiții de funcționare</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#alte">4.4 Secțiunea Funcționalități</a>
+                        <ul>
+                            <li><a href="#alte-1">4.4.1 Descriere și generalități</a></li>
+                            <li><a href="#alte-2">4.4.2 Actualizarea informațiilor</a></li>
+                            <li><a href="#alte-3">4.4.3 Condiții de funcționare</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li><a href="#non-functional">5.Funcționalități pentru protecție și securitate</a>
+                <ul>
+                    <li><a href="#safety">5.1 Protecția datelor</a></li>
+                    <li><a href="#security">5.2 Securizarea datelor</a></li>
+                    <li><a href="#software-attributes">5.3 Calitățile Software </a></li>
+                </ul>
+            </li>
+            <li><a href="#bibliography">6. Bibliography</a></li>
+        </ul>
+    </section>
+    <section>
+        <h2 id="authors">Authors</h2>
+        <ol>
+            <li>
+                Lazurca Daniel Vasile<br>
+                Email: daniellazurca51@gmail.com
+            </li>
+            <li>
+                Maxiniuc Diana-Alexandra<br>
+                Email: ///add email diana ca nush eu d-astea
+        </ol>
+        We are both part of the E2 group at the Faculty of Computer Science at the University "Al. I. Cuza" of Iași.
+        This project has been made as part of the Web Developement course in the second year of study.
+    </section>
     <section>   
-        <h2>1. Introduction</h2>
+        <h2 id="introduction">1. Introduction</h2>
         <p>
             This documentation provides a detailed overview of the "Child Manager", a web-based application designed to help parents and guardians manage and track the development and daily activities of their children. This document aims to assist developers, project reviewers, and users in understanding the functionalities and architecture of the application.
         </p>
 
-        <h3>1.1 Purpose</h3>
+        <h3 id="purpose">1.1 Purpose</h3>
         <p>
             The "Child Manager" application provides a centralized platform for managing children's health, education, and daily activities. It allows users to register profiles for their children, track developmental milestones, manage educational and medical records, and integrate multimedia resources.
         </p>
 
-        <h3>1.2 Intended Audience</h3>
+        <h3 id="audience">1.2 Intended Audience</h3>
         <p>
             This document is intended for software developers involved in maintaining and enhancing the application, educational and health professionals seeking to understand the application's capabilities, and end-users looking for instructions on how to navigate and use the features of the application.
         </p>
 
-        <h3>1.3 Product Scope</h3>
+        <h3 id="product-scope">1.3 Product Scope</h3>
         <p>
             The product serves as a digital assistant for parents managing the complexities associated with child upbringing, from infancy through to adolescence. It incorporates a range of tools including a calendar for tracking sleep and feeding, a multimedia gallery for memories, medical and developmental records, and the possibility to track a child's relationships.
         </p>
     </section>
 
     <section>
-        <h2>2. System Architecture and Overview</h2>
+        <h2 id="sys-arch">2. System Architecture and Overview</h2>
         <img src="pics/diagram.drawio.svg" alt="Diagram">
-        <h3>2.1 Page Descriptions</h3>
+        <h3 id="functs">2.1 Functionalities of the Product</h3>
+        <p>
+            The product allows users to register and login on the website, then register children that are in 
+            their care. Once a child has been registered, the user has access to a multitude of functionalities.
+            They can save photos and videos related to the child on the website and can also share them online to friends
+            and familly. Also, there is a "timeline" function, that a user can personally build by selecting the 
+            precise photos, videos and moments that are worthy or remembering, and the product will create
+            a timeline of these photos in chronological order. The user will receive notifications to remind him of 
+            any habbits of the child, such as the times when it has to sleep or take specific medication.
+        <br>
+            In case that anything happens to the product, the user can export their data using the "Export" function 
+            and have it saved in a JSON format. They can later import that same data once the website is back up and running again.
+        
+        </p>
+        <h3 id="page-descriptions">2.2 Page Descriptions</h3>
         <ul>
             <li><strong>Welcome Page:</strong> The entry point of the application, providing login and registration options.</li>
             <li><strong>Login Page:</strong> For user authentication, redirecting to the profile management page upon successful login.</li>
@@ -45,13 +187,9 @@
             <li><strong>Notifications Page:</strong> Lists recent notifications related to the user's children, such as reminders for meal time and bedtime.</li>
             <li><strong>Media Page:</strong> A gallery view where users can upload, view and manage photos, videos and audio recordings of their children.</li>
             <li><strong>Timeline:</strong>rovides a chronological view of significant events and milestones in the child’s life, that facilitates easy tracking and memory keeping.</li>
-
+            <li><strong>Calendar pages:</strong> Multiple pages that help keep track of certain habbits and moments related to sleep, eating, medication and overall health and developement.</li>
+            <li><strong>Group pages: </strong> Responsible for keeping track of all the groups that the children are a part of, either the siblings of the child or it's friends and classmates and so on.</li>
         </ul>
-
-        <h3>2.2 Product Functions</h3>
-        <p>
-            Each page of the application supports specific functionalities central to the effective management of child-related information. These functionalities include authentication, profile management, multimedia storage, and real-time notifications.
-        </p>
 
         <h3>2.3 User Classes and Characteristics</h3>
         <p> The application is designed to accommodate various user classes including:</p>
@@ -106,7 +244,80 @@
             <li><strong>Apache:</strong> As the web server.</li>
         
         </ul>
-
+    </section>
+    <section>
+        <h2>5. System Characteristics</h2>
+        <h3>5.1 Account administration</h3>
+        <h4>5.1.1 Overall description</h4><p>
+        A user can register an account using his email, setting up his full name, the relationship
+        to the children, be that Parent, Grandparent or Legal Guardian, it's birthday and a password.
+        Once registered, the user can log into it's account using only the email and the password.
+        </p>
+        <h4>5.1.2 The modification of information</h4>
+        <p>
+            Once an account has been created, it is stored in the database and the user can easilly modify the information regarding
+            their account in the profile page. Any time this happens, the credentials are stored in the database.
+        </p>
+        <h4>5.1.3 Criteria of functionality</h4>
+        <p>
+            The user needs an account in order to access all of the aplications functionalities. It also 
+            needs a valid email address in order to register an account.
+        </p>
+        <h4>5.1.4 Logout and delete</h4>
+        <p>
+            The user can logout of it's account at any time. The action will redirect it
+            to the login page. The user can also delete it's account at the press of a button in the profile page.
+        </p>
+        <h4>5.1.5 Admin functionalities</h4>
+        <p>
+            The application doesn't have a specific "admin profile". The only true admins that can
+            modify the database and the application at will are us, the authors. Rather, 
+            users are the admins of their own accounts, being able to add and delete elements from the database
+            that are directly related to them (e.g. their children, their photos). Also, the users can import and export their own data
+            from the application in JSON format.
+        </p>
+        <h3>5.2 Administration of the children profiles</h3>
+        <h4>5.2.1 Overall description</h4>
+        <p>
+            The user can add children on his profile using the manage children button on it's 
+            profile page. There, children can be added, deleted and modified. Their characteristics include their
+            name, age and their learning stage. This can be used to monitor the developement of the child.
+        </p>
+        <h4>5.2.2 Photos and videos</h4>
+        <p>
+            In the multimedia page, the user can add, delete and view pictures of their children,
+            each picture being linked to exactly one child. Also, here, the media can be selected by the user 
+            as "thei favorite", using the "star" icon on each photo. Once the icon is selected, the media content is marked
+            for ussage in the timeline page.
+        </p>
+        <h4>5.2.3 Timeline</h4>
+        <p>
+            The user can view their favorite memories of their children, as selcted by them,
+            in chronological order.
+        </p>
+        <h4>5.2.4 Calendars</h4>
+        <p>
+            The user has 4 calendars at their disposal for each child. On these calendars, the 
+            user can set up events and habbits for their children. The calendars are "Feeding", "Sleep", "Medical" and "Evolution".
+            For each set up event, the user can select their reccurency. This is needed for the notifications that, which
+            will send out a notification each time a notification completes it's reccurency period.
+        </p>
+        <h4>5.2.5 Groups</h4>
+        <p>
+            This functionality is used to keep track of the groups of which each child is a part of.
+        </p>
+        <h3>5.3 Notifications</h4>
+        <p>
+            The application sends out notifications for each user regarding their children.
+            These are related to the calendar events. The user will know how many unread notifications it has
+            by looking at the navbar on the left (or on the bottom, when on mobile), well there is a counter next to the envelope icon,
+            representative of the notifications.
+        </p>
+        <h3>5.4 Documentation</h4>
+        <p>
+            This page is available to both users and developers for reading in order to better understand
+            the functionalities of the application.
+        </p>
     </section>
 </body>
 </html>
