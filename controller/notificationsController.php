@@ -13,6 +13,7 @@ require_once '../model/Notification.php';
 require_once '../model/User.php';
 $user = new User();
 $user->load($userId);
+ 
 
 $notifications = [];
 $notifications = $user->getAllUserNotifications();

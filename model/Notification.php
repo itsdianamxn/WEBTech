@@ -41,12 +41,17 @@ class Notification{
     {
         $date = new DateTime($this->date_issued, new DateTimeZone('Europe/Bucharest'));
         error_log("Elapsed time: " . json_encode($date));
-        $current_date = new DateTime(null, new DateTimeZone("Europe/Bucharest"));
+        $current_date = new DateTime(null, new DateTimeZone('Europe/Bucharest'));
         error_log("Current date: " . json_encode($current_date));
         $interval = $date->diff($current_date);
         return $interval;
     }
 
+
+    public function add(){
+        $db = new Database();
+        $db->execute("INSERT INTO notifications (user_ID, child_ID, message, title, time_issued, `read`) VALUES (:user_ID, :child_ID, :message, :title, :time_issued, :read)", [':user_ID' => $this->user_ID, ':child_ID' => $this->child_ID, ':message' => $this->message, ':title' => $this->title, ':time_issued' => $this->date_issued, ':read' => $this->read]);
+    }
 
     public function getID(){
         return $this->id;
