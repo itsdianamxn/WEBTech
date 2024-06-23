@@ -91,7 +91,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="notifications.html" target="mainFrame" class="nav-link">
+                <a href="notifications.php" target="mainFrame" class="nav-link">
                     <span class="link-text">Notifications</span>
                     <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="envelope" role="img"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"

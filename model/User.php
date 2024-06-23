@@ -68,6 +68,20 @@ class User
         echo json_encode(['error' => 'User added']);
     }
 
+    public function getAllUserNotifications(){
+        $db = new Database();
+        $result = $db->selectAll("SELECT * FROM notifications WHERE user_ID = :user_ID", true, [':user_ID' => $this->id]);
+        $notifications = [];
+        if($result){
+            foreach($result as $row){
+                $notification = new Notification();
+                $notification->load($row['ID']);
+                $notifications[] = $notification;
+            }
+        }
+        return $notifications;
+    }
+
     public function getID()
     {
         return $this->id;
