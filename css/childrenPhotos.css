@@ -57,7 +57,11 @@ div {
   background-color: #ffbc5c;
   overflow: auto;
 }
-
+div#all-children.container
+{
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 .upload-form {
   display: flex;
   flex-direction: column;

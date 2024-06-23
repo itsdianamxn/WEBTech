@@ -49,10 +49,7 @@
             } 
         ?>
         </div>
-        <div class="calendar-container">
-            <iframe name="calendarFrame" src="../view/schedule.php"
-                style="height: 100%; width: 100%; border: none;"></iframe>
-        </div>
+            <iframe name="calendarFrame" src="../view/schedule.php"></iframe>
     </div>
 </body>
 

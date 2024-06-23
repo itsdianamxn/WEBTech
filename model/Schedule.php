@@ -14,6 +14,8 @@ class Schedule
     private $expiration;
     private $date;
     private $time;
+    private $timeline = false;
+
 
     public function __construct()
     {
@@ -190,7 +192,10 @@ class Schedule
     {
         $this->expiration = $expiration;
     }
-
+    public function isTimeline()
+    {
+        return $this->timeline;
+    }
     public function getDate()
     {
         return $this->date;

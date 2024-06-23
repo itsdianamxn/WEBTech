@@ -49,7 +49,8 @@
                 </div>
                 <div id="buttons">
                     <div class="regButton ">
-                        <button type="submit" id="reg">Register</a>
+                        <!-- <button type="submit" id="reg">Register</a> -->
+                        <a class=" Cancel" onclick="document.getElementById('registerPage').submit()" id="reg">Register</a> 
                     </div>
                     <div class="regButton">
                         <a class=" Cancel" onclick="history.go(-1)" id="cancel">Cancel</a>

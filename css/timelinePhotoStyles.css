@@ -5,7 +5,9 @@ body {
   display: flex;
   align-items: start;
   background-color: #9074DC;
-  overflow: auto;
+
+  overflow-y: auto;
+  overflow-x: hidden;
   -ms-overflow-style: none;  /* Hide the scrollbar for Internet Explorer and Edge */
   scrollbar-width: none;
 }

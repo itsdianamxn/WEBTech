@@ -11,8 +11,9 @@ body.edit {
   align-items: flex-start;
   background-color: #ffbc5c;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  overflow: hidden;
 
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 body.edit::-webkit-scrollbar {

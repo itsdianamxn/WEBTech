@@ -33,10 +33,10 @@
             if (file_exists('../pics/profiles/' . $u->getID() . '.jpg'))
                 echo $u->getID();
             else echo '0';
-      ?>.jpg" style="width:10%" alt="Profile Picture" class="profile-picture"
+      ?>.jpg" alt="Profile Picture" class="profile-picture"
         onclick="document.getElementById('fileToUpload').click();checkImageSet();">
 
-      <i>Click the profile image to change it</i>
+     <!-- <p>Click the profile image to change it</p> -->
       <form action="../controller/updateProfileImage.php"  method="post"
             enctype="multipart/form-data" style="display:none;">
           <input type="file" name="fileToUpload" id="fileToUpload">
@@ -78,7 +78,7 @@
       </table>
     </div>
 
-    <table>
+    <table class = "button-container" >
       <tr>
         <td class="buttons">
           <input type="button" value="Edit Your Profile" onclick="location.href='editProfile.php'">

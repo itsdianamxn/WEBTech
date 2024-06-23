@@ -130,9 +130,10 @@
             </li>
         </ul>
     </nav>
-        <main>
-            <iframe src="childrenMenu.php" name="mainFrame" style="width: 100%; height: 100%; border: none;"></iframe>
-        </main>
+    <main>
+        <iframe src="childrenMenu.php" name="mainFrame" 
+                style="width: 100%; height: 100%; border:none; overflow:hidden;"></iframe>
+    </main>
 </body>
 
 </html>

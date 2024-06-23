@@ -11,25 +11,33 @@
     --bg-third: #ff7b5c;
     --border-color: #1e163e;
 }
-form
-{
-    margin-right: 10px;
+
+html {
+    display: flex;
+    justify-content: space-between;    
 }
 body {
     background: var(--bg-primary);
-    width: 80%;
+    width: 90%;
     font-size: 2rem;
     overflow: hidden;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     overflow-y: auto;
     padding-left: 10px;
 }
+div.container
+{
+    width: 100%;
+}
 
+td {
+    padding: 10px 5px 10px 0;
+}
 input[type="button"] {
     margin-bottom: 20px;
     display: inline-block;
-    padding: 20px;
+    padding: 20px 40px; /* Adjust padding to ensure it adapts to text */
     cursor: pointer;
     text-align: center;
     text-decoration: none;
@@ -40,8 +48,7 @@ input[type="button"] {
     border-radius: 15px;
     box-shadow: 0 9px #888888;
     font-size: 2rem;
-    width: 100%;
-
+    width: auto; /* Set width to auto */
 }
 
 input[type="button"]:hover {
@@ -51,11 +58,12 @@ input[type="button"]:hover {
 input[type="button"]:active {
     transform: translateY(10%);
     box-shadow: 0 3px #333; /* Slightly reduced shadow for the pressed effect */
-
 }
 
 table {
-margin-right: 10px;
+    margin-right: 10px;
+    width: 100%;
+    table-layout: auto; /* Allow table to adjust based on content */
 }
 
 tr{
@@ -65,13 +73,11 @@ tr{
     width: 100%;
 }
 
-td{
-    padding:10px 5px 10px 0;
-    width: 20%;
-}
-
 .buttons{
-    width: 100%;
+    width: 50%;
+
+    word-wrap: break-word; /* Allow text to wrap within the cell */
+    word-break: break-word; /* Ensure long words break and wrap */
 }
 
 input#delete{
@@ -85,6 +91,9 @@ input#delete:active{
 }
 
 .info{
+    word-wrap: break-word; /* Allow text to wrap within the cell */
+    word-break: break-word; /* Ensure long words break and wrap */
+    width: 100%;
     display: flex;
     background-color: #ffdeae;
     border: 2px solid #241500;
@@ -112,7 +121,11 @@ pre
     height: 0px;
 
 }
+
 .profile-picture {
+
+    width: 30%;
+    height: auto;
     border-radius: 50%;
     margin: 1rem;
     justify-self: center;
@@ -123,14 +136,12 @@ pre
 }
 
 @media screen and (max-width: 800px) {
-    .profile-picture {
-        border-radius: 0px;
-        margin: 0px;
-        visibility: hidden;
-    }
+
+
     td{
-        padding:10px;
-        width: 20%;
+        height: 10%;
+        width: 100%;
+        padding: 0px 5px 0px 0;
     }
     td.name{
         padding:0px;
@@ -172,6 +183,12 @@ pre
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-right: 20px;
+        width: 100%;
+        table-layout: auto; /* Allow table to adjust based on content */
+    }
+    .buttons{
+        width: 100%;
     }
 
     

@@ -12,7 +12,9 @@ body {
   /*justify-content: left;*/
   align-items: start;
   background-color: #8a76db;
-  overflow: hidden;
+
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .body-container{
@@ -31,6 +33,11 @@ img {
   margin-right:auto;
 }
 
+div#all-children.container
+{
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 
 .files {
   margin: 10px;
@@ -96,13 +103,15 @@ img {
   background-color: #f1f1f1;
 }
 
-.calendar-container {
+iframe {
   width: 82%;
   height: 90%;
   margin-left: 10px;
   border: 15px solid #1e163e;
   border-style: ridge;
-}
+
+  overflow-y: auto;
+  overflow-x: hidden;}
 
 .image-preview {
   display: inline-block;
@@ -118,7 +127,11 @@ table {
   .body-container{
     flex-direction: column;
   }
-
+  div#all-children.container
+  {
+    overflow-y: hidden;
+    overflow-x: auto;
+  }
   .calendar-container{
     padding-top: 5px;
   }

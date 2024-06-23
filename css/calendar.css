@@ -14,7 +14,8 @@ body{
     justify-content: flex-start;
     background-color: #ffbc5c;
     margin: auto;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .input {
@@ -26,7 +27,9 @@ body{
     margin-top: 10px;
     margin-bottom: 10px;
 }
+div.container {
 
+}
 .container::-webkit-scrollbar {
     width: 0.35rem;
 }
