@@ -85,8 +85,8 @@ class User
 
     public function getNrNotifications(){
         $db = new Database();
-        $result = $db->select("SELECT COUNT(*) as 'count' FROM notifications WHERE user_ID = :user_ID AND 'read' = 0", true, [':user_ID' => $this->id]);
-        error_log("Nr of notifs: " . $result);
+        $result = $db->select("SELECT COUNT(*) as 'count' FROM notifications WHERE user_ID = :user_ID AND 'read' = 1", true, [':user_ID' => $this->id]);
+        error_log("Nr of notifs: " . json_encode($result));
         if($result)
             return $result['count'];
     }

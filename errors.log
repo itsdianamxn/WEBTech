@@ -82,3 +82,99 @@ Stack trace:
 [23-Jun-2024 11:35:39 Europe/Berlin] [{},{}]
 [23-Jun-2024 11:35:39 Europe/Berlin] old notification
 [23-Jun-2024 11:35:39 Europe/Berlin] old notification
+[23-Jun-2024 11:39:53 Europe/Berlin] PHP Warning:  Array to string conversion in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\User.php on line 89
+[23-Jun-2024 11:39:53 Europe/Berlin] Nr of notifs: Array
+[23-Jun-2024 11:39:53 Europe/Berlin] User5 has 2unread notifications
+[23-Jun-2024 11:40:33 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: json_decode(): Argument #1 ($json) must be of type string, array given in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\User.php:89
+Stack trace:
+#0 C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\User.php(89): json_decode(Array)
+#1 C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\controller\nrOfNoTIfications.php(29): User->getNrNotifications()
+#2 {main}
+  thrown in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\User.php on line 89
+[23-Jun-2024 11:40:34 Europe/Berlin] [{},{}]
+[23-Jun-2024 11:40:34 Europe/Berlin] old notification
+[23-Jun-2024 11:40:34 Europe/Berlin] old notification
+[23-Jun-2024 11:41:08 Europe/Berlin] Nr of notifs: {"count":2}
+[23-Jun-2024 11:41:08 Europe/Berlin] User5 has 2unread notifications
+[23-Jun-2024 11:41:54 Europe/Berlin] Nr of notifs: {"count":0}
+[23-Jun-2024 11:41:54 Europe/Berlin] User5 has 0unread notifications
+[23-Jun-2024 11:41:55 Europe/Berlin] [{},{}]
+[23-Jun-2024 11:41:55 Europe/Berlin] old notification
+[23-Jun-2024 11:41:55 Europe/Berlin] old notification
+[23-Jun-2024 11:42:34 Europe/Berlin] [{},{}]
+[23-Jun-2024 11:42:34 Europe/Berlin] old notification
+[23-Jun-2024 11:42:34 Europe/Berlin] old notification
+[23-Jun-2024 11:44:27 Europe/Berlin] Nr of notifs: {"count":0}
+[23-Jun-2024 11:44:27 Europe/Berlin] User5 has 0unread notifications
+[23-Jun-2024 11:44:28 Europe/Berlin] [{},{},{}]
+[23-Jun-2024 11:44:28 Europe/Berlin] old notification
+[23-Jun-2024 11:44:29 Europe/Berlin] old notification
+[23-Jun-2024 11:44:29 Europe/Berlin] new notification
+[23-Jun-2024 11:44:32 Europe/Berlin] [{},{},{}]
+[23-Jun-2024 11:44:32 Europe/Berlin] old notification
+[23-Jun-2024 11:44:32 Europe/Berlin] old notification
+[23-Jun-2024 11:44:32 Europe/Berlin] old notification
+[23-Jun-2024 11:45:54 Europe/Berlin] Nr of notifs: {"count":0}
+[23-Jun-2024 11:45:54 Europe/Berlin] User5 has 0unread notifications
+[23-Jun-2024 11:45:54 Europe/Berlin] [{},{},{}]
+[23-Jun-2024 11:45:54 Europe/Berlin] old notification
+[23-Jun-2024 11:45:54 Europe/Berlin] old notification
+[23-Jun-2024 11:45:54 Europe/Berlin] old notification
+[23-Jun-2024 11:46:00 Europe/Berlin] Nr of notifs: {"count":0}
+[23-Jun-2024 11:46:00 Europe/Berlin] User5 has 0unread notifications
+[23-Jun-2024 11:46:00 Europe/Berlin] [{},{},{}]
+[23-Jun-2024 11:46:00 Europe/Berlin] old notification
+[23-Jun-2024 11:46:00 Europe/Berlin] old notification
+[23-Jun-2024 11:46:00 Europe/Berlin] old notification
+[23-Jun-2024 12:29:52 Europe/Berlin] [{},{},{}]
+[23-Jun-2024 12:29:52 Europe/Berlin] old notification
+[23-Jun-2024 12:29:52 Europe/Berlin] old notification
+[23-Jun-2024 12:29:52 Europe/Berlin] old notification
+[23-Jun-2024 12:29:58 Europe/Berlin] [{},{},{}]
+[23-Jun-2024 12:29:58 Europe/Berlin] old notification
+[23-Jun-2024 12:29:58 Europe/Berlin] old notification
+[23-Jun-2024 12:29:58 Europe/Berlin] old notification
+[23-Jun-2024 12:31:35 Europe/Berlin] Nr of notifs: {"count":0}
+[23-Jun-2024 12:31:35 Europe/Berlin] User5 has 0unread notifications
+[23-Jun-2024 12:31:36 Europe/Berlin] [{},{},{}]
+[23-Jun-2024 12:31:36 Europe/Berlin] old notification
+[23-Jun-2024 12:31:36 Europe/Berlin] PHP Fatal error:  Uncaught Error: Object of class DateTime could not be converted to string in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\Notification.php:43
+Stack trace:
+#0 C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\controller\notificationsController.php(38): Notification->getElapsedTime()
+#1 C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\view\notifications.php(40): require_once('C:\\Users\\Daniel...')
+#2 {main}
+  thrown in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\Notification.php on line 43
+[23-Jun-2024 12:32:04 Europe/Berlin] Nr of notifs: {"count":0}
+[23-Jun-2024 12:32:04 Europe/Berlin] User5 has 0unread notifications
+[23-Jun-2024 12:32:05 Europe/Berlin] [{},{},{}]
+[23-Jun-2024 12:32:05 Europe/Berlin] old notification
+[23-Jun-2024 12:32:05 Europe/Berlin] Elapsed time: {"date":"2024-06-23 11:52:05.000000","timezone_type":3,"timezone":"Europe\/Berlin"}
+[23-Jun-2024 12:32:05 Europe/Berlin] Current date: {"date":"2024-06-23 12:32:05.107595","timezone_type":3,"timezone":"Europe\/Berlin"}
+[23-Jun-2024 12:32:05 Europe/Berlin] old notification
+[23-Jun-2024 12:32:05 Europe/Berlin] Elapsed time: {"date":"2024-06-23 11:52:34.000000","timezone_type":3,"timezone":"Europe\/Berlin"}
+[23-Jun-2024 12:32:05 Europe/Berlin] Current date: {"date":"2024-06-23 12:32:05.122500","timezone_type":3,"timezone":"Europe\/Berlin"}
+[23-Jun-2024 12:32:05 Europe/Berlin] old notification
+[23-Jun-2024 12:32:05 Europe/Berlin] Elapsed time: {"date":"2024-06-23 12:44:24.000000","timezone_type":3,"timezone":"Europe\/Berlin"}
+[23-Jun-2024 12:32:05 Europe/Berlin] Current date: {"date":"2024-06-23 12:32:05.138465","timezone_type":3,"timezone":"Europe\/Berlin"}
+[23-Jun-2024 12:35:23 Europe/Berlin] Nr of notifs: {"count":0}
+[23-Jun-2024 12:35:23 Europe/Berlin] User5 has 0unread notifications
+[23-Jun-2024 12:35:25 Europe/Berlin] [{},{},{}]
+[23-Jun-2024 12:35:25 Europe/Berlin] old notification
+[23-Jun-2024 12:35:25 Europe/Berlin] Elapsed time: {"date":"2024-06-23 11:52:05.000000","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 12:35:25 Europe/Berlin] Current date: {"date":"2024-06-23 13:35:25.597291","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 12:35:25 Europe/Berlin] old notification
+[23-Jun-2024 12:35:25 Europe/Berlin] Elapsed time: {"date":"2024-06-23 11:52:34.000000","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 12:35:25 Europe/Berlin] Current date: {"date":"2024-06-23 13:35:25.612492","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 12:35:25 Europe/Berlin] old notification
+[23-Jun-2024 12:35:25 Europe/Berlin] Elapsed time: {"date":"2024-06-23 12:44:24.000000","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 12:35:25 Europe/Berlin] Current date: {"date":"2024-06-23 13:35:25.628153","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 12:35:34 Europe/Berlin] [{},{},{}]
+[23-Jun-2024 12:35:34 Europe/Berlin] old notification
+[23-Jun-2024 12:35:34 Europe/Berlin] Elapsed time: {"date":"2024-06-23 11:52:05.000000","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 12:35:34 Europe/Berlin] Current date: {"date":"2024-06-23 13:35:34.195009","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 12:35:34 Europe/Berlin] old notification
+[23-Jun-2024 12:35:34 Europe/Berlin] Elapsed time: {"date":"2024-06-23 11:52:34.000000","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 12:35:34 Europe/Berlin] Current date: {"date":"2024-06-23 13:35:34.209131","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 12:35:34 Europe/Berlin] old notification
+[23-Jun-2024 12:35:34 Europe/Berlin] Elapsed time: {"date":"2024-06-23 12:44:24.000000","timezone_type":3,"timezone":"Europe\/Bucharest"}
+[23-Jun-2024 12:35:34 Europe/Berlin] Current date: {"date":"2024-06-23 13:35:34.224257","timezone_type":3,"timezone":"Europe\/Bucharest"}

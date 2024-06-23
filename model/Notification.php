@@ -39,8 +39,10 @@ class Notification{
 
     public function getElapsedTime()
     {
-        $date = new DateTime($this->date_issued);
-        $current_date = new DateTime();
+        $date = new DateTime($this->date_issued, new DateTimeZone('Europe/Bucharest'));
+        error_log("Elapsed time: " . json_encode($date));
+        $current_date = new DateTime(null, new DateTimeZone("Europe/Bucharest"));
+        error_log("Current date: " . json_encode($current_date));
         $interval = $date->diff($current_date);
         return $interval;
     }
