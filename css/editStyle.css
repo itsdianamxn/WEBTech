@@ -28,8 +28,6 @@ body.edit::-webkit-scrollbar-thumb {
   background: black;
 }
 
-
-
 .childeditInputs {
   width: 100%;
   height: 100%;
@@ -39,7 +37,7 @@ body.edit::-webkit-scrollbar-thumb {
 }
 
 .mainedit {
-  height: 100%;
+  height: auto;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -51,8 +49,8 @@ body.edit::-webkit-scrollbar-thumb {
 }
 
 form#editPage {
-  height: 110%;
-  width: 40%;
+  height: 100%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -64,7 +62,6 @@ form#editPage {
   border-radius: 20px;
   overflow-y: auto;
   overflow-x: hidden;
-
 }
 
 .inputField {
@@ -126,29 +123,67 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   background-color: #FFAC58;
 }
 
-.buttonDiv {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+#buttons
+{
   width: 100%;
-  height: 15%;
-  font-size: 100%;
+  justify-content: space-between;
+  display: flex;
 }
 
-button#reg {
-  width: 70%;
-  width: 40%;
-  display: flex;
+#reg {
+  width: 30%;
+  margin-left: 15%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   justify-content: center;
   align-items: center;
   padding: 10px 20px;
-
   cursor: pointer;
   text-align: center;
   text-decoration: none;
   outline: none;
   color: #fff;
   background-color: #5c9fff;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 5px #666;
+  font-size: 2rem;
+}
+
+#reg2 {
+  width: 40%;
+  margin-left: 5%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #5c9fff;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 5px #666;
+  font-size: 2rem;
+}
+
+#cancel {
+  width: 30%;
+  margin-right: 15%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: crimson;
   border: none;
   border-radius: 15px;
   box-shadow: 0 5px #666;
@@ -165,34 +200,34 @@ button#reg:active {
   transform: translateY(4px);
 }
 
-.save-button {
-  width: 100%;
+
+.alreadyAcc {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
-  height: 80%;
-  margin: 0.5rem 0 0.5rem 0;
-  gap: 25%;
+  width: 50%;
+  font-size: 150%;
 }
 
-.save-button label {
-  width: 45%;
-  height: 50px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 80%;
-  margin: 0.5rem 0 0.5rem 0;
-  gap: 25%;
+.alreadyAcc p {
+  width: 60%;
+  justify-self: flex-end;
+  text-align: center;
+}
+
+.alreadyAcc a {
+  width: 40%;
+  color: #FFAC58;
+}
+
+.alreadyAcc a:hover {
+  color: #c76809;
 }
 
 .childsave-button {
   height: 25%;
 }
-
 
 @media only screen and (max-width: 800px) {
   .mainedit{
@@ -235,6 +270,26 @@ button#reg:active {
     transform: translateY(10%);
   }
 
+  .alreadyAcc {
+    width: 50%;
+    font-size: 150%;
+    display: flex;
+    flex-direction: column;
+    justify-content:  center;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .alreadyAcc p {
+    margin: 0;
+    text-align: left;
+  }
+
+  .alreadyAcc a {
+    text-align: left;
+    margin: 0;
+  }
+
   .buttonDiv .alreadyAcc p,
   .buttonDiv .alreadyAcc a {
     width: 50%;
@@ -249,6 +304,4 @@ button#reg:active {
   .save-button label {
     height: 100%;
   }
-
-
 }

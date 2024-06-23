@@ -30,7 +30,7 @@
 <body class="edit">
     <div style="display: flex; justify-content: flex-start; align-items: center;width: 100%; height: 100%;">
         <div class="mainedit">
-            <h1 class="title">Edit your profile.</h1>
+            <h1 class="title">Create your profile.</h1>
 
             <form id="editPage" action="../controller/editController.php" method="post">
                 <div class="inputField">

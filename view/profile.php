@@ -92,7 +92,11 @@
       
       <tr>
         <td class="buttons">
-          <input onclick="confirmDelete(<?php echo $u->getID(); ?>)" type="button" id="delete" value="Delete">
+          <input onclick="confirmDelete()" type="button" id="delete" value="Delete">
+          <form action="../controller/deleteProfile.php"  method="post" style="display:none;">
+            <input type="hidden" name="userId" id="userId" value="<?php echo $u->getID(); ?>">
+            <input type="submit" value="Delete" name="submit" id="deleteUserBtn">
+          </form>
         </td>
       </tr>
       <tr>

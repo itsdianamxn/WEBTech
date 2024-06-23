@@ -1,28 +1,28 @@
 <?php
-session_start();
-if (!(array_key_exists('id', $_SESSION))) {
-    header("Location: ../view/login.html");
-    exit();
-}
-$userId = $_SESSION['id'];
-$childID = $_GET['ID'];
+    session_start();
+    if (!(array_key_exists('id', $_SESSION))) {
+        header("Location: ../view/login.html");
+        exit();
+    }
+    $userId = $_SESSION['id'];
+    $childID = $_GET['ID'];
 
-require_once "../model/Child.php";
-$child = new Child();
-$child->load($childID);
-$firstname = $child->getFirstname();
-$lastname = $child->getLastname();
-$dob = $child->getDOB();
-$stage = $child->getStage();
+    require_once "../model/Child.php";
+    $child = new Child();
+    $child->load($childID);
+    $firstname = $child->getFirstname();
+    $lastname = $child->getLastname();
+    $dob = $child->getDOB();
+    $stage = $child->getStage();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="-1">
-    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">-->
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
     <meta charset="UTF-8"> 
     <title>Edit Child</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,19 +30,19 @@ $stage = $child->getStage();
 </head>
 <body class="register">
     <div class="mainRegister">
+        <img class="child-photo" src="../pics/childrenProfiles/<?php
+            if (file_exists('../pics/childrenProfiles/'.$childID.'.jpg'))
+                echo $childID;
+            else
+                echo '0';
+        ?>.jpg" alt="Child picture">
+        <h2>Change profile picture:</h2>
         <form action="../controller/updateChildPhoto.php" method="post" enctype="multipart/form-data">
-            <img class="child-photo" src="../pics/childrenProfiles/<?php
-                if (file_exists('../pics/childrenProfiles/'.$childID.'.jpg'))
-                    echo $childID;
-                else
-                    echo '0';
-            ?>.jpg" alt="Child picture">
-            <h2>Change profile picture:</h2>
             <input type="hidden" name="childId" id="childId" value="<?php echo $childID; ?>"> 
             <input type="file" name="fileToUpload" id="fileToUpload">
             <input type="submit" value="Upload" name="submit">
         </form>
-        <div class="mainRegister">
+        <div class="mainRegister2">
             <form id="registerPage" action="../controller/editChildController.php" method="post">
                 <div class="childRegisterInputs">
                     <input type="hidden" name="childId" id="childId" value="<?php echo $childID; ?>"> 
@@ -70,8 +70,9 @@ $stage = $child->getStage();
                         </select>
                     </div>
                 </div>
-                <div class="regButton childRegButton">
-                    <button id="reg" type="submit">Save</button>
+                <div id="buttons">
+                    <button id="reg"    type="submit">Save</button>
+                    <button id="cancel" type="ignore" onclick="window.history.back();">Cancel</button>
                 </div>
             </form>
         </div>

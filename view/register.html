@@ -1,63 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
-        <meta charset="UTF-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+    <meta charset="UTF-8">
     <title>Register</title>
-    <link rel="stylesheet" href="../css/registerStyle.css" type="text/css">
+    <link rel="stylesheet" href="../css/editStyle.css" type="text/css">
 </head>
 
-<body class="register">
-    <div style="display: flex; justify-content: center; align-items: center;width: 100%; height: 100%;">
-        <div class="mainRegister">
-            <form id="registerPage" action="../controller/register.php" method="post">
-                <div class="inputField">
-                    <label style="display: flex; align-items: center;" for="firstName">First name</label>
-                    <input type="text" id="firstName" name="firstName">
-                </div>
-                <div class="inputField">
-                    <label style="display: flex; align-items: center;" for="lastName">Last name</label>
-                    <input type="text" id="lastName" name="lastName">
-                </div>
-                <div class="inputField">
-                    <label style="display: flex; align-items: center;">Relationship to children</label>
-                    <select name="relationSelect">
-                        <option value="Parent">Parent</option>
-                        <option value="Grandparent">Grandparent</option>
-                        <option value="Guardian">Legal Guardian</option>
-                    </select>
-                </div>
-                <div class="inputField">
-                    <label for="email" style="display: flex; align-items: center;">Email</label>
-                    <input type="email" id="email" name="email">
-                </div>
-                <div class="inputField">
-                    <label for="dob" style="display: flex; align-items: center;">Your date of Birth</label>
-                    <input type="date" id="dob" name="dob">
-                </div>
-                <div class="inputField">
-                    <label for="password" style="display: flex; align-items: center;">Password</label>
-                    <input type="password" id="password" name="password">
-                </div>
-                <div class="inputField">
-                    <label for="secondPassword" style="display: flex; align-items: center;">Repeat Password</label>
-                    <input type="password" id="secondPassword" name="secondPassword">
-                </div>
-                <div class="buttonDiv">
-                    <button type="submit" id="reg">Create Account</button>
-                    <div class="alreadyAcc">
-                        <p>Already have an account?</p>
-                        <a href="login.html">Login</a>
-                    </div>
-                </div>
+<body class="edit">
+    <div class="mainedit">
+        <h1 class="title">Create Your Profile.</h1>
 
-            </form>
-        </div>
+        <form id="editPage" action="../controller/register.php" method="post">
+            <div class="inputField">
+                <label style="display: flex; align-items: center;" for="firstName">First name</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div class="inputField">
+                <label style="display: flex; align-items: center;" for="lastName">Last name</label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+            <div class="inputField">
+                <label style="display: flex; align-items: center;">Relationship to children</label>
+                <select name="relationSelect">
+                    <option value="Parent">Parent</option>
+                    <option value="Grandparent">Grandparent</option>
+                    <option value="Guardian">Legal Guardian</option>
+                </select>
+            </div>
+            <div class="inputField">
+                <label for="email" style="display: flex; align-items: center;">Email</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="inputField">
+                <label for="dob" style="display: flex; align-items: center;">Your date of Birth</label>
+                <input type="date" id="dob" name="dob">
+            </div>
+            <div class="inputField">
+                <label for="password" style="display: flex; align-items: center;">Password</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <div class="inputField">
+                <label for="secondPassword" style="display: flex; align-items: center;">Repeat Password</label>
+                <input type="password" id="secondPassword" name="secondPassword">
+            </div>
+            <div id="buttons">
+                <button id="reg2" type="submit">Create Account</button>
+                <div class="alreadyAcc">
+                    Already have an account? <a href="login.html">Login</a>               
+                </div>
+            </div>
 
+        </form>
     </div>
 </body>
-
-
 
 </html>

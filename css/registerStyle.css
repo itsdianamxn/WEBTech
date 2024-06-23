@@ -10,9 +10,9 @@ body.register {
   justify-content: center;
   align-items: center;
   background-color: #ffbc5c;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
 }
 
 .childRegisterInputs {
@@ -24,8 +24,7 @@ body.register {
 }
 
 .mainRegister {
-  height: 95%;
-  width: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -35,12 +34,12 @@ body.register {
 }
 
 form#registerPage {
-  height: 110%;
-  width: 40%;
+  height: 100%;
+  width: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: flex-start;
+  align-items: center;
   padding-top: 10px;
   background-color: white;
   border: 18px solid #e6a953;
@@ -48,13 +47,12 @@ form#registerPage {
   border-radius: 20px;
   overflow-y: auto;
   overflow-x: hidden;
-
 }
-form
-{
+
+form {
   align-items: center;
-
 }
+
 .inputField {
   width: 100%;
   height: 12.5%;
@@ -84,7 +82,7 @@ select {
 }
 
 .childInputField {
-  height: 22%;
+  height: 50%;
 }
 
 select[name="relationSelect"] {
@@ -114,22 +112,21 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   background-color: #FFAC58;
 }
 
-.buttonDiv {
+div#buttons
+{
+  width: 40rem;
+  justify-content: space-between;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 100%;
-  height: 15%;
-  font-size: 100%;
 }
 
 #reg {
-  width: 40%;
-  display: flex;
+  width: 30%;
+  margin-left: 15%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   justify-content: center;
   align-items: center;
-  padding: 10px 40px;
-
+  padding: 10px 20px;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
@@ -143,8 +140,10 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 }
 
 #cancel {
-  width: 40%;
-  display: flex;
+  width: 30%;
+  margin-right: 15%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   justify-content: center;
   align-items: center;
   padding: 10px 20px;
@@ -176,34 +175,6 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   box-shadow: 0 3px #333; /* Slightly reduced shadow for the pressed effect */
   transform: translateY(4px);
 }
-.regButton {
-  width: 100%;
-  margin-bottom: 15px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 80%;
-  gap: 25%;
-}
-.Cancel
-{
-  background-color: crimson;
-}
-.regButton label {
-  padding: 10px 40px;
-
-  width: 45%;
-  height: 50px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 80%;
-  margin: 0.5rem 0 0.5rem 0;
-  gap: 25%;
-}
 
 .alreadyAcc {
   display: flex;
@@ -229,26 +200,16 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   color: #c76809;
 }
 
-div#buttons
-{
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-}
 .child-photo
 {
-
+  margin-top: 12rem;
   width: 200px;
 }
+
 @media screen and (max-width: 1000px) {
   form#registerPage {
     width: 80%;
   }
-
-  .inputField {
-    font-size: 200%;
-  }
-
 
   .inputField input,
   select {
@@ -265,7 +226,6 @@ div#buttons
     width: 100%;
     justify-content: space-between;
     align-items: center;
-
   }
 
   .alreadyAcc {
@@ -288,16 +248,6 @@ div#buttons
     margin: 0;
   }
 
-  button#reg {
-    width: 40%;
-    height: 40%;
-    font-size: 350%;
-    display: flex;
-    justify-content: center;
-    margin: 0 15% 0 15%;
-
-  }
-
   button#reg:active {
     transform: translateY(10%);
   }
@@ -307,17 +257,6 @@ div#buttons
     width: 50%;
     font-size: 150%;
   }
-
-
-  .regButton {
-    height: 100%;
-  }
-
-  .regButton label {
-    height: 100%;
-  }
-
-
 }
 
 @media only screen and (max-width: 800px){
@@ -332,15 +271,5 @@ div#buttons
 
   .childInputField label{
     padding-bottom: 10px;
-  }
-
-  .childRegButton{
-    font-size: 70%;
-    height: 20%;
-  }
-
-  a#reg{
-    height: 40%;
-    width: 40%;
   }
 }
