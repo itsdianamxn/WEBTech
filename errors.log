@@ -17,3 +17,68 @@ Stack trace:
 [23-Jun-2024 11:10:31 Europe/Berlin] [{},{}]
 [23-Jun-2024 11:10:31 Europe/Berlin] old notification
 [23-Jun-2024 11:10:31 Europe/Berlin] old notification
+[23-Jun-2024 11:26:55 Europe/Berlin] PHP Warning:  require_once(User.php): Failed to open stream: No such file or directory in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\controller\nrOfNoTIfications.php on line 14
+[23-Jun-2024 11:26:55 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'User.php' (include_path='C:\Users\Daniel\Desktop\xampp\php\PEAR') in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\controller\nrOfNoTIfications.php:14
+Stack trace:
+#0 {main}
+  thrown in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\controller\nrOfNoTIfications.php on line 14
+[23-Jun-2024 11:26:57 Europe/Berlin] [{},{}]
+[23-Jun-2024 11:26:57 Europe/Berlin] old notification
+[23-Jun-2024 11:26:57 Europe/Berlin] old notification
+[23-Jun-2024 11:27:34 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Notification" not found in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\User.php:77
+Stack trace:
+#0 C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\controller\nrOfNoTIfications.php(29): User->getAllUserNotifications()
+#1 {main}
+  thrown in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\User.php on line 77
+[23-Jun-2024 11:27:36 Europe/Berlin] [{},{}]
+[23-Jun-2024 11:27:36 Europe/Berlin] old notification
+[23-Jun-2024 11:27:36 Europe/Berlin] old notification
+[23-Jun-2024 11:29:03 Europe/Berlin] PHP Warning:  Array to string conversion in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\controller\nrOfNoTIfications.php on line 31
+[23-Jun-2024 11:29:03 Europe/Berlin] User5 has Arrayunread notifications
+[23-Jun-2024 11:29:05 Europe/Berlin] [{},{}]
+[23-Jun-2024 11:29:05 Europe/Berlin] old notification
+[23-Jun-2024 11:29:05 Europe/Berlin] old notification
+[23-Jun-2024 11:29:14 Europe/Berlin] PHP Warning:  Array to string conversion in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\controller\nrOfNoTIfications.php on line 31
+[23-Jun-2024 11:29:14 Europe/Berlin] User5 has Arrayunread notifications
+[23-Jun-2024 11:30:36 Europe/Berlin] PHP Warning:  Array to string conversion in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\controller\nrOfNoTIfications.php on line 31
+[23-Jun-2024 11:30:36 Europe/Berlin] User5 has Arrayunread notifications
+[23-Jun-2024 11:31:24 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'read = 0' at line 1 in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\Database.php:34
+Stack trace:
+#0 C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\Database.php(34): PDOStatement->execute(Array)
+#1 C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\User.php(88): Database->select('SELECT COUNT(*)...', true, Array)
+#2 C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\controller\nrOfNoTIfications.php(29): User->getNrNotifications()
+#3 {main}
+  thrown in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\Database.php on line 34
+[23-Jun-2024 11:31:33 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'read = 0' at line 1 in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\Database.php:34
+Stack trace:
+#0 C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\Database.php(34): PDOStatement->execute(Array)
+#1 C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\User.php(88): Database->select('SELECT COUNT(*)...', true, Array)
+#2 C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\controller\nrOfNoTIfications.php(29): User->getNrNotifications()
+#3 {main}
+  thrown in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\Database.php on line 34
+[23-Jun-2024 11:34:19 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'read = 0' at line 1 in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\Database.php:34
+Stack trace:
+#0 C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\Database.php(34): PDOStatement->execute(Array)
+#1 C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\User.php(88): Database->select('SELECT COUNT(*)...', true, Array)
+#2 C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\controller\nrOfNoTIfications.php(29): User->getNrNotifications()
+#3 {main}
+  thrown in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\Database.php on line 34
+[23-Jun-2024 11:34:26 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'read = 0' at line 1 in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\Database.php:34
+Stack trace:
+#0 C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\Database.php(34): PDOStatement->execute(Array)
+#1 C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\User.php(88): Database->select('SELECT COUNT(*)...', true, Array)
+#2 C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\controller\nrOfNoTIfications.php(29): User->getNrNotifications()
+#3 {main}
+  thrown in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\Database.php on line 34
+[23-Jun-2024 11:35:14 Europe/Berlin] PHP Warning:  Array to string conversion in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\User.php on line 89
+[23-Jun-2024 11:35:14 Europe/Berlin] Nr of notifs: Array
+[23-Jun-2024 11:35:14 Europe/Berlin] User5 has 2unread notifications
+[23-Jun-2024 11:35:24 Europe/Berlin] [{},{}]
+[23-Jun-2024 11:35:24 Europe/Berlin] old notification
+[23-Jun-2024 11:35:24 Europe/Berlin] old notification
+[23-Jun-2024 11:35:37 Europe/Berlin] PHP Warning:  Array to string conversion in C:\Users\Daniel\Desktop\xampp\htdocs\WEBTech\model\User.php on line 89
+[23-Jun-2024 11:35:37 Europe/Berlin] Nr of notifs: Array
+[23-Jun-2024 11:35:37 Europe/Berlin] User5 has 2unread notifications
+[23-Jun-2024 11:35:39 Europe/Berlin] [{},{}]
+[23-Jun-2024 11:35:39 Europe/Berlin] old notification
+[23-Jun-2024 11:35:39 Europe/Berlin] old notification

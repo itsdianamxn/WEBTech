@@ -2,6 +2,7 @@
 
 require_once 'Database.php';
 require_once 'Child.php';
+require_once 'Notification.php';
 
 
 class User
@@ -80,6 +81,14 @@ class User
             }
         }
         return $notifications;
+    }
+
+    public function getNrNotifications(){
+        $db = new Database();
+        $result = $db->select("SELECT COUNT(*) as 'count' FROM notifications WHERE user_ID = :user_ID AND 'read' = 0", true, [':user_ID' => $this->id]);
+        error_log("Nr of notifs: " . $result);
+        if($result)
+            return $result['count'];
     }
 
     public function getID()

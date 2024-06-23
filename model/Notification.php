@@ -46,7 +46,6 @@ class Notification{
     }
 
 
-
     public function getID(){
         return $this->id;
     }
