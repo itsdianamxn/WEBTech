@@ -14,8 +14,7 @@ body{
     justify-content: flex-start;
     background-color: #ffbc5c;
     margin: auto;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .input {
@@ -27,9 +26,7 @@ body{
     margin-top: 10px;
     margin-bottom: 10px;
 }
-div.container {
 
-}
 .container::-webkit-scrollbar {
     width: 0.35rem;
 }
@@ -43,10 +40,13 @@ div.container {
 }
 
 .logs-body {
+    height:auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .logs-header {
