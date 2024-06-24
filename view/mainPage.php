@@ -1,5 +1,6 @@
 <?php
     session_start();
+
     if (!(array_key_exists('id', $_SESSION)))
     {
         header("Location: ../view/login.html");
@@ -118,7 +119,7 @@
                 </a>
             </li>
             <li class="nav-item last">
-                <a href="/WEBTech/controller/logoutController.php" class="nav-link">
+                <a href="../controller/logoutController.php" class="nav-link">
                 <span class="link-text">Logout</span>
                 <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="door-open" role="img"
                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"

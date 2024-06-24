@@ -30,7 +30,8 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/calendar.css" type="text/css">
-    <script src="../scripts/scheduleScript.js"></script>
+    <!-- <script src="../scripts/scheduleScript.js"></script> -->
+    <script>var onetimeEvents = [];</script>
 </head>
 
 <body>
@@ -96,10 +97,15 @@
                                 $schedule->getTime()  . '</li>' . $endl;
                             break;
                         case 'Yearly':
+                            $date = date_create($schedule->getDate());
+                            echo '           <li>Date: ' . date_format($date, 'd-M') . ', time: ' .
+                                $schedule->getTime()  . '</li>' . $endl;
+                            break;
                         case "One-time":
                             $date = date_create($schedule->getDate());
                             echo '           <li>Date: ' . date_format($date, 'd-M') . ', time: ' .
                                 $schedule->getTime()  . '</li>' . $endl;
+                            echo "<script>onetimeEvents.push('" . date_format($date, 'Y-m-d') . "')</script>\n";
                             break;
                     }
 

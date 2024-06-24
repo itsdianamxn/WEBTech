@@ -1,5 +1,5 @@
 function confirmDelete() {    
-    if (confirm("Are you sure you want to delete your profile?\nAll your memories will be lost2.")) {
+    if (confirm("Are you sure you want to delete your profile?\nAll your memories will be lost.")) {
       document.getElementById('deleteUserBtn').click();
     }
 }

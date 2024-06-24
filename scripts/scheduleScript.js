@@ -5,16 +5,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextMonthBtn = document.getElementById('next-month');
     let currentDate = new Date();
 
+    console.log(onetimeEvents);
+
     function renderCalendar(date) {
         const year = date.getFullYear();
-        const month = date.getMonth();
+        var month = date.getMonth();
         
         const firstDay = new Date(year, month, 1).getDay();
         const lastDate = new Date(year, month + 1, 0).getDate();
         
         monthYear.textContent = date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
         calendarBody.innerHTML = '';
-
+        month++;
         let row = document.createElement('tr');
         
         for (let i = 0; i < firstDay; i++) {
@@ -31,6 +33,14 @@ document.addEventListener('DOMContentLoaded', () => {
             let cell = document.createElement('td');
             cell.textContent = day;
             row.appendChild(cell);
+
+            var dss = year + "-" + (month < 10 ? ('0' + month) : month) + "-" + (day < 10 ? ('0' + day) : day);
+            console.log(dss);
+            if (onetimeEvents.includes(dss))
+            {
+                //cell.style.background = 'red';
+                cell.style.border="2px solid red";
+            }
         }
 
         calendarBody.appendChild(row);

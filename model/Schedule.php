@@ -70,13 +70,13 @@ class Schedule
                    ':child_ID' => $this->child_ID,
                    ':message' => $this->message,
                    ':recurrence' => $this->recurrence,
-                   ':expiration' => $this->expiration, 
+                   ':expiration' => $this->expiration =='' ? null : $this->expiration,
                    ':date' => $this->date,
                    ':time' => $this->time];
         $result = $db->select("SELECT * FROM schedule_events WHERE ".
                         "type = :type AND child_ID = :child_ID AND message = :message AND " .
                         "recurrence = :recurrence AND expiration = :expiration AND " .
-                        "date = :date AND time = :time", true, $params);
+                        "`date` = :date AND `time` = :time", true, $params);
         return $result;
     }
 
@@ -88,7 +88,7 @@ class Schedule
             'child_ID' => $this->child_ID,
             'message' => $this->message,
             'recurrence' => $this->recurrence,
-            'expiration' => $this->expiration,
+            ':expiration' => $this->expiration =='' ? null : $this->expiration,
             'date' => $this->date,
             'time' => $this->time,
         ];
@@ -102,11 +102,11 @@ class Schedule
             ':child_ID' => $this->child_ID,
             ':message' => $this->message,
             ':recurrence' => $this->recurrence,
-            ':expiration' => $this->expiration,
+            ':expiration' => $this->expiration =='' ? null : $this->expiration,
             ':time' => $this->time,
             ':date' => $this->date,
         ];
-        $res = $db->execute('INSERT INTO schedule_events (type, child_ID, message, recurrence, expiration, time, date) ' . 
+        $res = $db->execute('INSERT INTO schedule_events (type, child_ID, message, recurrence, expiration, `time`, `date`) ' . 
                             'VALUES (:type, :child_ID, :message, :recurrence, :expiration, :time, :date)', $params);
 
         return $res;
@@ -120,7 +120,7 @@ class Schedule
             ':child_ID' => $this->child_ID,
             ':message' => $this->message,
             ':recurrence' => $this->recurrence,
-            ':expiration' => $this->expiration,
+            ':expiration' => $this->expiration =='' ? null : $this->expiration,
             ':time' => $this->time,
             ':date' => $this->date,
             ':id' => $this->id,
