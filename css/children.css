@@ -109,7 +109,8 @@ iframe {
   border-style: ridge;
 
   overflow-y: auto;
-  overflow-x: hidden;}
+  overflow-x: hidden;
+}
 
 .image-preview {
   display: inline-block;
@@ -122,11 +123,22 @@ table {
 }
 
 @media only screen and (max-width: 800px){
+  iframe {
+    width: 100%;
+    margin-left: 0px;
+    border: 0px ;
+    border-style: ridge;
+  
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
   .body-container{
     flex-direction: column;
   }
   div#all-children.container
   {
+    justify-content: flex-start;
+    align-items: flex-start;
     overflow-y: hidden;
     overflow-x: auto;
   }
@@ -135,6 +147,7 @@ table {
   }
 
   .container{
+    align-items: flex-start;
     padding-left: 5px;
     flex-direction: row;
     height: 5rem;

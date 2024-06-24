@@ -90,11 +90,10 @@ body{
 
 #calendar-container {
     margin-top: 10px;
-    position: -webkit-sticky;
     position: sticky;
     top:    0;
-    width: 100%;
-    max-width: 500px;
+    width: 50%;
+    /* max-width: 500px; */
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -170,24 +169,44 @@ body{
 
 
 @media only screen and (max-width: 800px) {
+    #calendar-container {
+        margin-top: 0px;
+        width: 100%;
+        position: absolute;
+    }
+
+    #calendar-header h2 {
+        font-size: 1.2em;
+    }
+
+    #calendar-header button {
+        font-size: 1em;
+    }
 
     body{
-        flex-direction: column;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content:  flex-start;
+    background-color: #dbc8a0;
+    margin: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     }
 
     .container{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
-        align-items: flex-start;
-        height: 35%;
-        width: 100vw;
+        align-items: center;
     }
 
     .logs-body{
-        flex-direction: row; 
-        align-items: flex-start; 
-        justify-content: flex-start;
+        flex-direction: column; 
+        align-items:center; 
+        justify-content: flex-end;
         height: 100%;
         width: 100%;
     }
@@ -209,19 +228,5 @@ body{
     
     .logs-header{
         display: none;
-    }
-
-    .center-text{
-        font-size: 1rem;
-    }
-
-    .calendar{
-        width: 100%;
-        height: 65%;
-        padding-bottom: 5px;
-    }
-
-    .calendar-table td, .calendar-table th {
-        padding: 5px; /* For cellpadding */
     }
 }

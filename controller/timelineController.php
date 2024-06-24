@@ -39,7 +39,7 @@ $pictures = [];
 <?php
     if ($childrenIds == "") {
         echo "<div class = \"no-events\">";
-        echo "No child selected. Please, select a child in order to display your favorite memories of them!";
+        echo "<p>No child selected.</p> <p>Please, select a child in order to display your favorite memories of them!</p>";
         echo "</div>";
     } else {
         $childrenIds = rtrim($childrenIds, ',');
