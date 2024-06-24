@@ -44,94 +44,69 @@ foreach($children as $child){
         $schedules[] = $schedule;
     }
 }
-$current_time = new DateTime(null, new DateTimeZone('Europe/Bucharest'));
-$current_hour = $current_time->format('H');
-$current_minute = $current_time->format('i');
-$current_day = $current_time->format('N');
-$current_month = $current_time->format('m');
-$current_date = $current_time->format('d');
-$current_year = $current_time->format('Y');
-foreach($schedules as $schedule){
-    // $schedule = json_encode($schedule);
-    $child = new Child();
-    $child->load($schedule['child_ID']);
-    list($hour, $minute) = explode(':', $schedule['time']);
-    $schedule_time = new DateTime($schedule['time'], new DateTimeZone('Europe/Bucharest'));
-    $schedule_day = $schedule_time->format('N');
-    $schedule_month = $schedule_time->format('m');
-    $schedule_date = $schedule_time->format('d');
-    $schedule_year = $schedule_time->format('Y');
-    if($current_hour == $hour && $current_minute == $minute){
-        switch($schedule['recurrence']){
-            case 'Daily':
-                {
-                    $notification = new Notification();
-                    $notification->setUserID($user_id);
-                    $notification->setChildID($schedule['child_ID']);
-                    $notification->setMessage('Time to ' . $schedule['message']);
-                    $notification->setTitle('Daily reminder');
-                    $notification->setDateIssued($current_time->format('Y-m-d H:i:s'));
-                    $notification->setReadN(false);
-                    $notification->add();
-                }
-                break;
-            case 'Weekly':
-                {
-                    if($current_day == $schedule_day){
-                        $notification = new Notification();
-                        $notification->setUserID($user_id);
-                        $notification->setChildID($schedule['child_ID']);
-                        $notification->setMessage('Time to ' . $schedule['message']);
-                        $notification->setTitle('Weekly reminder');
-                        $notification->setDateIssued($current_time->format('Y-m-d H:i:s'));
-                        $notification->setReadN(false);
-                        $notification->add();
-                    }
-                }
-                break;
-            case 'Monthly':
-                {
-                    if($current_date == $schedule_date){
-                        $notification = new Notification();
-                        $notification->setUserID($user_id);
-                        $notification->setChildID($schedule['child_ID']);
-                        $notification->setMessage('Time to ' . $schedule['message']);
-                        $notification->setTitle('Monthly reminder');
-                        $notification->setDateIssued($current_time->format('Y-m-d H:i:s'));
-                        $notification->setReadN(false);
-                        $notification->add();
-                    }
-                    break;
-                }
-            case 'Yearly':
-                {
-                    if($current_date == $schedule_date && $current_month == $schedule_month){
-                        $notification = new Notification();
-                        $notification->setUserID($user_id);
-                        $notification->setChildID($schedule['child_ID']);
-                        $notification->setMessage('Time to ' . $schedule['message']);
-                        $notification->setTitle('Yearly reminder');
-                        $notification->setDateIssued($current_time->format('Y-m-d H:i:s'));
-                        $notification->setReadN(false);
-                        $notification->add();
-                    }
-                }
-            default:{
-                if($current_year == $schedule_year && $current_month == $schedule_month && $current_date == $schedule_date && $current_hour == $schedule_hour && $current_minute == $schedule_minute){
-                    $notification = new Notification();
-                    $notification->setUserID($user_id);
-                    $notification->setChildID($schedule['child_ID']);
-                    $notification->setMessage('Time to ' . $schedule['message']);
-                    $notification->setTitle('One-time reminder for' . $child->getfirstName());
-                    $notification->setDateIssued($current_time->format('Y-m-d H:i:s'));
-                    $notification->setReadN(false);
-                    $notification->add();
-                }
-                break;
-            }
-        }
-    }
+
+function createNotification($user_id, $child_id, $message, $title, $current_time) {
+    $notification = new Notification();
+    $notification->setUserID($user_id);
+    $notification->setChildID($child_id);
+    $notification->setMessage($message);
+    $notification->setTitle($title);
+    $notification->setDateIssued($current_time);
+    $notification->setReadN(false);
+    $notification->add();
 }
 
+$current_time = new DateTime(null, new DateTimeZone('Europe/Bucharest'));
+$current_time = $current_time->format('Y-m-d H:i');
+foreach($schedules as $schedule){
+    // $schedule = json_encode($schedule);
+    error_log(json_encode($schedule));
+    $child = new Child();
+    $child->load($schedule['child_ID']);
+    
+    $schedule_time = new DateTime($schedule['nextNotif'], new DateTimeZone('Europe/Bucharest'));
+    $formatted_schedule_time = $schedule_time->format('Y-m-d H:i');
 
+    $schedule_date = $schedule_time->format('Y-m-d');
+    $schedule_hours = $schedule_time->format('H:i');
+    error_log("schedule_date: " . $schedule_date);
+    error_log("schedule_hours: " . $schedule_hours);
+
+    if($formatted_schedule_time <= $current_time){
+        $message = 'It is time for ' . $child->getFirstname() . ' ' . $child->getLastname() . ' to ' . $schedule['message'];
+        switch($schedule['recurrence']){
+            case 'Daily':{
+                $title = 'Daily reminder';
+                break;}
+            case 'Weekly':{
+                $title = 'Weekly reminder';
+                break;}
+            case 'Monthly':{
+                $title = 'Monthly reminder';
+                break;}
+            case 'Yearly':{
+                $title = 'Yearly reminder';
+                break;}
+            default:{
+                $title = 'Reminder';
+                break;
+            }
+            }
+        $s = new Schedule();
+        $s->load($schedule['id']);
+        $exp = new DateTime($s->getExpiration(), new DateTimeZone('Europe/Bucharest'));
+        $exp = $exp->format('Y-m-d H:i');
+        if($s->getRecurrence() == 'One-time' || $current_time >= $exp){
+            $s->delete();
+        }
+        else{
+        $s->setTime($schedule_hours);
+        $s->setDate($schedule_date);
+        $s->setNextNotif();
+        error_log("s: " . json_encode($s));
+        $s->save();
+        createNotification($user_id, $schedule['child_ID'], $message, $title, $current_time);
+    }
+    }
+    }
 ?>

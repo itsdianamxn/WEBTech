@@ -16,6 +16,8 @@ class Schedule
     private $time;
     private $timeline = false;
 
+    private $nextNotif;
+
 
     public function __construct()
     {
@@ -38,6 +40,7 @@ class Schedule
             $this->expiration = $result['expiration'];
             $this->date = $result['date'];
             $this->time = $result['time'];
+            $this->setNextNotif();
 
             if ($this->expiration == '0000-00-00')
             {
@@ -91,6 +94,7 @@ class Schedule
             ':expiration' => $this->expiration =='' ? null : $this->expiration,
             'date' => $this->date,
             'time' => $this->time,
+            'nextNotif' => $this->nextNotif,
         ];
     }
 
@@ -124,10 +128,11 @@ class Schedule
             ':time' => $this->time,
             ':date' => $this->date,
             ':id' => $this->id,
+            ':nextNotif' => $this->nextNotif,
         ];
         
         $res = $db->execute('UPDATE schedule_events SET `time` = :time, `date` = :date, ' .
-            'type = :type, child_ID = :child_ID, message = :message, recurrence = :recurrence, expiration = :expiration ' .
+            'type = :type, child_ID = :child_ID, message = :message, recurrence = :recurrence, expiration = :expiration, nextNotif = :nextNotif ' .
             'WHERE ID = :id', $params);
         return $res;
     }
@@ -142,7 +147,7 @@ class Schedule
     {
         $db = new Database();
         $query = "SELECT * FROM schedule_events WHERE recurrence = 'One-time'";
-        $result = $db->select($query);
+        $result = $db->select($query, true, []);
         return $result;
     }
 
@@ -154,6 +159,40 @@ class Schedule
     public function getType()
     {
         return $this->type;
+    }
+
+    public function getNextNotif()
+    {
+        return $this->nextNotif;
+    }
+
+    public function setNextNotif(){
+        $dateTime = new DateTime($this->date . ' ' . $this->time);
+        switch($this->recurrence){
+            case 'One-time':{
+                $this->nextNotif = $dateTime->format('Y-m-d H:i'); // Adjust the format as needed
+                break;
+            }
+            case 'Daily':{
+                $dateTime->modify('+1 day');
+                break;
+            }
+            case 'Weekly':{
+                $dateTime->modify('+1 week');
+                break;
+            }
+            case 'Monthly':{
+                $dateTime->modify('+1 month');
+                break;
+            }
+            case 'Yearly':{
+                $dateTime->modify('+1 year');
+                break;
+            }
+            default:
+                break;
+        }
+        $this->nextNotif = $dateTime->format('Y-m-d H:i');
     }
 
     public function setType($type)
