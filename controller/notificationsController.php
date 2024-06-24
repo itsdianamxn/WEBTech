@@ -24,7 +24,7 @@ foreach($notifications as $notification){
     echo '<p class = "notification-text">' . $endl;
     echo $notification->getMessage() . $endl;
     echo '</p>' . $endl;
-    if($notification->getRead() == false){
+    if($notification->getReadN() == false){
         error_log('new notification');
         echo '<div class = "new-notification-header">' . $endl;
     }
@@ -40,7 +40,7 @@ foreach($notifications as $notification){
     echo '</p>' . $endl;
     echo '</div>' . $endl;
     echo '</li>' . $endl;
-    $notification->setRead(true);
+    $notification->setReadN(true);
 }
 
 ?>

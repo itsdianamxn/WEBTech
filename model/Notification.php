@@ -13,7 +13,7 @@ class Notification{
     private $title;
     private $date_issued;
 
-    private $read;
+    private $readN;
 
     public function __construct()
     {
@@ -31,7 +31,7 @@ class Notification{
             $this->message = $result['message'];
             $this->title = $result['title'];
             $this->date_issued = $result['time_issued'];
-            $this->read = $result['read'];
+            $this->readN = $result['readN'];
             return true;
         }
         return false;
@@ -50,7 +50,7 @@ class Notification{
 
     public function add(){
         $db = new Database();
-        $db->execute("INSERT INTO notifications (user_ID, child_ID, message, title, time_issued, `read`) VALUES (:user_ID, :child_ID, :message, :title, :time_issued, :read)", [':user_ID' => $this->user_ID, ':child_ID' => $this->child_ID, ':message' => $this->message, ':title' => $this->title, ':time_issued' => $this->date_issued, ':read' => $this->read]);
+        $db->execute("INSERT INTO notifications (user_ID, child_ID, message, title, time_issued, readN) VALUES (:user_ID, :child_ID, :message, :title, :time_issued, :readNN)", [':user_ID' => $this->user_ID, ':child_ID' => $this->child_ID, ':message' => $this->message, ':title' => $this->title, ':time_issued' => $this->date_issued, ':readN' => $this->readN]);
     }
 
     public function getID(){
@@ -72,8 +72,8 @@ class Notification{
         return $this->date_issued;
     }
 
-    public function getRead(){
-        return $this->read;
+    public function getreadN(){
+        return $this->readN;
     }
 
     public function setId($id){
@@ -95,10 +95,10 @@ class Notification{
         $this->date_issued = $date_issued;
     }
 
-    public function setRead($read){
-        $this->read = $read;
+    public function setreadN($readN){
+        $this->readN = $readN;
         $db = new Database();
-        $db->execute("UPDATE notifications SET `read` = :read WHERE ID = :id", [':read' => $read, ':id' => $this->id]);
+        $db->execute("UPDATE notifications SET `readN` = :readN WHERE ID = :id", [':readN' => $readN, ':id' => $this->id]);
     }
 
 
