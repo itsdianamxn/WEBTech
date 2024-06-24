@@ -57,6 +57,7 @@
                 echo '      </svg>' . $endl;
                 echo '  </div>' . $endl;
                 echo '  <ul class="supplementary-info">' . $endl;
+                echo '      <li class="info"> ID: ' . $child->getID() . '</li>' . $endl; // This line is added to display the child's ID
                 echo '      <li class="info">'. $child->getLastname() .'</li>' . $endl;
                 echo '      <li class="info">Age: ' . date_diff(date_create($child->getDOB()), date_create(date("Y-m-d")))->format('%y') . '</li>' . $endl;
                 echo '      <li class="info">Birthdate: ' . $child->getDOB() . '</li>' . $endl;
