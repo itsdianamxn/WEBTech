@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Group</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/editStyle.css">
+    <script src="../scripts/addGroupScript.js"></script>
+</head>
+<body class="edit">
+    <div class="mainedit">
+        <h1 class="title">Remove child from the group.</h1>
+
+        <form id="editPage" onsubmit="removeChildForm(event)">
+            <div class="inputField">
+                <label style="display: flex; align-items: center;" for="childID">Id of the Child</label>
+                <input type="text" id="childID" name="childID" required>
+                <input type="hidden" id="groupId" name="groupId" value="">
+            </div>
+            <div id="edit_button">
+                <button id="reg2" type="submit">Remove child</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        // Set the groupId in the hidden input field
+        var groupId = getUrlParameter('groupId');
+        document.getElementById('groupId').value = groupId;
+    </script>
+</body>
+</html>

@@ -89,9 +89,25 @@ class Group{
         return false;
     }
 
+
+    public function removeChildFromGroup($childID){
+        $db = new Database();
+        $db->execute("DELETE FROM group_children WHERE ID = ? AND child_ID = ?", [$this->id, $childID]);
+        $this->decrementNrChildren();
+    }
     public function findByName($parent_ID, $name){
         $db = new Database();
         $result = $db->select("SELECT * FROM groups WHERE name = ? and parent_ID = ?", true, [$name,$parent_ID]);
+        if($result){
+            return true;
+        }
+        return false;
+    }
+
+    public function findChild($childID){
+        $db = new Database();
+        error_log("ID: ".$this->id." ChildID: ".$childID);
+        $result = $db->select("SELECT * FROM group_children WHERE ID = ? AND child_ID = ?", true, [$this->id, $childID]);
         if($result){
             return true;
         }
@@ -101,11 +117,13 @@ class Group{
     public function delete(){
         $db = new Database();
         $db->execute("DELETE FROM groups WHERE id = ?", [$this->id]);
+        $db->execute("DELETE FROM group_children WHERE ID = ?", [$this->id]);
     }
 
     public function modify(){
         $db = new Database();
         $db->execute("UPDATE groups SET parent_ID = ?, name = ?, nr_Children = ? WHERE id = ?", [$this->parent_ID, $this->name, $this->nr_Children, $this->id]);
+        return true;
     }
 
     public function addChild($childID){
@@ -138,6 +156,12 @@ class Group{
 
     public function incrementNrChildren(){
         $this->nr_Children++;
+        $db =  new Database();
+        $db->execute("UPDATE groups SET nr_Children = ? WHERE id = ?", [$this->nr_Children, $this->id]);
+    }
+
+    public function decrementNrChildren(){
+        $this->nr_Children--;
         $db =  new Database();
         $db->execute("UPDATE groups SET nr_Children = ? WHERE id = ?", [$this->nr_Children, $this->id]);
     }

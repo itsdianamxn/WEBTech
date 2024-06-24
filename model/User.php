@@ -71,7 +71,7 @@ class User
 
     public function getAllUserNotifications(){
         $db = new Database();
-        $result = $db->selectAll("SELECT * FROM notifications WHERE user_ID = :user_ID", true, [':user_ID' => $this->id]);
+        $result = $db->selectAll("SELECT * FROM notifications WHERE user_ID = :user_ID ORDER BY time_issued DESC", true, [':user_ID' => $this->id]);
         $notifications = [];
         if($result){
             foreach($result as $row){
@@ -85,7 +85,7 @@ class User
 
     public function getNrNotifications(){
         $db = new Database();
-        $result = $db->select("SELECT COUNT(*) as 'count' FROM notifications WHERE user_ID = :user_ID AND 'read' = 1", true, [':user_ID' => $this->id]);
+        $result = $db->select("SELECT COUNT(*) as count FROM notifications WHERE user_ID = :user_ID AND readN = 0", true, [':user_ID' => $this->id]);
         error_log("Nr of notifs: " . json_encode($result));
         if($result)
             return $result['count'];
