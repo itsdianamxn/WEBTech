@@ -35,19 +35,27 @@ class Group{
     }
     
 
-    public function getAllGroups($parent_ID){
+    public function getAllGroups($parent_ID) {
         $db = new Database();
         $result = $db->selectAll("SELECT * FROM groups WHERE parent_ID = ?", true, [$parent_ID]);
         $groups = [];
-        if($result){
-            foreach($result as $group){
-                $group = new Group();
-                $group->load($group);
-                $groups[] = $group;
+    
+        if ($result) {
+            foreach ($result as $group) {
+                $groupObj = new Group();
+                $groupObj->load($group['ID']);
+                $groups[] = [
+                    'id' => $groupObj->getId(),
+                    'parent_ID' => $groupObj->getParent_ID(),
+                    'name' => $groupObj->getName(),
+                    'nr_Children' => $groupObj->getNr_Children()
+                ];
             }
         }
+    
         return $groups;
     }
+    
 
     public function find($id){
         $db = new Database();

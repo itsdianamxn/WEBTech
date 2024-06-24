@@ -47,8 +47,15 @@ class Group_Children{
         if($result){
             foreach($result as $child){
                 $group_children = new Child();
-                $group_children->load($child['$child_ID']);
-                $children[] = $group_children;
+                $group_children->load($child['child_ID']);
+                $children[] = [
+                    'id' => $group_children->getId(),
+                    'firstname' => $group_children->getFirstname(),
+                    'lastname' => $group_children->getLastname(),
+                    'dob' => $group_children->getDob(),
+                    'stage' => $group_children->getStage(),
+                    'parent_ID' => $group_children->getParentID()
+                ];
             }
         }
         return $children;
