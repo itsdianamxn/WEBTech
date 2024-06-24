@@ -6,7 +6,8 @@ body.register {
     justify-content: center;
     align-items: center;
     background-color: #ffbc5c;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
