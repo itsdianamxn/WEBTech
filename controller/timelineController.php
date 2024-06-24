@@ -40,7 +40,7 @@ if ($children == "") {
         $children = rtrim($children, ',');
         $children = explode(",", $children);
         $pictures = [];
-        $pictureObj = new Picture(); // Instantiate the Picture object outside the loop
+        $pictureObj = new Picture();
         echo "<div class=\"timelines\">";
         foreach ($children as $childId) {
             $child = new Child();
@@ -48,7 +48,7 @@ if ($children == "") {
             $childPictures = $pictureObj->getTimelineOfChild($childId); // Get pictures for the current child
 
             if (empty($childPictures)) {
-                echo "No pictures found for " . htmlspecialchars($child->getLastName()) . ".";
+                echo "No pictures found for " . htmlspecialchars($child->getFirstame()) . ".";
             } else {
                 echo "<h2 class = \"name-container\">" . htmlspecialchars($child->getFirstName()) . " " . htmlspecialchars($child->getLastName()) . "</h2>";
                 echo "<div class=\"timelineContainer\">";
