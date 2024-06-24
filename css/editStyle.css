@@ -123,6 +123,14 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   background-color: #FFAC58;
 }
 
+#edit_button{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
 #buttons
 {
   width: 100%;
