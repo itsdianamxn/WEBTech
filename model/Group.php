@@ -107,6 +107,7 @@ class Group{
     public function modify(){
         $db = new Database();
         $db->execute("UPDATE groups SET parent_ID = ?, name = ?, nr_Children = ? WHERE id = ?", [$this->parent_ID, $this->name, $this->nr_Children, $this->id]);
+        return true;
     }
 
     public function addChild($childID){
