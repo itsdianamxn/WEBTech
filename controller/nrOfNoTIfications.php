@@ -72,7 +72,7 @@ foreach($schedules as $schedule){
     error_log("schedule_date: " . $schedule_date);
     error_log("schedule_hours: " . $schedule_hours);
 
-    if($formatted_schedule_time < $current_time){
+    if($formatted_schedule_time <= $current_time){
         $message = 'It is time for ' . $child->getFirstname() . ' ' . $child->getLastname() . ' to ' . $schedule['message'];
         switch($schedule['recurrence']){
             case 'Daily':{
@@ -94,12 +94,19 @@ foreach($schedules as $schedule){
             }
         $s = new Schedule();
         $s->load($schedule['id']);
+        $exp = new DateTime($s->getExpiration(), new DateTimeZone('Europe/Bucharest'));
+        $exp = $exp->format('Y-m-d H:i');
+        if($s->getRecurrence() == 'One-time' || $current_time >= $exp){
+            $s->delete();
+        }
+        else{
         $s->setTime($schedule_hours);
         $s->setDate($schedule_date);
         $s->setNextNotif();
         error_log("s: " . json_encode($s));
         $s->save();
         createNotification($user_id, $schedule['child_ID'], $message, $title, $current_time);
+    }
     }
     }
 ?>
