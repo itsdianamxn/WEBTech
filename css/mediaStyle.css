@@ -13,8 +13,7 @@ body {
   align-items: start;
   background-color: #9074DC;
   
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 body.edit::-webkit-scrollbar {
@@ -40,11 +39,13 @@ img {
 
  .files {
   border: 10px #9074dc; 
+  width: calc(100% - 140px - 40px); 
+  height: calc(100% - 35px);
 } 
 
 .container {
   width: 140px; 
-  height: 90%;
+  height: calc(100% - 35px);
   display: flex;
   flex-direction: column;
   /*justify-content: space-evenly;*/
@@ -118,6 +119,7 @@ table {
     margin: 0;
     border: none;
   }
+
   tr{
     padding-top: 5px;
   }

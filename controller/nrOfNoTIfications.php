@@ -15,7 +15,6 @@ require_once '../model/User.php';
 require_once '../model/Notification.php';
 require_once '../model/Child.php';
 
-// Assuming session_start() is called before this point if session is used
 
 // Check if user is logged in (example check)
 if (!isset($_SESSION['id'])) {

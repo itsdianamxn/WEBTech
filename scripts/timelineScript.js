@@ -30,3 +30,6 @@ function updatePictures(clickChild) {
     check.checked = !check.checked;
     refreshIframe();
 }
+function share() {
+    refreshIframe();
+}

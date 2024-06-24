@@ -3,8 +3,7 @@ html{
     width: 100%;
     height: 100%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    
-}   
+}
 
 body{
     height: 100%;
@@ -14,9 +13,15 @@ body{
     justify-content: flex-start;
     background-color: #ffbc5c;
     margin: auto;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto; /* should be disabled ?*/
 }
 
+.container {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+ 
 .input {
     display: block;
     width: 100%;
@@ -114,31 +119,30 @@ tr td:hover{
     text-align: center;
     color: 1e163e;
     font-size: 1.5rem;
-  }
-  
-  .calendar-table {
+}
+
+.calendar-table {
     align-self: center;
     background-color: rgba(255, 166, 0, 0.656);
     text-align: center;
     width:85%;
     height: 90%;
-    border-collapse: collapse; /* For cellspacing */
-    
-  }
+    border-collapse: collapse;
+}
+
 .calendar-table td, .calendar-table th {
-    padding: 21px; /* For cellpadding */
-  }
-  
-  .faded {
+    padding: 21px;
+}
+
+.faded {
     opacity: 0.2;
-  }
-  .caption-top {
+}
+.caption-top {
     caption-side: top; 
-  }
+}
 
-  
 
-@media only screen and (max-width: 800px){
+@media only screen and (max-width: 800px) {
 
     body{
         flex-direction: column;
@@ -159,7 +163,6 @@ tr td:hover{
         justify-content: flex-start;
         height: 100%;
         width: 100%;
-       
     }
 
     .logs-day{
@@ -183,7 +186,6 @@ tr td:hover{
 
     .center-text{
         font-size: 1rem;
-    
     }
 
     .calendar{
@@ -194,5 +196,5 @@ tr td:hover{
 
     .calendar-table td, .calendar-table th {
         padding: 5px; /* For cellpadding */
-      }
+    }
 }

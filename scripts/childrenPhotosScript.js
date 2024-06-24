@@ -59,7 +59,7 @@ function addToTimeline(_id) {
     var msg = prompt("Please enter the event description");
     if (msg)
     {
-        location.href='../controller/addToTimeline.php?ID=' +  _id + "&msg=" + encodeURIComponent(msg);
+        window.parent.location.href='../controller/addToTimeline.php?ID=' +  _id + "&msg=" + encodeURIComponent(msg);
     }
 }
 
