@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $childId = $_POST['childID'];
     $groupId = $_POST['groupId'];
     $group = new Group();
+    error_log("Group ID: " . $groupId . " Child ID: " . $childId);
     if (!$group->load($groupId)) {
         $response['status'] = 'error';
         $response['message'] = 'Group not found';

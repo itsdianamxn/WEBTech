@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div class="mod-button-container">
                             <button class="mod-button" onclick="deleteGroup('${group.id}')">Delete Group</button>
                             <button class="mod-button" onclick="modifyGroup('${group.id}')">Modify Group</button>
+                            <button class="mod-button" onclick="redirectToRemoveChild('${group.id}')">Remove Child</button>
                             </div>
                             <div class="svg-style">
                                 <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="arrows-down-to-people" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 512" class="svg-inline--fa fa-arrows-down-to-people fa-w-7 fa-xs" width="25%" height="80%">
@@ -43,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                     const childThumbnail = document.createElement('div');
                     childThumbnail.classList.add('child-thumbnail');
-                    const addChildUrl = "addChildToGroup.html?  groupId=" + group.id;
+                    const addChildUrl = "addChildToGroup.html?groupId=" + group.id;
                     childThumbnail.innerHTML = `
                     <a href = "${addChildUrl}">
                         <div class="nameContainer">
@@ -107,4 +108,9 @@ function deleteGroup(groupId) {
 function modifyGroup(groupId) {
     // Redirect to a page where the group can be modified, passing the groupId as a parameter
     window.location.href = `../view/modifyGroup.html?groupId=${groupId}`;
+}
+
+function redirectToRemoveChild(groupId) {
+    // Redirect to a page where the child can be removed from the group, passing the groupId as a parameter
+    window.location.href = `../view/removeChild.html?groupId=${groupId}`;
 }
