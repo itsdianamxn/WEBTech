@@ -39,6 +39,25 @@ class Group{
     }
     
 
+    public function getChildGroups($childID){
+        $db = new Database();
+        $result = $db->selectAll("SELECT * FROM group_children WHERE child_ID = ?", true, [$childID]);
+        $groups = [];
+        if($result){
+            foreach($result as $group){
+                $groupObj = new Group();
+                $groupObj->load($group['ID']);
+                $groups[] = [
+                    'id' => $groupObj->getId(),
+                    'parent_ID' => $groupObj->getParent_ID(),
+                    'name' => $groupObj->getName(),
+                    'nr_Children' => $groupObj->getNr_Children()
+                ];
+            }
+        }
+        return $groups;
+    }
+
     public function getAllGroups($parent_ID) {
         $db = new Database();
         $result = $db->selectAll("SELECT * FROM groups WHERE parent_ID = ?", true, [$parent_ID]);
