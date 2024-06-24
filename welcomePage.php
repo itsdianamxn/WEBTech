@@ -8,7 +8,7 @@
 </head>
 
 <body class="welcome">
-    <?php require_once __DIR__ . '/controller/welcomePageController.php';?>
+    <?php require_once './controller/welcomePageController.php';?>
     <div class="register-page">
         <h1 class="title">Welcome to<br> Child Manager!</h1>
         <div class="buttons-container">
