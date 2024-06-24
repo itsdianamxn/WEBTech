@@ -5,20 +5,20 @@
     <title>Group</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/editStyle.css">
+    <script src="../scripts/addGroupScript.js"></script>
 </head>
 <body class="edit">
     <div class="mainedit">
         <h1 class="title">Create Your Profile.</h1>
 
-        <form id="editPage" action="../controller/addGroup.php" method="post">
+        <form id="editPage" onsubmit="submitForm(event)">
             <div class="inputField">
                 <label style="display: flex; align-items: center;" for="groupName">Group name</label>
-                <input type="text" id="firstName" name="firstName" required>
+                <input type="text" id="groupName" name="groupName" required>
             </div>
             <div id="edit_button">
                 <button id="reg2" type="submit">Create Group</button>
             </div>
-
         </form>
     </div>
 </body>
