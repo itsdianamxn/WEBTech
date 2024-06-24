@@ -138,6 +138,14 @@ class Schedule
         return $db->execute('DELETE FROM schedule_events WHERE ID = :id', [':id' => $this->id]);
     }
 
+    public function getOneTimeEvents()
+    {
+        $db = new Database();
+        $query = "SELECT * FROM schedule_events WHERE recurrence = 'One-time'";
+        $result = $db->select($query);
+        return $result;
+    }
+
     public function getId()
     {
         return $this->id;

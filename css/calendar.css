@@ -1,7 +1,7 @@
 
 html{
     width: 100%;
-    height: 100%;
+    height: 300%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -10,8 +10,8 @@ body{
     width: 100%;
     display: flex;
     align-items: flex-start;
-    justify-content: flex-start;
-    background-color: #ffbc5c;
+    justify-content: space-around;
+    background-color: #dbc8a0;
     margin: auto;
     overflow-x: hidden;
     overflow-y: auto; /* should be disabled ?*/
@@ -87,18 +87,46 @@ body{
     font-size: 1.5rem;
 }
 
+
 #calendar-container {
-    background: white;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    border-radius: 5px;
+    margin-top: 10px;
+    position: -webkit-sticky;
+    position: sticky;
+    top:    0;
+    width: 100%;
+    max-width: 500px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 #calendar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    background-color: #c9a0dc;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+#calendar-header h2 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+#calendar-header button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+#calendar-header button:hover {
+    background-color: #c096d3;
+    border-radius: 50%;
 }
 
 #calendar {
@@ -113,21 +141,29 @@ body{
     border: 1px solid #ddd;
 }
 
+#calendar th {
+    background-color: #f2f2f2;
+    color: #666;
+    font-size: 0.9em;
+}
+
 #calendar td {
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 #calendar td:hover {
-    background-color: #f0f0f0;
+    background-color: #f1f1f1;
 }
 
-.dow-style{
-    color: black; 
-    background:#6053e6;
-    margin: 5rem;
+#calendar td.active {
+    background-color: #4caf50;
+    color: #fff;
 }
 
-
+#calendar td.inactive {
+    color: #ccc;
+}
 .caption-top {
     caption-side: top; 
 }
