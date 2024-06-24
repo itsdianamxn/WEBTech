@@ -15,17 +15,20 @@ class Group{
         $this->id = -1;
     }
 
-    public function load($group){
-        $this->id = $group['id'];
+    public function load($id){
+        $db = new Database();
+        $group = $db->select("SELECT * FROM groups WHERE id = ?", true, [$id]);
+        $this->id = $group['ID'];
         $this->parent_ID = $group['parent_ID'];
         $this->name = $group['name'];
         $this->nr_Children = $group['nr_Children'];
+        
     }
 
     public function add(){
         $db = new Database();
-        $db->execute("INSERT INTO group (parent_ID, name, nr_Children) VALUES (?, ?, ?)", [$this->parent_ID, $this->name, $this->nr_Children]);
-        $result = $db->select("SELECT id FROM group WHERE parent_ID = ? AND name = ? AND nr_Children = ?", true, [$this->parent_ID, $this->name, $this->nr_Children]);
+        $db->execute("INSERT INTO groups (parent_ID, name) VALUES (?, ?)", [$this->parent_ID, $this->name]);
+        $result = $db->select("SELECT id FROM groups WHERE parent_ID = ? AND name = ? AND nr_Children = ?", true, [$this->parent_ID, $this->name, $this->nr_Children]);
         if($result){
             $this->id = $result['id'];
         }
@@ -34,7 +37,7 @@ class Group{
 
     public function getAllGroups($parent_ID){
         $db = new Database();
-        $result = $db->selectAll("SELECT * FROM group WHERE parent_ID = ?", true, [$parent_ID]);
+        $result = $db->selectAll("SELECT * FROM groups WHERE parent_ID = ?", true, [$parent_ID]);
         $groups = [];
         if($result){
             foreach($result as $group){
@@ -48,7 +51,7 @@ class Group{
 
     public function find($id){
         $db = new Database();
-        $result = $db->select("SELECT * FROM group WHERE id = ?", true, [$id]);
+        $result = $db->select("SELECT * FROM groups WHERE id = ?", true, [$id]);
         if($result){
             return true;
         }
@@ -57,7 +60,7 @@ class Group{
 
     public function findByName($parent_ID, $name){
         $db = new Database();
-        $result = $db->select("SELECT * FROM group WHERE name = ? and parent_ID = ?", true, [$name,$parent_ID]);
+        $result = $db->select("SELECT * FROM groups WHERE name = ? and parent_ID = ?", true, [$name,$parent_ID]);
         if($result){
             return true;
         }
@@ -66,12 +69,12 @@ class Group{
     
     public function delete(){
         $db = new Database();
-        $db->execute("DELETE FROM group WHERE id = ?", [$this->id]);
+        $db->execute("DELETE FROM groups WHERE id = ?", [$this->id]);
     }
 
     public function modify(){
         $db = new Database();
-        $db->execute("UPDATE group SET parent_ID = ?, name = ?, nr_Children = ? WHERE id = ?", [$this->parent_ID, $this->name, $this->nr_Children, $this->id]);
+        $db->execute("UPDATE groups SET parent_ID = ?, name = ?, nr_Children = ? WHERE id = ?", [$this->parent_ID, $this->name, $this->nr_Children, $this->id]);
     }
 
     public function getId(){
