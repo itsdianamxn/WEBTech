@@ -223,6 +223,24 @@ body::-webkit-scrollbar-thumb {
 
 }
 
+.mod-button{
+    width: 25%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.mod-button-container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 3rem;
+    padding: 10px;
+}
+
 img
 {
     height:10em; width:10em;

@@ -101,6 +101,7 @@ class Group{
     public function delete(){
         $db = new Database();
         $db->execute("DELETE FROM groups WHERE id = ?", [$this->id]);
+        $db->execute("DELETE FROM group_children WHERE ID = ?", [$this->id]);
     }
 
     public function modify(){
