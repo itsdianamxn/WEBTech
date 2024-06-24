@@ -17,7 +17,6 @@ $userId = $_SESSION['id'];
 try {
     $groupModel = new Group();
     $groups = $groupModel->getAllGroups($userId);
-
     $groupChildren = [];
     foreach ($groups as $group) {
         $gc = new Group_Children();

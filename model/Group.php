@@ -17,11 +17,15 @@ class Group{
 
     public function load($id){
         $db = new Database();
-        $group = $db->select("SELECT * FROM groups WHERE id = ?", true, [$id]);
+        $group = $db->select("SELECT * FROM groups WHERE ID = ?", true, [$id]);
+        if(!$group)
+            return false;
         $this->id = $group['ID'];
         $this->parent_ID = $group['parent_ID'];
         $this->name = $group['name'];
         $this->nr_Children = $group['nr_Children'];
+        return true;
+        
         
     }
 
@@ -34,6 +38,25 @@ class Group{
         }
     }
     
+
+    public function getChildGroups($childID){
+        $db = new Database();
+        $result = $db->selectAll("SELECT * FROM group_children WHERE child_ID = ?", true, [$childID]);
+        $groups = [];
+        if($result){
+            foreach($result as $group){
+                $groupObj = new Group();
+                $groupObj->load($group['ID']);
+                $groups[] = [
+                    'id' => $groupObj->getId(),
+                    'parent_ID' => $groupObj->getParent_ID(),
+                    'name' => $groupObj->getName(),
+                    'nr_Children' => $groupObj->getNr_Children()
+                ];
+            }
+        }
+        return $groups;
+    }
 
     public function getAllGroups($parent_ID) {
         $db = new Database();
@@ -85,6 +108,12 @@ class Group{
         $db->execute("UPDATE groups SET parent_ID = ?, name = ?, nr_Children = ? WHERE id = ?", [$this->parent_ID, $this->name, $this->nr_Children, $this->id]);
     }
 
+    public function addChild($childID){
+        $db = new Database();
+        $db->execute("INSERT INTO group_children (ID, child_ID) VALUES (?, ?)", [$this->id, $childID]);
+        $this->incrementNrChildren();
+    }
+
     public function getId(){
         return $this->id;
     }
@@ -110,7 +139,7 @@ class Group{
     public function incrementNrChildren(){
         $this->nr_Children++;
         $db =  new Database();
-        $db->execute("UPDATE group SET nr_Children = ? WHERE id = ?", [$this->nr_Children, $this->id]);
+        $db->execute("UPDATE groups SET nr_Children = ? WHERE id = ?", [$this->nr_Children, $this->id]);
     }
 }
 ?>

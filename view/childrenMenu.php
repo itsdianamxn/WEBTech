@@ -46,7 +46,7 @@
                 echo '<a href="schedule.php?type=Sleep&child=' . $child->getID() . '" target="calendarFrame">Sleep</a>' . $endl;
                 echo '<a href="schedule.php?type=Medical&child=' . $child->getID() . '" target="calendarFrame">Medical</a>' . $endl;
                 echo '<a href="schedule.php?type=Evolution&child=' . $child->getID() . '" target="calendarFrame">Evolution</a>' . $endl;
-                echo '<a href="groups.html" target="calendarFrame">Groups</a>' . $endl;
+                // echo '<a href="groups.html" target="calendarFrame">Groups</a>' . $endl;
                 echo '</div>' . $endl;
                 echo '</div>' . $endl;
             } 

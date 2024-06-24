@@ -255,6 +255,7 @@ img
 .groups-title{
     margin-left: 7.5%; 
     font-size: 2rem;
+    display: flex;
 }
 
 .groups-container{
