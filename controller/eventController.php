@@ -24,7 +24,7 @@
         $schedule->setExpiration($_POST['expiration']);
         $schedule->setTime($_POST['time']);
         $schedule->setDate($_POST['date']);
-
+        $schedule->setNextNotif();
         $schedule->add();
     }
 
@@ -39,6 +39,7 @@
         $schedule->setExpiration($_POST['expiration']);
         $schedule->setTime($_POST['time']);
         $schedule->setDate($_POST['date']);
+        $schedule->setNextNotif();
 
         $schedule->save();
     }

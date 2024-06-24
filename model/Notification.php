@@ -50,7 +50,7 @@ class Notification{
 
     public function add(){
         $db = new Database();
-        $db->execute("INSERT INTO notifications (user_ID, child_ID, message, title, time_issued, readN) VALUES (:user_ID, :child_ID, :message, :title, :time_issued, :readNN)", [':user_ID' => $this->user_ID, ':child_ID' => $this->child_ID, ':message' => $this->message, ':title' => $this->title, ':time_issued' => $this->date_issued, ':readN' => $this->readN]);
+        $db->execute("INSERT INTO notifications (user_ID, child_ID, message, title, time_issued, readN) VALUES (:user_ID, :child_ID, :message, :title, :time_issued, :readN)", [':user_ID' => $this->user_ID, ':child_ID' => $this->child_ID, ':message' => $this->message, ':title' => $this->title, ':time_issued' => $this->date_issued, ':readN' => $this->readN]);
     }
 
     public function getID(){

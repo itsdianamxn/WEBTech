@@ -68,7 +68,7 @@ class Child
     
         if($result){
             foreach($result as $row){
-                
+                error_log('Schedule row: '. json_encode($row));
                 $schedule = new Schedule();
                 $schedule->load($row['ID']);
                 $schedules[] = $schedule->toArray();
