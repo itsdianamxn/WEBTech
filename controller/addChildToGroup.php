@@ -10,6 +10,7 @@ if (!array_key_exists('id', $_SESSION)) {
 
 require_once '../model/User.php';
 require_once '../model/Group.php';
+require_once '../model/Child.php';
 
 $userId = $_SESSION['id'];
 $user = new User();
@@ -26,6 +27,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $response['status'] = 'error';
         $response['message'] = 'Group not found';
     } else {
+        if($group->findChild($childId))
+        {
+            $response['status'] = 'error';
+            $response['message'] = 'Child already in group';
+            exit();
+        }
+        $child = new Child();
+        if(!$child->load($childId)){
+            $response['status'] = 'error';
+            $response['message'] = 'Wrong ID for child';
+            exit();
+        }
         $group->addChild($childId);
         $response['status'] = 'success';
         $response['message'] = 'Child added to group successfully';
