@@ -39,7 +39,7 @@ img {
   margin: 2px;
 }
 
-  .files {
+.files {
   border: 10px #9074dc; 
 } 
 
@@ -104,9 +104,12 @@ img {
       width: 90%;
   }
 
+  .files{
+    width: 100%;
+  }
   .child-thumbnail{
       width: 80px;
-      height: 80px;
+      height: 90px;
   }
   .child-photo{
       height:50px; 

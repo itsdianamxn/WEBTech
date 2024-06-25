@@ -28,7 +28,7 @@
 <body class="register">
     <div class="mainRegister">
         <h1 class="title">Add a new child to the family.</h1>
-        <div class="mainRegister2">
+        <div class="mainRegister">
             <form id="registerPage" action="../controller/registerChildController.php" method="post">
                 <div class="childRegisterInputs">
                     <div class="inputField childInputField">

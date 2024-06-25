@@ -206,9 +206,26 @@ div#buttons
   width: 200px;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 800px) {
+  
+  .title{
+    font-size: 150%;
+  }
+  
   form#registerPage {
-    width: 80%;
+    width: 55%;
+    font-size: 0.8rem;
+  }
+
+  #reg, #cancel {
+    width: 25%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  div#buttons{
+    justify-content: center;
+    margin: 0.2rem;
   }
 
   .inputField input,
@@ -257,10 +274,10 @@ div#buttons
     width: 50%;
     font-size: 150%;
   }
-}
 
-@media only screen and (max-width: 800px){
   
+
+
   .childRegisterInputs{
     height: 55%;
   }

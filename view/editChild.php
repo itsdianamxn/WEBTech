@@ -42,7 +42,7 @@
             <input type="file" name="fileToUpload" id="fileToUpload">
             <input type="submit" value="Upload" name="submit">
         </form>
-        <div class="mainRegister2">
+        <div class="mainRegister">
             <form id="registerPage" action="../controller/editChildController.php" method="post">
                 <div class="childRegisterInputs">
                     <input type="hidden" name="childId" id="childId" value="<?php echo $childID; ?>"> 

@@ -141,6 +141,7 @@ table {
     align-items: flex-start;
     overflow-y: hidden;
     overflow-x: auto;
+    height: 50%;
   }
   .calendar-container{
     padding-top: 5px;

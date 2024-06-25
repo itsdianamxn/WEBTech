@@ -1,12 +1,14 @@
-:root{
+:root {
     --border-color: #1e163e;
 }
-html{
+
+html {
     width: 100%;
     height: 100%;
-    font-family:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-body.notifications{
+
+body.notifications {
     height: 100%;
     width: 100%;
     background-color: var(--bg-primary);
@@ -26,13 +28,12 @@ body::-webkit-scrollbar-thumb {
     background: black;
 }
 
-
-.notif-title{
-    margin-left: 7.5%; 
+.notif-title {
+    margin-left: 7.5%;
     font-size: 3.5rem;
 }
 
-.notifications-list{
+.notifications-list {
     width: 85%;
     height: 100%;
     list-style: none;
@@ -44,7 +45,7 @@ body::-webkit-scrollbar-thumb {
     align-items: center;
 }
 
-.notification{
+.notification {
     width: 100%;
     height: 10%;
     display: flex;
@@ -57,16 +58,15 @@ body::-webkit-scrollbar-thumb {
     padding: 0 1rem;
 }
 
-
-.notifs{
-    height: 100%; 
-    display: flex; 
-    justify-content: flex-start; 
-    align-items: center; 
+.notifs {
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     margin-left: 2rem;
 }
 
-.notification-text{
+.notification-text {
     display: block;
     justify-content: center;
     align-items: flex-start;
@@ -74,14 +74,11 @@ body::-webkit-scrollbar-thumb {
     font-weight: bold;
     margin-right: auto;
     color: var(--text-primary);
-
 }
 
-
-
-
-.new-notification-header, .old-notification-header{
-    position: relative; 
+.new-notification-header,
+.old-notification-header {
+    position: relative;
     border-left: 3px solid var(--border-color);
     display: block;
     flex-direction: column;
@@ -91,7 +88,7 @@ body::-webkit-scrollbar-thumb {
     margin-right: 0;
 }
 
-.notification-title{
+.notification-title {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -100,8 +97,8 @@ body::-webkit-scrollbar-thumb {
     font-weight: bold;
     color: var(--text-primary);
 }
+
 .new-notification-header::after {
-   
     content: "";
     position: absolute;
     top: 0;
@@ -119,8 +116,7 @@ body::-webkit-scrollbar-thumb {
     }
 }
 
-
-.notification-time{
+.notification-time {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -129,9 +125,8 @@ body::-webkit-scrollbar-thumb {
     color: var(--text-primary);
 }
 
-.group{
+.group {
     width: 100%;
-    height: 5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -144,86 +139,30 @@ body::-webkit-scrollbar-thumb {
     transition: height 0.2s ease;
 }
 
-.group:hover{
-    height: 30rem;
-}
-
-.add_group{
-    width: 100%;
-    height: 9.5rem;
+.group:hover .children {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #ffe4be;
-    border: 18px solid #aa7d3d;
-    border-style: ridge;
-    margin-bottom: 10px;
-    padding: 0 1rem;
 }
 
-
-.first{
-    width: 100%;
-    height: 5rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.addGroup{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;   
-    text-align: center; 
-}
-
-.group-name{
-    width: 75%;
-    height: 5rem;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-top: 0;
-    margin-right: 10px;
-}
-
-.fa-secondary{
-    color: black;
-}
-
-.svg-style{
-    width: 25%; 
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.children{
+.children {
     display: none;
+    width: 100%;
 }
 
 .child-thumbnail {
-    height: 15rem;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin: 10px;
-    background-color:whitesmoke;
+    margin: 10px 0;
+    background-color: whitesmoke;
     border: 9px solid #e6a953;
-    border-style:ridge;
+    border-style: ridge;
     border-radius: 20px;
-    transition: height 0.4s ease;
-
 }
 
-.mod-button{
+.mod-button {
     width: 25%;
     height: 3rem;
     display: flex;
@@ -232,7 +171,7 @@ body::-webkit-scrollbar-thumb {
     padding: 10px;
 }
 
-.mod-button-container{
+.mod-button-container {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -241,18 +180,16 @@ body::-webkit-scrollbar-thumb {
     padding: 10px;
 }
 
-img
-{
-    height:10em; width:10em;
+img {
+    height: 10em;
+    width: 10em;
     display: block;
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 10px;
-
 }
 
-.nameContainer
-{
+.nameContainer {
     font-size: 1.5rem;
     height: 20%;
     width: 100%;
@@ -261,47 +198,35 @@ img
     align-items: center;
 }
 
-.group:hover .children{
-    width: 100%;
-    height: 20rem;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding-left: 10px;
-}
-
-.groups-title{
-    margin-left: 7.5%; 
+.groups-title {
+    margin-left: 7.5%;
     font-size: 2rem;
     display: flex;
 }
 
-.groups-container{
-    height: 100%; 
-    display: flex; 
-    justify-content: flex-start; 
-    align-items: center; 
+.groups-container {
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     margin-left: 2rem;
 }
 
-
-@media only screen and  (max-width: 800px) {
-    
-    .notif-title{
-        margin-left: 0; 
+@media only screen and (max-width: 800px) {
+    .notif-title {
+        margin-left: 0;
         font-size: 2rem;
     }
-    
-    .notifications-body{
+
+    .notifications-body {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         padding: 10px;
-
     }
 
-    .notifs{
+    .notifs {
         width: 95%;
         margin-left: 0;
         display: flex;
@@ -309,7 +234,7 @@ img
         align-items: center;
     }
 
-    .notification{
+    .notification {
         display: flex;
         flex-direction: column-reverse;
         justify-content: flex-start;
@@ -319,7 +244,8 @@ img
         width: 100%;
     }
 
-    .new-notification-header, .old-notification-header{
+    .new-notification-header,
+    .old-notification-header {
         border: none;
         width: 100%;
         position: relative;
@@ -331,21 +257,20 @@ img
         padding: 0;
     }
 
-
     .new-notification-header::after {
         right: 0;
     }
 
-    .notification-title{
+    .notification-title {
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
-        margin-left: 0;     
+        margin-left: 0;
         padding: 5px;
     }
 
-    .notification-time{
-       position: absolute;
+    .notification-time {
+        position: absolute;
         margin: 0;
         bottom: 0;
         right: 0;
@@ -355,45 +280,46 @@ img
         justify-self: flex-end;
     }
 
-
-    .notification-text{
+    .notification-text {
         display: none;
     }
 
-    
-    .notification:hover .notification-text{
+    .notification:hover .notification-text {
         display: block;
         padding-left: 5px;
     }
 
-    .notification:hover .old-notification-header, .notification:hover .new-notification-header{
+    .notification:hover .old-notification-header,
+    .notification:hover .new-notification-header {
         border-bottom: 3px solid var(--border-color);
     }
 
-
-    html .groups{
+    html .groups {
         overflow-y: auto;
         overflow-x: hidden;
     }
 
-    .groups-title{
+    .groups-title {
         margin: 0;
         display: flex;
         justify-content: flex-start;
         align-self: flex-start;
     }
 
-    .groups-title h1{
-        font-size: 2.5rem;  
-        margin: 0;  
+    .groups-title h1 {
+        font-size: 2.5rem;
+        margin: 0;
         padding-bottom: 5px;
+        display: flex;
+        align-items: center;
     }
-    .first{
+
+    .first {
         height: 20%;
         margin: 0;
     }
 
-    .groups-container{
+    .groups-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -401,7 +327,7 @@ img
         margin: 0;
     }
 
-    .group-name{
+    .group-name {
         font-size: 1.6rem;
         width: 80%;
         margin: 0;
@@ -411,47 +337,44 @@ img
         padding-top: 10px;
     }
 
-    .child-name{
+    .child-name {
         font-size: 1rem;
     }
 
-    .group{
-        height: 5rem;
+    .group {
+        height: auto;
         width: 100%;
         justify-content: center;
     }
 
-    .group:hover{
-        height: 12rem;
+    .group:hover {
+        height: auto;
         width: 100%;
         justify-content: flex-start;
     }
 
-    .group:hover .group-name{
+    .group:hover .group-name {
         align-items: center;
     }
 
-    .child-thumbnail{
-        height: 7rem;
-        width: 100%;
+    .child-thumbnail {
+        height: auto;
+        width: 85%;
+        margin: 5px 0;
     }
 
-    .group:hover .children{
-        width: 50%;
-        height: 7rem;
+    .group:hover .children {
+        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
         padding-left: 10px;
         padding-top: 10px;
-    } 
-
-    img{
-        height: 5rem;
-        width: 100%;
     }
 
-
-    
+    img {
+        height: 5rem;
+        width: 5rem;
+    }
 }

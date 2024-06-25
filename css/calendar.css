@@ -1,27 +1,33 @@
-
-html{
+html {
     width: 100%;
-    height: 300%;
+    height: 100%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-body{
+body {
     height: 100%;
     width: 100%;
     display: flex;
     align-items: flex-start;
-    justify-content: space-around;
+    justify-content: center;
     background-color: #dbc8a0;
-    margin: auto;
+    margin: 0;
     overflow-x: hidden;
-    overflow-y: auto; /* should be disabled ?*/
+    overflow-y: auto;
 }
 
 .container {
     overflow-x: hidden;
     overflow-y: auto;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
 }
- 
+
 .input {
     display: block;
     width: 100%;
@@ -45,17 +51,19 @@ body{
 }
 
 .logs-body {
-    height:auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    width: 100%;
     overflow-x: hidden;
     overflow-y: auto;
+    margin-top: 20px;
 }
 
 .logs-header {
     text-align: center;
+    width: 100%;
 }
 
 .logs-day {
@@ -65,9 +73,9 @@ body{
     align-items: flex-start;
     background-color: #ffcc9c73;
     transition: height 0.2s ease;
-    width: 80%;
+    width: 100%;
     border: 1px solid #1e163e;
-    margin: 5px;
+    margin: 5px 0;
     border-radius: 5px;
     padding: 5px;
 }
@@ -87,13 +95,9 @@ body{
     font-size: 1.5rem;
 }
 
-
 #calendar-container {
-    margin-top: 10px;
-    position: sticky;
-    top:    0;
-    width: 50%;
-    /* max-width: 500px; */
+    margin-top: 20px;
+    width: 100%;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -163,70 +167,48 @@ body{
 #calendar td.inactive {
     color: #ccc;
 }
+
 .caption-top {
-    caption-side: top; 
+    caption-side: top;
 }
 
-
 @media only screen and (max-width: 800px) {
-    #calendar-container {
-        margin-top: 0px;
-        width: 100%;
-        position: absolute;
-    }
-
-    #calendar-header h2 {
-        font-size: 1.2em;
-    }
-
-    #calendar-header button {
-        font-size: 1em;
-    }
-
-    body{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content:  flex-start;
-    background-color: #dbc8a0;
-    margin: auto;
-    overflow-x: hidden;
-    overflow-y: auto;
-    }
-
-    .container{
-        display: flex;
+    body {
         flex-direction: column;
-        justify-content: center;
         align-items: center;
+        justify-content: flex-start;
+        overflow-y: auto;
     }
 
-    .logs-body{
-        flex-direction: column; 
-        align-items:center; 
-        justify-content: flex-end;
-        height: 100%;
+    .container {
+        padding: 10px;
+    }
+
+    .logs-body {
+        margin-top: 0;
+    }
+
+    #calendar-container {
         width: 100%;
+        overflow-y: auto;
     }
 
-    .logs-day{
+    .logs-day {
         width: 100%;
         height: auto;
         padding-top: 5px;
     }
 
-    .logs-day h2{
+    .logs-day h2 {
         margin-top: 0;
     }
 
-    .logs-day ul, .logs-day h2{
+    .logs-day ul, .logs-day h2 {
         font-size: 1rem;
         padding-left: 15px;
     }
-    
-    .logs-header{
+
+    .logs-header {
         display: none;
     }
 }

@@ -160,7 +160,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 
 #reg2 {
   width: 40%;
-  margin-left: 5%;
+  margin-left: 0;
   margin-top: 1rem;
   margin-bottom: 1rem;
   justify-content: center;
@@ -262,6 +262,17 @@ button#reg:active {
     justify-content: center;
     align-items: center;
 
+  }
+
+
+  #reg{
+    width: 40%;
+    margin-left: 1rem;
+  }
+  #cancel{
+    width: 40%;
+    margin-right: 1rem;
+    padding: 0;
   }
 
   a#reg {
